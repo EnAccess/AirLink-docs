@@ -1,6 +1,6 @@
 # AirLink PAYGO Options: Built-in, [Solaris](https://www.solarisoffgrid.com) or [Angaza](https://www.angaza.com)
 
-AirLink acts as an IoT hub, allowing connections to Solaris / Angaza out of the box. Whether AirLink devices connect via Bluetooth or GSM to the AirLink server, the server can be told the device type as Solaris and Angaza, in which case it looks for PAYGo Tokens on the respective servers using login credentials provided to it. All three functionalities are enabled automatically when the AirLink Server tenant has all the rule chain .json files from the Server repository loaded in the right sequence with the lowest level in the hierarchy first, as detailed in the [Quick-start guide](AirLink%20Docs/Quick-start%20guide.md).
+AirLink acts as an IoT hub, allowing connections to Solaris / Angaza out of the box. Whether AirLink devices connect via Bluetooth or GSM to the AirLink server, the server can be told the device type as Solaris and Angaza, in which case it looks for PAYGo Tokens on the respective servers using login credentials provided to it. All three functionalities are enabled automatically when the AirLink Server tenant has all the rule chain .json files from the Server repository loaded in the right sequence with the lowest level in the hierarchy first, as detailed in the [Quick-start guide](Quick-start%20guide.md).
 
 A manufacturer or distributor may in this way add AirLink devices to existing Angaza or Solaris software stacks, enabling a new customer experience where tokens are automatically entered via:
 - a paired smartphone or a device acting as the AirLink GSM/Bluetooth gateway OR
@@ -13,7 +13,7 @@ The CSV format for each type is in the sections below, and the upload dialog sho
 ![Uploading AirLink Devices.png](Uploading%20AirLink%20Devices.png)
 
 ## Out-of-the-box PAYGO Token functionality
-AirLink natively generates [Nexus Tokens](https://github.com/angaza/nexus-embedded) which the AirLink open-source firmware natively consumes. This means that an AirLink adopter can connect their own software stack to AirLink to enable a PAYGo business case by leaving the technical bits of hardware PAYGo functionality to AirLink. This is the process outlined in the [Quick-start guide](AirLink%20Docs/Quick-start%20guide.md), Step 6.
+AirLink natively generates [Nexus Tokens](https://github.com/angaza/nexus-embedded) which the AirLink open-source firmware natively consumes. This means that an AirLink adopter can connect their own software stack to AirLink to enable a PAYGo business case by leaving the technical bits of hardware PAYGo functionality to AirLink. This is the process outlined in the [Quick-start guide](Quick-start%20guide.md), Step 6.
 
 The API requests to generate these tokens are available in the [Postman Collection](https://github.com/EnAccess/AirLink-Server/blob/main/AirLink%20-%20Thingsboard.postman_collection.json) and the related [Postman Environment](https://github.com/EnAccess/AirLink-Server/blob/main/AirLink%20Demo%20Environment.postman_environment.json), and are the default setup for new AirLink Devices provisioned via the AirLink App. 
 
@@ -48,7 +48,7 @@ The end to end process for Solaris devices is shown in the following video: [Sol
 
    2. To provision devices in AirLink in bulk to connect to Solaris servers for PAYGO Tokens, use the format while uploading new devices in the following CSV File:
    
-   [TestSolarisDevices.csv](Connecting%20to%20Solaris%20or%20Angaza/TestSoalrisDevices.csv)
+   [TestSolarisDevices.csv](Connecting%20to%20Solaris%20or%20Angaza/TestSolarisDevices.csv)
 
 3. PAYGO Tokens: Solaris makes tokens available each time telemetry data is posted to the server. For this reason, the AirLink server expects any property to be updated for a Solaris device, upon which it will automatically download the latest token provided by the Solaris server. This token can then be pulled to the device using a 'GET' equivalent command for the pc_tkn property. Note that the demo app can do this automatically.
 
