@@ -1,15 +1,15 @@
 # AirLink Server
 
-### Demo Tenant
+## Demo Tenant
 
 We have created a fully functional demo tenant to enable quick testing of AirLink in conjunction with the gateway and device apps. The demo tenant also can plot information reported from the Nordic BLE kit, as shown below:
 
 ![demo tenant.jpg](AirLink%20Server/demo_tenant.jpg)
 
-### How to get started with your AirLink Server tenant
-Follow the tenant configuration section in 
-[Quick-start guide](Quick-start%20guide.md#tenant-config)
+### How to get started with the AirLink Server Demo tenant
 
+Follow the tenant configuration section in
+[Quick-start guide](Quick-start%20guide.md#tenant-config)
 
 ## AirLink IoT Server Architecture
 
@@ -53,17 +53,18 @@ We encourage creating test entities to learn about Thingsboard, that way product
 
 ![Screen Shot 2021-11-14 at 3.42.30 PM.png](AirLink%20Server/Screen_Shot_2021-11-14_at_3.42.30_PM.png)
 
-## Tenant Configuration 
+## Tenant Configuration
 
 ### How to get started with your AirLink Server tenant
-Follow the tenant configuration section in 
+
+Follow the tenant configuration section in
 [Quick-start guide](Quick-start%20guide.md#tenant-config)
 
 The following sections show a few details of the other elements of the server, the latest documentation for which can be found on [thingsboard.io](http://thingsboard.io).
 
 ### User Roles
 
-Two main roles are defined, Tenant Admin (first assigned along with tenant) who has full privileges within the platform including controlling other users access, and Technician who has full device privileges including re-provisioning and assigning to customers. Customer administration is presumed to be done via API integration by the business applications server, hence there is no third role regarding customer administration. 
+Two main roles are defined, Tenant Admin (first assigned along with tenant) who has full privileges within the platform including controlling other users access, and Technician who has full device privileges including re-provisioning and assigning to customers. Customer administration is presumed to be done via API integration by the business applications server, hence there is no third role regarding customer administration.
 
 ![Screen Shot 2022-01-26 at 9.29.42 PM.png](AirLink%20Server/Screen_Shot_2022-01-26_at_9.29.42_PM.png)
 
@@ -73,18 +74,21 @@ Two main roles are defined, Tenant Admin (first assigned along with tenant) who 
 | --- | --- |
 | No Serial # | Program Serial # via BLE to Device |
 | Has Serial #, but not Provisioned | Act as Application Server: using Tenant Admin or Customer User credentials (login + password)
+
 1. Generate Server Auth Token (SAT) and Airlink ID (aid)
 2. Provision Device to Devices Profile* in Server and get DeviceUUID
 3. Generate PAYG Token Secret (PTS)
 4. Write PTS to Server Side Attributes using DeviceUUID in Thingsboard server
 5. Forget DeviceUUID
 
-using BLE, 
+using BLE,
+
 1. write (SAT), (PTS) to device |
-| Has Serial #, SAT, PTS | Act as application server: 
+| Has Serial #, SAT, PTS | Act as application server:
 Request PAYG Token generation using user credentials / token generation credentials
 
-Act as regular gateway: 
+Act as regular gateway:
+
 1. Request PAYG Attributes for Device using SAT
 2. Write PAYG Token to device using BLE |
 | Has Serial#, SAT, PTS and test token | Read device telemetry and post to server |
@@ -93,7 +97,7 @@ Act as regular gateway:
 
 ### Attributes and Time Series Data
 
-Data exchanged with the device or with the application server in the context of a device are termed attributes. 
+Data exchanged with the device or with the application server in the context of a device are termed attributes.
 
 In the AirLink server (based on Thingsboard), Attributes are Device properties that are only stored as current values, while Timeseries data are properties tracked over time. Attributes and Timeseries keys can be created during provisioning or are automatically created in the Airlink server when first posted, allowing for flexibility in growing resource models over time without requiring reconfiguration of the server. The core AirLink resource models are registered in the [Nexus Resource Models Registry](https://angaza.github.io/nexus-channel-models/resource_type_registry.html).
 
@@ -119,10 +123,10 @@ CBOR data types are defined here:
 
 | NX resource | rtr | Resource Property | key | rtr_key | Qualifiers | CBOR Type | Description |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| AirLink Device Provisioning 1.0 | prd | Server Auth Token | sat | prd_sat | String,Mandatory,Scope: Shared | 3 | http://thinsboard.io has a 20-char device authentication token unique to each device. During device provisioning, this token is written to the device, permanently attaching the device to the server. The token is never transmitted again. |
+| AirLink Device Provisioning 1.0 | prd | Server Auth Token | sat | prd_sat | String,Mandatory,Scope: Shared | 3 | <http://thinsboard.io> has a 20-char device authentication token unique to each device. During device provisioning, this token is written to the device, permanently attaching the device to the server. The token is never transmitted again. |
 | AirLink Device Provisioning 1.0 | prd | Provisioning Status | pst | prd_pst | Mandatory,Scope: Shared,Integer (uint8_t) | 0 | Reflected in Advt packet also. It can be unprovisioned, disabled, recall, stolen, Cash, Loan. The range is from 1-9. If not supported then 0 |
 | AirLink Device Provisioning 1.0 | prd | PayG Unit | pu | prd_pu | Mandatory,String,Scope: Shared | 3 | 36^1  The unit of the PayG update, it can be minutes, hours, days, months and years. [m-minutes, h-hours, d- days, M-months, Y-years] |
-| AirLink Device Provisioning 1.0 | prd | PayG Token starting code | psc | prd_psc | Scope: Shared,String | 3 | 1-day token, https://github.com/EnAccess/OpenPAYGO-HW |
+| AirLink Device Provisioning 1.0 | prd | PayG Token starting code | psc | prd_psc | Scope: Shared,String | 3 | 1-day token, <https://github.com/EnAccess/OpenPAYGO-HW> |
 | AirLink Device Provisioning 1.0 | prd | PayG Units accepted | pul | prd_pul | Mandatory,String,Scope: Device | 3 | CSV list of acceptable Units e.g. "l" for liters, "h,d" for hours and days |
 | AirLink Client Provisioning 1.0 | prc | Provisioning Status | pst | prc_pst | Mandatory,Integer (uint8_t),Scope: Shared | 0 | Reflected in Advt packet also. It can be unprovisioned, disabled, recall, stolen, Cash, Loan. The range is from 1-9. If not supported then 0 |
 | AirLink Client Provisioning 1.0 | prc | Readable ID + Cbor header 2 bytes | rid | prc_rid | Mandatory,Integer (uint32_t),Scope: Shared | 26 | 2^(8*4) = 4,294,967,296 numeric device ids or payment reference or any number that device should display |
@@ -137,13 +141,13 @@ CBOR data types are defined here:
 | PAYG Credit 1.0 | pyg | Mode | mo | pyg_mo | Not Implemented,Scope: Shared |  | mode of device i.e. leading/following etc
 
 For Write, a Nexus Channel Link must be established otherwise read-only, updated via token. AirLink 1.0 does not implement Nexus Channel, which was in development at the time of release of AirLink 1.0 |
-| PAYG Credit 1.0 | pyg | Device PayG Credit Remaining | re | pyg_re | Mandatory,Scope: Time Series |  | should be The value  remaining for the device to OFF. 
+| PAYG Credit 1.0 | pyg | Device PayG Credit Remaining | re | pyg_re | Mandatory,Scope: Time Series |  | should be The value  remaining for the device to OFF.
 
 For Write, a Nexus Channel Link must be established otherwise read-only, updated via token. AirLink 1.0 does not implement Nexus Channel, which was in development at the time of release of AirLink 1.0 |
 | PAYG Credit 1.0 | pyg | Payg Token Secret | pts | pyg_pts | Mandatory,Scope: Server |  | On first release, this is the Nexus Keycode secret |
 | PAYG Credit 1.0 | pyg | Payg Token Message ID | msg | pyg_msg | Mandatory,Scope: Server |  | On first release, this is the Nexus Keycode message ID |
 
-Posting of device data to the server for off-edge devices is done via gateway by sharing their device access tokens with the gateway using the application server. For Smartphone gateways, this can be done via a separate channel to the application server. For 'thing' gateways, this must be done via a 'disappearing' shared server attribute for that gateway, so that tokens are not saved in the insecure data space for too long. The application server then would update the attribute to transfer tokens to the gateway, and then blank it out once the gateway receives the tokens or after a certain timeout. 
+Posting of device data to the server for off-edge devices is done via gateway by sharing their device access tokens with the gateway using the application server. For Smartphone gateways, this can be done via a separate channel to the application server. For 'thing' gateways, this must be done via a 'disappearing' shared server attribute for that gateway, so that tokens are not saved in the insecure data space for too long. The application server then would update the attribute to transfer tokens to the gateway, and then blank it out once the gateway receives the tokens or after a certain timeout.
 
 ### Authentication and Access types
 
@@ -153,7 +157,7 @@ AirLink server controls IoT interactions and can connect with the business appli
 
 AirLink Server Device Auth Flows
 
-Full API reference is available as live Swagger documentation here after you have a tenant login: 
+Full API reference is available as live Swagger documentation here after you have a tenant login:
 
 [Swagger UI](https://airlink.enaccess.org/swagger-ui.html)
 
@@ -163,7 +167,7 @@ Device-initiated or gateway-initiated communications posting time-series data an
 
 1. Individual devices equipped with GSM send data directly ***using their device token*** e.g. water pump control boxes
 2. Gateways bundled with a sale ***register as MQTT gateways*** in the AirLink server to be able to post data from multiple downstream devices while minimizing bandwidth use. This is relevant because such IoT gateways often use data-thrifty 'Global-SIM' cards which can rack up high data costs e.g. solar panel with GSM chip bundled with 3 batteries that it charges
-3. Phone apps acting as gateways post data ***as the device*** and get PAYG updates from the server, ***using the individual device tokens*** downloaded during the sales and service flows. This needs to be enabled by the business applications server and is useful because several phone gateways may be used to operate the same device and a one-device multi-gateway scenario with offline access is not well served by MQTT. PAYG security is still ensured by the fact that the token is still only decode-able to the server and the device and not the intervening gateways. e.g. equipment owner could operate the device, several equipment technicians could operate the device etc. 
+3. Phone apps acting as gateways post data ***as the device*** and get PAYG updates from the server, ***using the individual device tokens*** downloaded during the sales and service flows. This needs to be enabled by the business applications server and is useful because several phone gateways may be used to operate the same device and a one-device multi-gateway scenario with offline access is not well served by MQTT. PAYG security is still ensured by the fact that the token is still only decode-able to the server and the device and not the intervening gateways. e.g. equipment owner could operate the device, several equipment technicians could operate the device etc.
 4. Phone apps and gateways post advertisement data for ***unknown*** AirLink devices to facilitate lost-and-found using a ***special property within the gateway's telemetry***  which is then processed by the root rule chain with the necessary validations to ensure that data gets send to the correct recipient and so that it is not used for posting non-advertising telemetry or attributes for the device.
 
 AirLink currently only supports HTTP transport, CoAP will be enabled in the future. CBOR formatting of data is not currently supported.
@@ -184,9 +188,9 @@ AirLink currently only supports HTTP transport, CoAP will be enabled in the futu
 
 Nexus Keycode generation integrated into the Root Rule Chain
 
-Nexus Keycode as well as OpenPAYGO Token use 'SipHash' to generate the key, and have Python/Java libraries available. However Thingsboard only runs single-file JavaScript in it's rule chains and custom Java in it's rule nodes, hence we decided to create a Java rule node based on Nexus Keycode. External keycodes could also be used by swapping that rule node with an External REST component in the AirLink server that points to a client's server running code generation, and response sent as token via AirLink to the device. 
+Nexus Keycode as well as OpenPAYGO Token use 'SipHash' to generate the key, and have Python/Java libraries available. However Thingsboard only runs single-file JavaScript in it's rule chains and custom Java in it's rule nodes, hence we decided to create a Java rule node based on Nexus Keycode. External keycodes could also be used by swapping that rule node with an External REST component in the AirLink server that points to a client's server running code generation, and response sent as token via AirLink to the device.
 
-Since Keycode generation is not a telemetry-time operation but rather account-payment time operation, the number of requests will scale with the number of devices and payment frequency rather than the number or frequency of telemetry data. 
+Since Keycode generation is not a telemetry-time operation but rather account-payment time operation, the number of requests will scale with the number of devices and payment frequency rather than the number or frequency of telemetry data.
 
 The provided KeyCode node
 
@@ -202,21 +206,22 @@ Here is a test sequence that can verify that the PAYG Token chain is working end
 | --- | --- | --- | --- | --- | --- |
 | Added 6 Days | 1 | {
     “pay_g_tkn”:”6”
-} | “pay_g_tkn”:”6”, | *010 050 135 981 34# | - Received tkn *01005013598134#
+} | “pay_g_tkn”:”6”, | *010 050 135 981 34# | - Received tkn*01005013598134#
+
 - PayG update received
 - Keycode is valid.
 - Credit remaining: 86400 seconds
 - PayG update received |
 | Set Device to exactly 10 Days | 2 | {
     “set_tkn”:”11”
-} | “set_tkn”:”11” | *123 026 694 078 81# | - Received tkn *12302669407881#
+} | “set_tkn”:”11” | *123 026 694 078 81# | - Received tkn*12302669407881#
 - PayG update received
 - Keycode is valid.
 - Credit remaining: 950100 seconds
 - PayG update received |
 | Unlock the Device | 3 | {
     “unlock_tkn”:”1”
-} |  “unlock_tkn”:”1” | *336 153 083 439 44# | - Received tkn *33615308343944#
+} |  “unlock_tkn”:”1” | *336 153 083 439 44# | - Received tkn*33615308343944#
 - PayG update received
 - Keycode is valid.
 - The device is unlocked

@@ -8,7 +8,7 @@ Simusolar would like to build or buy a PAYG + IoT Data system that has API integ
 
 ---
 
-We need to decide on the best alternative approach to building this IoT database and related tools. Simusolar has recently adopted several managed and no-code tools to enable speed of secure and scalable business process automation with low overhead costs. We believe this approach has long term value and hence we give priority to options which have managed or no-code cores. We consider two high-level options 
+We need to decide on the best alternative approach to building this IoT database and related tools. Simusolar has recently adopted several managed and no-code tools to enable speed of secure and scalable business process automation with low overhead costs. We believe this approach has long term value and hence we give priority to options which have managed or no-code cores. We consider two high-level options
 a. custom database with open source dashboarding tools (no-code device/partner management can follow alternate no-code/code analysis)
 b. open source IoT platforms
 
@@ -32,7 +32,7 @@ Completely custom server code i.e. process triggers and PAYG responses
 
 The communication layer ends at the database, cleanly separating the application layer which can be full-custom
 
-A central database managed by one entity e.g. EnAccess would only require to handle communication layer while application layer would be handed off, making the central db more easily viable compared to a solution with an application layer 
+A central database managed by one entity e.g. EnAccess would only require to handle communication layer while application layer would be handed off, making the central db more easily viable compared to a solution with an application layer
 
 Cons of a custom db+dashboard approach
 
@@ -100,9 +100,9 @@ Any central entity such as EnAccess who manages a common db might need to provid
 
 ### Perspectives on Approach
 
-Simusolar has experienced the often hidden time-cost and domain-knowledge complexity of building device-provisioning/onboarding flows for IoT systems, and considers provisioning an important complement to the IoT data/PAYG flow when considering approaches facilitating new ventures in this field. Standardizing this while considering privacy best-practices could reduce a big barrier, further abstracting away the technical details for integrating PAYG IoT with other business applications. 
+Simusolar has experienced the often hidden time-cost and domain-knowledge complexity of building device-provisioning/onboarding flows for IoT systems, and considers provisioning an important complement to the IoT data/PAYG flow when considering approaches facilitating new ventures in this field. Standardizing this while considering privacy best-practices could reduce a big barrier, further abstracting away the technical details for integrating PAYG IoT with other business applications.
 
-Data Retention management and Analytics is another natural feature desired of GSM IoT collections. We conjecture that most IoT analysis usually pivots on a single plotted variable for a particular device class e.g. power used by time of day for energy products, along with some standard status variables e.g. location, error state. PAYG control also has common requirements e.g. on/off control or use-metered control. 
+Data Retention management and Analytics is another natural feature desired of GSM IoT collections. We conjecture that most IoT analysis usually pivots on a single plotted variable for a particular device class e.g. power used by time of day for energy products, along with some standard status variables e.g. location, error state. PAYG control also has common requirements e.g. on/off control or use-metered control.
 
 Hence there are opportunities to design a platform that has pre-built, privacy-enabled standard features for device provisioning, single-variable control and single-variable graphing with map and status indicators and a built in retention policy. Such a platform could enable adopters of the project to incorporate standard IoT outcomes easily into their business operations.
 
@@ -114,7 +114,7 @@ AWS/Azure/IBM IoT offerings were not considered the right cost-value tradeoff du
 
 The alternatives list was further limited by the following parameter choices: Open source, Free/freemium versions and no per-device fees. Per-devices services are roughly $2/month/device (in addition to any network/SIM card fees), which adds up quickly when selling a large number of smart devices and can be margin-limiting in low-cost markets. This consideration discounted dweetpro.io, [thingstream.io](http://thingstream.io), particle.io and thingspeak.com
 
-*Baseline: SaaS + PaaS + IaaS + Support-vendor costs for Simusolar are $86,658/yr projected to reduce to $52,100/yr by December 2021 by using no-code platforms and internal support*
+*Baseline:* SaaS + PaaS + IaaS + Support-vendor costs for Simusolar are $86,658/yr projected to reduce to $52,100/yr by December 2021 by using no-code platforms and internal support
 
 [Last Round Alternatives](How%20we%20chose%20Thingsboard%20io%20for%20AirLink%20Server%20fdf5dfccc506431c838c41eb1c407933/Last%20Round%20Alternatives%200ab7b7c54fa646a9ae62f45fe89de548.csv)
 
@@ -153,28 +153,28 @@ Plotting the primary variable by device type
 - Setup DigitalOcean Ubuntu droplet
 - Setup [Thingsboard.io](http://thingsboard.io) docker image
 - Test custom protocol integration, write connector if required
-    - Test VPN integration with Aeris
+  - Test VPN integration with Aeris
 - Buy managed PostGreSQL db on DigitalOcean
-    - Reconfigure Thingsboard configuration-database connection
+  - Reconfigure Thingsboard configuration-database connection
 - Buy managed Cassandra droplet on DigitalOcean from Aiven
-    - Reconfigure Thingsboard timeseries-database connection
+  - Reconfigure Thingsboard timeseries-database connection
 - Setup administration for EnAccess and tenancy for Simusolar and Tulima Solar
-    - Setup tenant profile including dashboard template
-    - Setup provisioning flow on Simusolar servers to attach to Simusolar tenant
+  - Setup tenant profile including dashboard template
+  - Setup provisioning flow on Simusolar servers to attach to Simusolar tenant
 - Configure phone app to act as MQTT gateway for protocol-compliant devices, including claiming flow
 
 ### Stakeholder validation (R.A.C.I.)
 
-Were the responsible (implementers) persons consulted for feasibility? 
+Were the responsible (implementers) persons consulted for feasibility?
 
-Are the accountable (project manager) persons committed to the outcome? 
+Are the accountable (project manager) persons committed to the outcome?
 
-Have the consulted (change recipients) people indicated their support? 
+Have the consulted (change recipients) people indicated their support?
 
-Will the Informed (all other impacted) people receive the information in time? 
+Will the Informed (all other impacted) people receive the information in time?
 
-## Final Choice:
+## Final Choice
 
-Date: 
+Date:
 
 Decider (Proof):

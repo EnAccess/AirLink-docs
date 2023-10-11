@@ -1,6 +1,6 @@
 # AirLink App
 
-The AirLink Mobile app is a communication app skeleton enabling gateway functionality i.e. end to end communication between AirLink Bluetooth® devices and an AirLink server. The app is intended to act as a base that takes care of device interactions, on which different customer experiences can be built by the businesses adopting AirLink. 
+The AirLink Mobile app is a communication app skeleton enabling gateway functionality i.e. end to end communication between AirLink Bluetooth® devices and an AirLink server. The app is intended to act as a base that takes care of device interactions, on which different customer experiences can be built by the businesses adopting AirLink.
 
 ![AirLink Data Flow.png](AirLink%20App/AirLink_Data_Flow.png)
 
@@ -22,13 +22,11 @@ Mobile App Framework built on Xamarin
 
 ## Platform : Xamarin
 
-### App Development Framework
+### App Development Framework (Xamarin)
 
-**Xamarin multi-platform mobile app development framework**
+**Xamarin multi-platform mobile app development framework:** This is Microsoft's multi-platform mobile app development framework.
 
-This is Microsoft's multi-platform mobile app development framework. 
-
-Access of Bluetooth hardware requires platform specific code in Xamarin, and the AirLink App is implemented only for Android  at present but can be extended to iOS with minimal additional code. 
+Access of Bluetooth hardware requires platform specific code in Xamarin, and the AirLink App is implemented only for Android  at present but can be extended to iOS with minimal additional code.
 
 We chose Xamarin as the development environment due to it’s relative maturity compared with Flutter and larger community in case of development challenges, however we believe that an AirLink spec app can also be implemented in Flutter using the Xamarin app as a reference for functionality.
 
@@ -36,31 +34,21 @@ Xamarin Forms adds another layer of UI abstraction, at some cost of speed. We us
 
 [https://www.youtube.com/watch?v=JH8ekYJrFHs&list=PLdo4fOcmZ0oU10SXt2W58pu2L0v2dOW-1](https://www.youtube.com/watch?v=JH8ekYJrFHs&list=PLdo4fOcmZ0oU10SXt2W58pu2L0v2dOW-1)
 
-**Xamarin uses a MVVM Architecture**
-
-![By Ugaya40 - Own work, CC BY-SA 3.0, [https://commons.wikimedia.org/w/index.php?curid=19056842](https://commons.wikimedia.org/w/index.php?curid=19056842)](AirLink%20App/MVVMPattern.png)
+**Xamarin uses a MVVM Architecture:** ![By Ugaya40 - Own work, CC BY-SA 3.0, [https://commons.wikimedia.org/w/index.php?curid=19056842](https://commons.wikimedia.org/w/index.php?curid=19056842)](AirLink%20App/MVVMPattern.png)
 
 By Ugaya40 - Own work, CC BY-SA 3.0, [https://commons.wikimedia.org/w/index.php?curid=19056842](https://commons.wikimedia.org/w/index.php?curid=19056842)
 
-**Material Design:**
-
-This app uses Material Design for it’s pages:
+**Material Design:** This app uses Material Design for it’s pages:
 
 [Xamarin.Forms 101: Using Material Design in Xamarin Forms](https://channel9.msdn.com/Shows/XamarinShow/XamarinForms-101-Using-Material-Design-in-Xamarin-Forms)
 
-**Secure Storage:**
-
-This app uses secure storage to save all authentication secrets
+**Secure Storage:** This app uses secure storage to save all authentication secrets
 
 [Xamarin.Essentials: Secure Storage - Xamarin](https://docs.microsoft.com/en-us/xamarin/essentials/secure-storage?tabs=android)
 
-**Preparing for Release:**
+**Preparing for Release:** [Preparing an Application for Release - Xamarin](https://docs.microsoft.com/en-us/xamarin/android/deploy-test/release-prep/?tabs=windows#AOT_Compilation)
 
-[Preparing an Application for Release - Xamarin](https://docs.microsoft.com/en-us/xamarin/android/deploy-test/release-prep/?tabs=windows#AOT_Compilation)
-
-**Next:** 
-
-Microsoft introduced new development framework [ .NET MAUI ] for increased code sharing across platforms, by leveraging .NET layers. This Xamarin-forms app could be converted to .NET MAUI in 2022 using the migration scripts that Microsoft has promised to provide.
+**Next:** Microsoft introduced new development framework [ .NET MAUI ] for increased code sharing across platforms, by leveraging .NET layers. This Xamarin-forms app could be converted to .NET MAUI in 2022 using the migration scripts that Microsoft has promised to provide.
 
 [https://docs.microsoft.com/en-us/dotnet/maui/what-is-maui](https://docs.microsoft.com/en-us/dotnet/maui/what-is-maui)
 
@@ -96,7 +84,7 @@ Computer recommendation: 8GB RAM, 128GB SSD, 2.0+ GHz processor
 
 Test AirLink Device: BLE Development Kit or any device with BLE.
 
-Test Airlink Gateway Device: Android mobile phone. 
+Test Airlink Gateway Device: Android mobile phone.
 
 [Set Up Device for Development - Xamarin](https://docs.microsoft.com/en-us/xamarin/android/get-started/installation/set-up-device-for-development)
 
@@ -106,21 +94,15 @@ Xamarin Libraries leveraged to build the framework
 
 ## Platform : Flutter
 
-### App Development Framework
+### App Development Framework (Flutter)
 
-**Flutter multi-platform mobile app development framework**
-
-This is Google’s multi-platform mobile app development framework. 
+**Flutter multi-platform mobile app development framework:** This is Google’s multi-platform mobile app development framework.
 
 [https://www.youtube.com/watch?v=VPvVD8t02U8](https://www.youtube.com/watch?v=VPvVD8t02U8)
 
-**Flutter uses a layered Architecture**
+**Flutter uses a layered Architecture:** [Flutter architectural overview](https://docs.flutter.dev/resources/architectural-overview)
 
-[Flutter architectural overview](https://docs.flutter.dev/resources/architectural-overview)
-
-**UI Design:**
-
-Flutter uses design widgets to make it easy to move between software that supports prototyping (e.g. Figma) and app development. This app uses the in-built Flutter widgets to display the app’s functionalities. However, they can be customized to fit the specific needs of the app, allowing you to create unique and engaging user experiences.
+**UI Design:** Flutter uses design widgets to make it easy to move between software that supports prototyping (e.g. Figma) and app development. This app uses the in-built Flutter widgets to display the app’s functionalities. However, they can be customized to fit the specific needs of the app, allowing you to create unique and engaging user experiences.
 
 ### Flutter packages
 
@@ -153,21 +135,18 @@ Flutter Libraries leveraged to build the framework
 The primary role of the AirLink gateway is to keep AirLink devices and the AirLink server in sync with respect to the state and operation of the device. There are three types of **data sync**:
 
 1. Server updates Device: Pay as you go credits after payment are the primary server update, along with client and configuration data
-    
+
     ![AirLink Gateways or this App maps Server and Device properties](AirLink%20App/IoT_Communications_and_Components_spec_-_App_Architecture-2%201.png)
-    
+
     AirLink Gateways or this App maps Server and Device properties
-    
+
 2. Device posts time-series telemetry via primary gateway: Device posts various IoT data described in Nexus Resource Models relating to energy generation, consumption, battery use as well as productive output. In this case, the app actually masquerades as the device and posts data directly into the device's telemetry endpoint. This is enabled for the app via user input of device access token or in a production app, from the server pairing the gateway with devices via sharing of the access token automatically upon sale. Location is added by the gateway.
-    
-    
+
 3. Neighborhood watch gateway posts device advertisement: If the app finds an AirLink device that is not registered as managed by that app, it will post it to the server as a 'piggy-back' onto it's own telemetry, which the server then snips out and decides to post to the original device or forward on to the lost devices database
-    
-    
+
     ![**AirLink Lost/Stolen Devices Flow**](AirLink_Unknown_Device_Flow.png)
-    
+
     **AirLink Lost/Stolen Devices Flow**
-    
 
 To convert between server-friendly JSON and Bluetooth-service friendly CBOR/.NET objects, the [Json.NET](http://Json.NET) and [PeterO.CBOR](https://github.com/peteroupc/CBOR) libraries are used. Since the list of properties can vary, we use collections and read the property types = device resource models such as “/batt” and “/temp” from the Bluetooth Descriptors.
 
@@ -211,7 +190,7 @@ If you enter the data correctly including the tenant administrator, the gateway 
 
 ### Connecting to AirLink devices
 
-Second Step: Your phone is ready to sync devices. Discover AirLink devices in the vicinity!  
+Second Step: Your phone is ready to sync devices. Discover AirLink devices in the vicinity!
 
 ![1. Devices view.jpg](AirLink%20App/1._Devices_view.jpg)
 
@@ -225,7 +204,7 @@ Always, when connecting to a device, we recommend that the device lock it’s pr
 
 ![2.1 READ RESOURCE - Data is empty.jpg](AirLink%20App/2.1_READ_RESOURCE_-_Data_is_empty.jpg)
 
-To authorize the device, simply tap the “Authorize” button. The default access token is already saved on both the App and the device. The device will then compare its access token with this default one. Once they match, the device will be successfully authorized. 
+To authorize the device, simply tap the “Authorize” button. The default access token is already saved on both the App and the device. The device will then compare its access token with this default one. Once they match, the device will be successfully authorized.
 
 ![2.2 AUTHORIZE - Device authorized.jpg](AirLink%20App/2.2_AUTHORIZE_-_Device_authorized.jpg)
 
@@ -271,7 +250,7 @@ The ability of the gateway to post device data to the server (”Client Scope”
 
 ![syo9FlQN.jpg](AirLink%20App/syo9FlQN.jpg)
 
-Copyright 2021 Simusolar Inc 
+Copyright 2021 Simusolar Inc
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
