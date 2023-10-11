@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-next-line first-line-h1 -->
 <p align="center">
   <a href="https://github.com/EnAccess/AirLink-Server">
     <img

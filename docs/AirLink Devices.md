@@ -2,7 +2,7 @@
 
 ![bluetooth-logo-color-black.svg](AirLink%20Devices/bluetooth-logo-color-black.svg)
 
-**Preface: A note on Bluetooth® SIG requirements, Nov 2021**
+**Preface:** A note on Bluetooth® SIG requirements, Nov 2021
 
 Our understanding is that the Bluetooth®  Special Interest Group requires that any entity branding and selling devices enabled with Bluetooth®  must register as a member with the SIG at [bluetooth.com](https://www.bluetooth.com), as well as declare the product and the Bluetooth®  component being used. This is true for resellers, distributors, and all commercial sales. The final selling brand and product name must be separately declared by the seller, even if the component containing Bluetooth®  has been declared by the manufacturer.
 
@@ -18,7 +18,7 @@ This requirement as we understand only applies for sold products, not prototypes
 
 ### Device Emulator App
 
-To enable quick end to end testing of AirLink, we have designed a single-page Android-native app that imitates an AirLink device with temperature, battery and device configuration resources. The source code of this app as well as an Android-9 executable APK is saved in the [AirLink Devices Github repository](https://github.com/EnAccess/AirLink-Devices) under the Device Simulator folder. 
+To enable quick end to end testing of AirLink, we have designed a single-page Android-native app that imitates an AirLink device with temperature, battery and device configuration resources. The source code of this app as well as an Android-9 executable APK is saved in the [AirLink Devices Github repository](https://github.com/EnAccess/AirLink-Devices) under the Device Simulator folder.
 
 ![Device Simulator app running on an Android-9 phone](AirLink%20Devices/Screenshot_20230208-141454_AirLink_BLE_Simulator.jpg)
 
@@ -53,7 +53,7 @@ Programming the Nordic kit with AirLink demo firmware
 
 [Range Testing Results](AirLink%20Devices/Range%20Testing%20Results%20ef4c4ece8fba4542830d415dc0fa1a42.md)
 
-The Simusolar team tested how far we could find an AirLink device from in presence of walls and with clear line of sight. 
+The Simusolar team tested how far we could find an AirLink device from in presence of walls and with clear line of sight.
 
 ### From the OCF specification
 
@@ -75,7 +75,7 @@ AirLink Devices adopt the [Open Connectivity Foundation's Resource Model bridgin
 
 ### Resource model design
 
-The OCF bridging recommendation covers GATT properties well, however it does not cover Advertising nor does it cover a resource enumerator explicitly. 
+The OCF bridging recommendation covers GATT properties well, however it does not cover Advertising nor does it cover a resource enumerator explicitly.
 
 We used the following additional assumptions to design our resource models:
 
@@ -90,11 +90,10 @@ We used the following additional assumptions to design our resource models:
     3. Required: Pay-as-you-go credits - we postulate that this does not require manufacturer specific authorization because OpenPAYG Tokens are already securely encrypted between a server and device
     4. Self-provisioning as supported by [Thingsboard.io](http://thingsboard.io) servers
     5. Optional: Power use and Productive Output data logging
-    
 
 ### Device Discovery Services
 
-1. The advertisement packet is a compressed resource always readable from the device. We designate it as an 'Implicit GET'. 
+1. The advertisement packet is a compressed resource always readable from the device. We designate it as an 'Implicit GET'.
 A gateway device reads this resource while scanning for devices (before a connection is established), and decompresses it to create a standard-format resource model compatible with AirLink Server. It adds items such as resource type, interface type etc as required by OCF but also timezone, location lat-lon where the device was discovered and the manufacturer ID which is in the bluetooth advertisement header
 2. The /res enumerator resource in AirLink is not included explicitly but each bluetooth property has the corresponding resource endpoint in its ‘Descriptor’ field, removing the need for an explicit descriptor resource while still allowing gateways to discover resources available in a device
 3. To discover how a device gets added to the AirLink server, check the AirLink Server page!
@@ -107,27 +106,27 @@ A gateway device reads this resource while scanning for devices (before a connec
 | “mac” | 6 | Default | AirLink Advt Resource 1.0 | Bluetooth MAC ID Automatically available in BLE Advertisement. Sent to AirLink server as advt_mac converted to all-caps text e.g. BD:DD:EE:FF:AA:BB |
 | Array Cbor header | 1 | CBOR Header |  | Array declaration header of 8 elements |
 | BLE Advt resource version "rv" | 3 | Float (uint16_t),Read-Only | AirLink Advt Resource 1.0 | 10 (major/minor digits), 2 Bytes = 2^(8*2) = 65536 i.e from 0-65535 (0xFFFF) The format of the data version according to the protocol used. First integer is major number, second minor |
-| Device Fault Status "ft", cbor encoded | 1 | Read-Only,Integer (uint8_t),Scope: Time-series | AirLink Advt Resource 1.0 | From 0-23. Any Universal error that should be executed with priority. 
-Error 0 = Unprovisioned, 
-Error 1 = Lost track of PAYG credit (battery off), 
+| Device Fault Status "ft", cbor encoded | 1 | Read-Only,Integer (uint8_t),Scope: Time-series | AirLink Advt Resource 1.0 | From 0-23. Any Universal error that should be executed with priority.
+Error 0 = Unprovisioned,
+Error 1 = Lost track of PAYG credit (battery off),
 Error 2 = Battery Fault
 Error 3 = Output Overcurrent/Overtemp - details in ftd field in timeseries data
-Error 23 = Lost device (e.g. when device doesn't find other Bluetooth devices from it's 'pack'. 
+Error 23 = Lost device (e.g. when device doesn't find other Bluetooth devices from it's 'pack'.
 Errors 4-22 are manufacturer specific |
 | Device Airlink ID "aid" + Cbor header 4 bytes | 5 | Read-Only,Optional | AirLink Advt Resource 1.0 | 2^(8*4) = 4,294,967,296 numeric device ids. The ID of the device that resides in manufacturer registry. AirLink uses the BLE mac ID to uniquely identify an unknown device so this is only a human readable option |
 | Timestamp last pulled from gateway or network  "gts" | 5 | Read-Only,Byte Array | AirLink Advt Resource 1.0 | Linux epoch format, expires in Y2035 |
-| Device provisioning status "pst" | 1 | Integer (uint8_t),Read-Only,Scope: Time-series | AirLink Advt Resource 1.0 | 2^8 = 256 i.e from 0-255 (0xFF) The status of the device according to manufacturer definition. It can be 
+| Device provisioning status "pst" | 1 | Integer (uint8_t),Read-Only,Scope: Time-series | AirLink Advt Resource 1.0 | 2^8 = 256 i.e from 0-255 (0xFF) The status of the device according to manufacturer definition. It can be
 1-unserialized,
 2-unprovisioned,
-3-disabled, 
-4-recall, 
-5-stolen, 
-6-9-Manufacturer custom 
+3-disabled,
+4-recall,
+5-stolen,
+6-9-Manufacturer custom
 The range is from 1-9. If not supported then 0 |
 | Device FW Ver "fv" | 2 | Read-Only,Integer (uint8_t) | AirLink Advt Resource 1.0 | 2^8 = 256 i.e from 0-255 (0xFF). Shows the version of the hardware firmware. It ranges from 01-99. If not supported then 0 |
 | Device PayG Credit Remaining "cr" | 5 | Read-Only,Scope: Time-series | AirLink Advt Resource 1.0 | 2^(8*2) = 65536 i.e from 0-65535 (0xFFFF). The value  remaining for the device to OFF. Range is from 01-9999
 If non payg device then 0 |
-| Expected RSSI at 1 meter “s1” | 2 | Read-Only,Scope: Client,Integer (uint8_t) | AirLink Advt Resource 1.0 | Expected signal strength of this Bluetooth device for a receiver (phone / other Bluetooth device) placed at 1 meter, used for distance estimation. 
+| Expected RSSI at 1 meter “s1” | 2 | Read-Only,Scope: Client,Integer (uint8_t) | AirLink Advt Resource 1.0 | Expected signal strength of this Bluetooth device for a receiver (phone / other Bluetooth device) placed at 1 meter, used for distance estimation.
 Value is in negative dB (e.g. a value of s1=70 is considered to be -70dB)
 Calibrated during device prototyping, and adjusted by each device for any changes in it’s transmit power with respect to the transmit power at calibration time (e.g. +2dB transmit power during advertising ⇒ s1=68, if 0dB transmit power at calibration time had yielded an RSSI of -70dB). |
 | Spare | 1 |  | AirLink Advt Resource 1.0 | Can be used for Manufacturer specific information, for example type of asset, data about status etc |
@@ -168,10 +167,10 @@ Any number greater than zero can be used for indicating which data proceeds espe
 | Device ID "did" + Cbor header 20 bytes | 21 | Mandatory,Read-Write | AirLink Device Provisioning 1.0 | UTF-8 coded device serial numbers |
 | AirLink ID "aid" + Cbor header 4 bytes | 5 | Mandatory,Read-Write | AirLink Device Provisioning 1.0 | 2^(8*4) = 4,294,967,296 numeric device ids. The ID of the device that maps 1:1 in manufacturer registry to serial number |
 | PayG Units accepted "pul" | 10 | Unencrypted,Read-Only,Mandatory,String,Scope: Client | AirLink Device Provisioning 1.0 | CSV list of acceptable Units e.g. "l" for liters, "h,d" for hours and days |
-| Payg Token starting code "psc" | 5 | Write-Only,Scope: Shared | AirLink Device Provisioning 1.0 | 1-day token, https://github.com/EnAccess/OpenPAYGO-HW https://github.com/angaza/nexus-embedded |
+| Payg Token starting code "psc" | 5 | Write-Only,Scope: Shared | AirLink Device Provisioning 1.0 | 1-day token, <https://github.com/EnAccess/OpenPAYGO-HW> <https://github.com/angaza/nexus-embedded> |
 | PayG Unit "pu" | 1 | Encrypted,Read-Write,Mandatory,String,Scope: Shared,Scope: Client | AirLink Device Provisioning 1.0 | 36^1  The unit of the PayG update, it can be minutes, hours, days, months and years. [s-seconds, m-minutes, h-hours, d- days, M-months, Y-years] |
 | Provisioning Status "pst" | 1 | Unencrypted,Integer,Mandatory,Read-Write,Scope: Client | AirLink Device Provisioning 1.0 | Reflected in Advt packet also. It can be unprovisioned, disabled, recall, stolen, Cash, Loan. The range is from 1-9. If not supported then 0 |
-| Server access Token "sat" | 21 | Encrypted,String,Mandatory,Write-Only,Scope: Shared | AirLink Device Provisioning 1.0 | http://thinsboard.io has a 20-char device authentication token unique to each device. During device provisioning, this token is written to the device, permanently attaching the device to the server. The token is never transmitted again. |
+| Server access Token "sat" | 21 | Encrypted,String,Mandatory,Write-Only,Scope: Shared | AirLink Device Provisioning 1.0 | <http://thinsboard.io> has a 20-char device authentication token unique to each device. During device provisioning, this token is written to the device, permanently attaching the device to the server. The token is never transmitted again. |
 | Current Unix Time “cut” | 4 | Write-Only | AirLink Device Provisioning 1.0 | This property can be used to sync or correct system time. |
 | Productive Output Set Limit "opmax" | 4 | Read-Write,Integer,Scope: Shared,Scope: Client | AirLink Device Provisioning 1.0 | Max brightness, max water flow etc set for safety / environmental reasons / other reasons |
 | Dummy “dmy” |  | Optional | AirLink Device Provisioning 1.0 | Some Bluetooth chips require fixed-length characteristics, this dummy can make up for variation in other properties lengths |
@@ -188,7 +187,7 @@ Any number greater than zero can be used for indicating which data proceeds espe
  | 16 | Unencrypted,String,Optional,Read-Write,Scope: Shared,Scope: Client | AirLink Client Provisioning 1.0 | Requested by customers for stolen device reporting (needs a workflow to collect this number explicitly from client in addition to regular lead number). Assign the mobile number of the customer to a device. With maximum of 16 character including + and country code number. This is for security purpose |
 | Readable ID "rid" + Cbor header 2 bytes | 6 | Mandatory,Read-Write,Scope: Shared,Scope: Client | AirLink Client Provisioning 1.0 | 2^(8*4) = 4,294,967,296 numeric device ids or payment reference or any number that device should display |
 | Provisioning Status "pst" | 1 | Unencrypted,Integer,Mandatory,Read-Write,Scope: Client | AirLink Client Provisioning 1.0 | Reflected in Advt packet also. It can be unprovisioned, disabled, recall, stolen, Cash, Loan. The range is from 1-9. If not supported then 0 |
-| Server Auth Token "sat" encryption overhead | 20 | Encrypted,String,Mandatory,Write-Only,Scope: Shared | AirLink Client Provisioning 1.0 | http://thinsboard.io has a 20-char device authentication token unique to each device |
+| Server Auth Token "sat" encryption overhead | 20 | Encrypted,String,Mandatory,Write-Only,Scope: Shared | AirLink Client Provisioning 1.0 | <http://thinsboard.io> has a 20-char device authentication token unique to each device |
 
 ### Nexus Command Resource /nxc
 
@@ -196,7 +195,7 @@ Any number greater than zero can be used for indicating which data proceeds espe
 
 ### PUE Use Service
 
-We envision 2 primary usages of a productive use asset: 
+We envision 2 primary usages of a productive use asset:
 
 1. PAYG control: This is a generic PAYG packet intended to cover all known PAYG use cases for BLE assets
 2. Use data (time-series): This is a generic IoT Data packet designed to cover both battery-less and battery-based devices
@@ -209,7 +208,7 @@ We envision 2 primary usages of a productive use asset:
 | cbor map header | 1 | Read-Write |  | encapsulating the rest of the properties |
 | AirLink PAYG resource version "rv" | 3 | Float (uint16_t),Read-Only |  | 10 (major/minor digits) |
 | Timeseries History remaining “tsh” | 2 | Read-Only,Optional,Scope: Time-series | PAYG Credit 1.0 | Any resource with one or more timeseries properties is enabled with this optional property which can indicate that the device has stored historical data while offline that it can sequentially upload to the gateway via multiple reads |
-| Device PayG Credit Remaining "re" | 5 | Mandatory,Integer,Read-Write,Scope: Time-series | PAYG Credit 1.0 | should be The value  remaining for the device to OFF. 
+| Device PayG Credit Remaining "re" | 5 | Mandatory,Integer,Read-Write,Scope: Time-series | PAYG Credit 1.0 | should be The value  remaining for the device to OFF.
 
 For Write, a Nexus Channel Link must be established otherwise read-only, updated via token |
 | PayG Unit "pu" | 1 | Mandatory,String,Read-Only | AirLink Device Provisioning 1.0 | 36^1  The unit of the PayG update, it can be minutes, hours, days, months and years. [s-seconds, m-minutes, h-hours, d- days, M-months, Y-years] |
@@ -217,7 +216,7 @@ For Write, a Nexus Channel Link must be established otherwise read-only, updated
 | Mode "mo" | 1 | Read-Write,Scope: Shared Attr | PAYG Credit 1.0 | mode of device i.e. leading/following etc
 
 For Write, a Nexus Channel Link must be established otherwise read-only, updated via token |
-| PayG Token "tkn" | 5 | Write-Only,Encrypted,Integer,Scope: Shared Attr | PAYG Credit 1.0 | https://github.com/EnAccess/OpenPAYGO-HW. Accepted by device only if valid. No read token to ensure unsecured gateways cannot act maliciously.  |
+| PayG Token "tkn" | 5 | Write-Only,Encrypted,Integer,Scope: Shared Attr | PAYG Credit 1.0 | <https://github.com/EnAccess/OpenPAYGO-HW>. Accepted by device only if valid. No read token to ensure unsecured gateways cannot act maliciously.  |
 | Last Added PayG Credit "lcr" | 2 | Read-Only,Integer,Optional,Scope: Time-series | PAYG Credit 1.0 | Historical last PayG credit update duration. Range is from 01-9999 |
 | Timestamp at which PayG remaining was calculated "pts" | 6 | DateTime,Optional,Read-Only,Scope: Time-series | PAYG Credit 1.0 | Linux epoch format, expires in Y2035. The Last date and time when the PayG update was fetched from the Server to client [Mobile phone or other communication device] |
 | Timestamp of last PAYG Update to device "lts" | 6 | Read-Only,DateTime,Optional,Scope: Time-series | PAYG Credit 1.0 | Linux epoch format, expires in Y2035, readonly - Historical last PayG update Timestamp |
@@ -260,10 +259,10 @@ Any number greater than zero can be used for indicating which data proceeds espe
 | Device Fault Data "ftd" | 2 | Integer,ByteArray,Optional | AirLink PUE Timeseries 1.0 | Can contain details of error e.g. over-pressure error could contain max pressure measured |
 | seconds since data measured "ss" | 6 | Read-Only,Mandatory,DateTime | AirLink PUE Timeseries 1.0 | seconds passed since last /pu data pull by any gateway device - presumption is that gateway transmits the data to server. Useful for devices that store a rolling history of data |
 | Productive Output Primary Metric "op" | 4 | Optional Grp 1,Read-Only,Integer | AirLink PUE Timeseries 1.0 | e.g. Water output for pumps in Litres/hour |
-| Productive Output Primary Set Limit ”opl” | 4 | Optional Grp 1,Read-Write,Integer | AirLink PUE Timeseries 1.0 | The limit of primary product Output 
+| Productive Output Primary Set Limit ”opl” | 4 | Optional Grp 1,Read-Write,Integer | AirLink PUE Timeseries 1.0 | The limit of primary product Output
 Eg. 100L/H for the pump that can go to 500 L/H |
 | Productive Output Secondary Metric "os" | 4 | Optional Grp 1,Read-Only,Integer | AirLink PUE Timeseries 1.0 | e.g. Pressure for pumps in kPa (1kPa = 10cm water or 0.1 bar) |
-| Productive Output Secondary Set Limit “osl” | 4 | Optional Grp 1,Read-Write,Integer | AirLink PUE Timeseries 1.0 | The limit of secondary product Output 
+| Productive Output Secondary Set Limit “osl” | 4 | Optional Grp 1,Read-Write,Integer | AirLink PUE Timeseries 1.0 | The limit of secondary product Output
 Eg. Could be a pressure of 5kPa for the pump that can preduce the pressure of 10kPa |
 | Timeseries Timestamp “ts” | 4 | Read-Only | AirLink PUE Timeseries 1.0 | TImestamp of when the data is recorded |
 | Timeseries History Index “thi” | 4 | Read-Only | AirLink PUE Timeseries 1.0 | Whenever this property is available that means it is a timeseries resource.
@@ -339,7 +338,6 @@ Any number greater than zero can be used for indicating which data proceeds espe
 thi = 0, means there is no more timeseries data.
 Any number greater than zero can be used for indicating which data proceeds especially when the timestamp is the same.  |
 | Dummy “dmy” |  | Optional | Battery 1.0 | Some Bluetooth chips require fixed-length Characteristics, this dummy can make up for variation in other properties lengths |
-| Battery power management switch “pms” | 4 | Read-Write | AirLink Device Control 1.0 | XXXXXXXX - Battery Power management is ON 
+| Battery power management switch “pms” | 4 | Read-Write | AirLink Device Control 1.0 | XXXXXXXX - Battery Power management is ON
 0xBA1234CA - Battery Power management switch to OFF (Idle for battery draining during battery calibration)
 0xBA1234DA - Battery Power management switched OFF
-
