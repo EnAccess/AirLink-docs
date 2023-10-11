@@ -2,9 +2,7 @@
 
 Download [Xamarin - Visual Studio for Mac (~2+GB)](https://visualstudio.microsoft.com/vs/mac/xamarin/). If you want to build your application for iOS, you will also need Xcode (12+GB), which Visual studio will prompt you to install once it is done installing itself.
 
- 
-
-### Setting up the GitHub repository:
+## Setting up the GitHub repository
 
 In Github Airlink repository: Copy the HTTPS clone link:
 
@@ -30,7 +28,7 @@ We recommend that you use GitHub Desktop to push changes rather than VisualStudi
 
 [GitHub Desktop](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjPipmGwbbzAhVIUxoKHRIfAcUQFnoECBgQAQ&url=https%3A%2F%2Fdesktop.github.com%2F&usg=AOvVaw3Q4aArCExy0qKbKQYeMfD4)
 
-### For Apple chip (M1 and above) users, setting up the debugger:
+### For Apple chip (M1 and above) users, setting up the debugger
 
 Note: to access Bluetooth and run the AirLink App, you will still need an actual phone to debug
 
