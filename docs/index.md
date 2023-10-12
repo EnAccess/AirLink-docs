@@ -38,6 +38,7 @@ If you are looking for an overview of the AirLink project, the landing page is h
 Here is also a helpful guide that plays through the AirLink adoption flow in short:
 
 - [🏁 Quick-start guide](Quick-start guide.md)
+
 ---
 
 ## Use cases
@@ -49,7 +50,7 @@ Are you evaluating AirLink as:
 
 <summary>A Device Manufacturer developing remote-region IoT data collection or PAYGO control</summary>
 
-## Ok!
+## Ok
 
 Go
 
@@ -59,13 +60,11 @@ Go
 
 <summary>An NGO wanting to define a adaptable hardware/software standard for data collection in your projects or grantees</summary>
 
-
 ---
 </details>
 <details>
 
 <summary>A Fintech entrepreneur who wants to define a unique user experience using software but need a hardware spec that's ready to go to share with a device manufacturer</summary>
-
 
 ---
 </details>
