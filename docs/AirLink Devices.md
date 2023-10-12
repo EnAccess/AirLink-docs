@@ -1,6 +1,6 @@
 # AirLink Devices
 
-![bluetooth-logo-color-black.svg](AirLink%20Devices/bluetooth-logo-color-black.svg)
+![bluetooth-logo.png](AirLink%20Devices/bluetooth-logo.png)
 
 **Preface:** A note on Bluetooth® SIG requirements, Nov 2021
 

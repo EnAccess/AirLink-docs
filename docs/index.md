@@ -38,6 +38,42 @@ If you are looking for an overview of the AirLink project, the landing page is h
 Here is also a helpful guide that plays through the AirLink adoption flow in short:
 
 - [🏁 Quick-start guide](Quick-start guide.md)
+---
+
+## Use cases
+
+*For all potential use cases, EnAccess hosts the IoT server for free so that you can try your idea quickly and cost effectively!*
+
+Are you evaluating AirLink as:
+<details>
+
+<summary>A Device Manufacturer developing remote-region IoT data collection or PAYGO control</summary>
+
+## Ok!
+
+Go
+
+---
+</details>
+<details>
+
+<summary>An NGO wanting to define a adaptable hardware/software standard for data collection in your projects or grantees</summary>
+
+
+---
+</details>
+<details>
+
+<summary>A Fintech entrepreneur who wants to define a unique user experience using software but need a hardware spec that's ready to go to share with a device manufacturer</summary>
+
+
+---
+</details>
+<details>
+
+<summary>You have an IoT idea that connects to smartphones! But you don't want to reinvent device connectivity, and would like to try something asap without having to spin up a data server etc</summary>
+
+</details>
 
 ---
 
@@ -61,11 +97,11 @@ Here is also a helpful guide that plays through the AirLink adoption flow in sho
 
     [:octicons-mark-github-16: AirLink Server on Github](https://github.com/EnAccess/AirLink-Server)
 
-![AirLink Components](AirLink Components.png)
+![AirLink Components](AirLink_Components.png)
 
 ---
 
-## AirLink flows
+## AirLink main flows
 
 ### Data transfer flow
 
@@ -83,8 +119,9 @@ Here is also a helpful guide that plays through the AirLink adoption flow in sho
 
 ## Related resources
 
-- [COBR](http://cbor.io/): Efficient data arrays
-- [OCF](https://openconnectivity.org/developer/specifications/): Models for device interactions
+- [CBOR](http://cbor.io/): Memory-efficient JSON-like data format
+- [OCF](https://openconnectivity.org/developer/specifications/): Data structure standard to represent IoT devices
+  
 - [Nexus Channel](https://angaza.github.io/nexus-channel-models/resource_type_spec.html): Angaza's Inter-operability initiative
 - [OpenPAYGO Link](https://github.com/EnAccess/OpenPAYGO-Link/tree/main/Documentation): Wired inter-operability from Solaris/EnAccess
 - [OpenPAYGO Metrics](https://github.com/openpaygo/metrics): GSM inter-operability from Solaris
@@ -92,6 +129,6 @@ Here is also a helpful guide that plays through the AirLink adoption flow in sho
 
 ---
 
-![Simusolar Inc](Simusolar_logo.png){ align=left }
+![Simusolar Inc](Simusolar_logo.png)
 
 AirLink was developed by [Simusolar Inc](https://www.simusolar.com/) with support from [EnAccess](https://enaccess.org).
