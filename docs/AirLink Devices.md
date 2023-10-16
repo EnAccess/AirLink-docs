@@ -16,6 +16,9 @@ This requirement as we understand only applies for sold products, not prototypes
 
 ## Development Reference
 
+### Range Testing
+How far will an AirLink Bluetooth® link go? [We tested the range from a basic smartphone to a device.](AirLink%20Devices/Range%20Testing%20Results.md)
+
 ### Device Emulator App
 
 To enable quick end to end testing of AirLink, we have designed a single-page Android-native app that imitates an AirLink device with temperature, battery and device configuration resources. The source code of this app as well as an Android-9 executable APK is saved in the [AirLink Devices Github repository](https://github.com/EnAccess/AirLink-Devices) under the Device Simulator folder.
@@ -48,12 +51,6 @@ A Nordic DVK-BLE kit running AirLink demo firmware
 ![Programming the Nordic kit with AirLink demo firmware](AirLink%20Devices/programmer.jpeg)
 
 Programming the Nordic kit with AirLink demo firmware
-
-### BLE Range Testing
-
-[Range Testing Results](AirLink%20Devices/Range%20Testing%20Results%20ef4c4ece8fba4542830d415dc0fa1a42.md)
-
-The Simusolar team tested how far we could find an AirLink device from in presence of walls and with clear line of sight.
 
 ### From the OCF specification
 
