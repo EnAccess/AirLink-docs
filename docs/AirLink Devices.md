@@ -17,6 +17,7 @@ This requirement as we understand only applies for sold products, not prototypes
 ## Development Reference
 
 ### Range Testing
+
 How far will an AirLink Bluetooth® link go? [We tested the range from a basic smartphone to a device.](AirLink%20Devices/Range%20Testing%20Results.md)
 
 ### Device Emulator App

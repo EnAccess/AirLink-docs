@@ -29,7 +29,7 @@
 This is **technical documentation** for AirLink.
 
 !!! info "AirLink"
-  AirLink is an open source framework (MIT License) for Pay-As-You-Go (PAYG) IoT devices to connect to compatible servers via Bluetooth® gateways. The protocol provides an interoperable communication standard and example code for wire-free communication between PAYG devices and an IoT server using smartphones as gateways.
+    AirLink is an open source framework (MIT License) for Pay-As-You-Go (PAYG) IoT devices to connect to compatible servers via   Bluetooth® gateways. The protocol provides an interoperable communication standard and example code for wire-free communication between PAYG devices and an IoT server using smartphones as gateways.
 
 If you are looking for an overview of the AirLink project, the landing page is here:
 
@@ -52,7 +52,7 @@ Are you evaluating AirLink as:
 
 ### Why
 
-AirLink saves manufacturers from the hassle of building out a custom IoT software backend for their hardware devices, and the open source format makes it likely that several adopters with different software stacks for business management can adopt AirLink devices. *This clear separation of the hardware and software stacks using the most commonly adopted ad-hoc wireless communication standard, Bluetooth®, is a key benefit of AirLink.*
+AirLink saves manufacturers from the hassle of building out a custom IoT software backend for their hardware devices, and the open source format makes it likely that several adopters with different software stacks for business management can adopt AirLink devices. *This clear separation of the hardware and software stacks using the most commonly adopted ad-hoc wireless communication standard, Bluetooth®, is a key benefit of AirLink.* If your idea requires PAYGO devices *without* data connectivity, do also check out the [OpenPAYGO Token](https://enaccess.org/materials/openpaygotoken/).
 
 ### Making your Devices compatible with AirLink
 
@@ -61,7 +61,7 @@ Compatibility takes four simple steps focused on Advertisement and Data format, 
 1. Customize the Advertisement packet to match AirLink spec, as mentioned in the [AirLink Devices](AirLink%20Devices.md) page.
 2. Group similar properties e.g. tempC, maxTemp. Create a [CBOR array](https://cbor.me) with these properties. These will be transferred once the app connects to the device. Collapsing several individual properties into one CBOR Array has the added benefit of making the data transfer memory efficient and fast.
 3. Name the Bluetooth® *descriptor* with the property name e.g. 'temp'. Then, AirLink will understand your properties as temp_tempC, temp_maxTemp etc and on successful sync you will find these properties in the timeseries data for that device on the server. Device configurations are also saved similarly in dcfg_* properties.
-4. Optional: Build an [access control flow](#airlink-main-flows) in your devices which relies on a Server Access Token "password" unique to the device, starting with a pre-programmed value which is entered into to the firmware. Then, your device will only allow data transfer from/to a particular app which knows the default access token - and once provisioned on the server, will receive an access token *unique* to it. All device data access control will then be locked to phones that can access this unique device token from the server, based on the Role-Based Access Control functions available on the server. 
+4. Optional: Build an [access control flow](#airlink-main-flows) in your devices which relies on a Server Access Token "password" unique to the device, starting with a pre-programmed value which is entered into to the firmware. Then, your device will only allow data transfer from/to a particular app which knows the default access token - and once provisioned on the server, will receive an access token *unique* to it. All device data access control will then be locked to phones that can access this unique device token from the server, based on the Role-Based Access Control functions available on the server.
 
 ### Supplying AirLink Devices
 
@@ -95,7 +95,7 @@ To customize this behavior for your own data collection project, you will need t
 
 ### Making Devices compatible with AirLink
 
-If the devices that will serve the data you need to collect have Bluetooth® enabled, then compatibility takes four simple steps focused on Advertisement and Data format, and optionally on authentication. Please discuss these with the device manufacturer:
+If the devices that will serve the data you need to collect have Bluetooth® enabled, then compatibility takes four simple steps focused on Advertisement and Data format, and optionally on authentication. Please discuss these with the device manufacturer, and ensure that they get the devices declared with the Bluetooth® SIG:
 
 1. Customize the Advertisement packet to match AirLink spec, as mentioned in the [AirLink Devices](AirLink%20Devices.md) page.
 2. Group similar properties e.g. tempC, maxTemp. Create a [CBOR array](https://cbor.me) with these properties. These will be transferred once the app connects to the device
@@ -135,13 +135,28 @@ Here are some starting ideas to get your work setup. These can be either done in
 </details>
 <details>
 
-<summary>A Fintech entrepreneur who wants to define a unique user experience using software but need a hardware spec that's ready to go to share with a device manufacturer</summary>
+<summary>A Fintech/PAYGO entrepreneur focused on innovative software, needing a standard hardware spec to share with a device manufacturer</summary>
 
----
-</details>
-<details>
+### Why AirLink as a Fintech/PAYGO entrepreneur
 
-<summary>You have an IoT idea that connects to smartphones! But you don't want to reinvent device connectivity, and would like to try something asap without having to spin up a data server etc</summary>
+Does your idea require network-connected or PAYGO devices at low cost? Are you planning on a smartphone app as the primary UI for the customer / end user? Do you want to get started with your idea quickly?
+
+### Trying AirLink out
+
+You can decide if AirLink is for you by simply downloading two apps and getting access to the demo server from EnAccess. The [Quick-start](Quick-start%20guide.md) outlines this process.
+
+### Saving MVP costs
+
+The EnAccess team are committed to open source innovation, and run the AirLink server for the same reason. By requesting your own tenancy on the server, you can start prototyping your custom app immediately! With in-build PAYGO functionality, AirLink takes the most complex but non-differentiating piece out of the equation and lets you focus on your differentiating development. If your idea requires PAYGO devices without data connectivity, do also check out the [OpenPAYGO Token](https://enaccess.org/materials/openpaygotoken/).
+
+### Idea -> differentiating development, quickly
+
+AirLink allows you to focus on what is unique to your business idea by abstracting away the complexity of setting up an IoT device-gateway-server connection. If the smartphone-centric use case is what you need, you can dive into your differentiating development while awaiting prototype devices from a manufacturer of your choice. After trying out the initial demo,
+
+1. Fork the Flutter code from the [AirLink Gateway app](https://github.com/EnAccess/Airlink-App/tree/main/airlink_flutter) and start developing.
+2. Download the [AirLink Device demo app](https://github.com/EnAccess/AirLink-Devices) APK, so that you can use a phone as a representative device. If it helps, modify the simple Android-native Java source-code to add more 'device' functionality to the device demo app.
+3. Provide the [AirLink Devices](AirLink%20Devices.md) spec to any hardware manufacturer capable of making a Bluetooth® device to your specifications. This includes an open-source firmware library for the nRF Bluetooth® development kit, one of the most commone Bluetooth® hardware development platforms.
+4. Use the [Swagger documentation](https://airlink.enaccess.org/swagger-ui.html) for API access to the AirLink server as you develop complex customer-device functionality using Thingsboard.io's full Pro version!
 
 </details>
 

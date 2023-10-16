@@ -2,7 +2,7 @@
 site_name: Airlink by EnAccess
 site_url: https://airlinkdocs.enaccess.org/
 site_description: >-
- This is the documentation for the Airlink by EnAccess
+  This is the documentation for the Airlink by EnAccess
 
 # Repository
 repo_name: EnAccess/Airlink-docs
@@ -11,157 +11,158 @@ edit_uri: edit/main/docs/
 
 # Configuration
 theme:
- name: material
- icon:
-  repo: fontawesome/brands/github
- palette:
-  # schema: enaccess
-  primary: custom
-  accent: custom
- logo: assets/EnAccess_Logo_Digital_Inverse.svg
- features:
-  - content.action.edit
-  - content.action.view
-  # Disabled to prevent automatic inlining
-  # - content.code.annotate
-  - content.code.copy
-  - content.tabs.link
-  - navigation.footer
-  - navigation.indexes
-  - navigation.sections
-  - navigation.tabs
-  - navigation.tracking
-  - search.highlight
-  - search.share
-  - search.suggest
-  - toc.follow
-  # I find this has a weird look and feel, but can be enabled.
-  # - toc.integrate
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # schema: enaccess
+    primary: custom
+    accent: custom
+  logo: assets/EnAccess_Logo_Digital_Inverse.svg
+  features:
+    - content.action.edit
+    - content.action.view
+    # Disabled to prevent automatic inlining
+    # - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # I find this has a weird look and feel, but can be enabled.
+    # - toc.integrate
 
 # Customization
 extra:
- social:
-  - icon: fontawesome/brands/github
-   link: https://github.com/EnAccess
-  - icon: fontawesome/brands/twitter
-   link: https://twitter.com/enaccessfdn
- analytics:
-  provider: google
-  property: G-PTQ3NKJGK5
- consent:
-  title: Cookie consent
-  description: >-
-   We use cookies to recognize your repeated visits and preferences, as well
-   as to measure the effectiveness of our documentation and whether users
-   find what they're searching for. With your consent, you're helping us to
-   make our documentation better.
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/EnAccess
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/enaccessfdn
+  analytics:
+    provider: google
+    property: G-PTQ3NKJGK5
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
 
 extra_css:
- - stylesheets/extra.css
+  - stylesheets/extra.css
 
 # Extensions
 markdown_extensions:
- - abbr
- - admonition
- - attr_list
- - def_list
- - footnotes
- - md_in_html
- - toc:
-   permalink: true
- - pymdownx.arithmatex:
-   generic: true
- - pymdownx.betterem:
-   smart_enable: all
- - pymdownx.caret
- - pymdownx.details
- - pymdownx.emoji:
-   emoji_generator: !!python/name:materialx.emoji.to_svg
-   emoji_index: !!python/name:materialx.emoji.twemoji
- - pymdownx.highlight:
-   anchor_linenums: true
-   line_spans: __span
-   pygments_lang_class: true
-   extend_pygments_lang:
-    - name: php-inline
-     lang: php
-     options:
-      startinline: true
- - pymdownx.inlinehilite
- - pymdownx.keys
- - pymdownx.magiclink:
-   repo_url_shorthand: true
-   user: EnAccess
-   repo: OpenSmartMeter
- - pymdownx.mark
- - pymdownx.smartsymbols
- - pymdownx.superfences:
-   custom_fences:
-    - name: mermaid
-     class: mermaid
-     format: !!python/name:pymdownx.superfences.fence_code_format
- - pymdownx.tabbed:
-   alternate_style: true
- - pymdownx.tasklist
- - pymdownx.tilde
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      extend_pygments_lang:
+        - name: php-inline
+          lang: php
+          options:
+            startinline: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: EnAccess
+      repo: OpenSmartMeter
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist
+  - pymdownx.tilde
 
 # Extra stuff
 extra_javascript:
- - javascripts/mathjax.js
- - https://polyfill.io/v3/polyfill.min.js?features=es6
- - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # Page tree
 nav:
- - Home: index.md
- - AirLink App:
-  - Home: AirLink App.md
- - AirLink Devices:
-  - Home: AirLink Devices.md
-  - Range Testing Results: AirLink Devices/Range Testing Results.md
-  - Nexus Command Resource nxc:
-   - COSE command cmd 854e60d9cf7c42bdb3ccdd5571389d76: AirLink Devices/Nexus Command Resource nxc/COSE command cmd 854e60d9cf7c42bdb3ccdd5571389d76.md
-   - cbor header d5440a5437974c6e898fad616e623875: AirLink Devices/Nexus Command Resource nxc/cbor header d5440a5437974c6e898fad616e623875.md
- - AirLink Server:
-  - Home: AirLink Server.md
-  - Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2:
-   - AirLink ID 34a6a602814745ab9a28940d1d3af142: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/AirLink ID 34a6a602814745ab9a28940d1d3af142.md
-   - Config status e g Firmware version 988f3023800e4866a1e1261b6fa36f35: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Config status e g Firmware version 988f3023800e4866a1e1261b6fa36f35.md
-   - Customer Provisioning Information c6f47efb3ff542858cf76d07d5186883: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Customer Provisioning Information c6f47efb3ff542858cf76d07d5186883.md
-   - Device Administration Configuration 30d49450eb1a44ccbd1ac620dcc63072: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Device Administration Configuration 30d49450eb1a44ccbd1ac620dcc63072.md
-   - Device provisioning or claiming keys c74f19fa1fe54dddb737c804e3d103da: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Device provisioning or claiming keys c74f19fa1fe54dddb737c804e3d103da.md
-   - PAYG Command or Token ef142acab5b44b3a9fcb61522d5acaf5: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/PAYG Command or Token ef142acab5b44b3a9fcb61522d5acaf5.md
-   - PAYG Status 11596ed3dbde4bf4a6f9621ddc6dcede: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/PAYG Status 11596ed3dbde4bf4a6f9621ddc6dcede.md
-   - PAYG Token Secret, Message ID b093831971814a90b318c81b731c49f2: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/PAYG Token Secret, Message ID b093831971814a90b318c81b731c49f2.md
-   - Rule chain alarm Thresholds c22121ef28224db891e765cb24ba59d5: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Rule chain alarm Thresholds c22121ef28224db891e765cb24ba59d5.md
-   - Timeseries Data 5c5d4a527a5e4fa18fc32c31fe1fba8c: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Timeseries Data 5c5d4a527a5e4fa18fc32c31fe1fba8c.md
-  - How we chose Thingsboard io for AirLink Server:
-   - Home: AirLink Server/How we chose Thingsboard io for AirLink Server.md
-   - Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548:
-    - Analytics for metrics 5d54acc723e1438499645a7d8fd8e7b5: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Analytics for metrics 5d54acc723e1438499645a7d8fd8e7b5.md
-    - API 2b45090acf5a4dd3bb6c93cf09bbd247: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/API 2b45090acf5a4dd3bb6c93cf09bbd247.md
-    - Basic Data External forwarding and Workflow trigge 04a000ddf27045a58324c05c69129708: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Basic Data External forwarding and Workflow trigge 04a000ddf27045a58324c05c69129708.md
-    - Chart options e17ee203b9f24c1aada36ec4907d4e53: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Chart options e17ee203b9f24c1aada36ec4907d4e53.md
-    - Customer management 8db790b517ed40b0ad46a54d5e22d3e6: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Customer management 8db790b517ed40b0ad46a54d5e22d3e6.md
-    - Customer support c389bb7fd1314df5b11b9229e3913f07: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Customer support c389bb7fd1314df5b11b9229e3913f07.md
-    - Dashboard UX 5dad589f771c4a029339bbaf7a3c88eb: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Dashboard UX 5dad589f771c4a029339bbaf7a3c88eb.md
-    - Data management possiblity 452df22571f145aeb569939c9146bc21: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Data management possiblity 452df22571f145aeb569939c9146bc21.md
-    - Device management 89dd4a0b8d174648b6b88b68ba915f89: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Device management 89dd4a0b8d174648b6b88b68ba915f89.md
-    - Device Sandbox codebase 4ad4a1269d814bc498180c06887a9355: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Device Sandbox codebase 4ad4a1269d814bc498180c06887a9355.md
-    - Feature cost a078e1055d1c4dc3be68b1c194a6d0bc: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Feature cost a078e1055d1c4dc3be68b1c194a6d0bc.md
-    - Feature dev speed 7468c1c2b41f4e07a5c21f60089fcc1d: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Feature dev speed 7468c1c2b41f4e07a5c21f60089fcc1d.md
-    - Filters on displayed charts 085f49ada5944cadb42c9865898b0232: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Filters on displayed charts 085f49ada5944cadb42c9865898b0232.md
-    - Git source Link 3d7d92e5cc5f458db244260d3b9424ac: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Git source Link 3d7d92e5cc5f458db244260d3b9424ac.md
-    - Interoperable format compatibility 2566d647a3e4402890f3e48472e3b59f: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Interoperable format compatibility 2566d647a3e4402890f3e48472e3b59f.md
-    - IoT Comms 7fccfe926a3b4b9fafa201822f7a164f: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/IoT Comms 7fccfe926a3b4b9fafa201822f7a164f.md
-    - Lock-in risk c4cee9ccea7b4add8234d7af062f0a1a: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Lock-in risk c4cee9ccea7b4add8234d7af062f0a1a.md
-    - Login based filtering ae8d17cc1af74ff99a1ec4324e53e3ba: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Login based filtering ae8d17cc1af74ff99a1ec4324e53e3ba.md
-    - Model f4340e4dcc1c424684d2345ff7352be7: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Model f4340e4dcc1c424684d2345ff7352be7.md
-    - Open source 387cd4e6cba54538af21c020f6b19cf1: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Open source 387cd4e6cba54538af21c020f6b19cf1.md
-    - Performance scale e6052517c5fa41a29509227c87dcf768: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Performance scale e6052517c5fa41a29509227c87dcf768.md
-    - Programming language dafec3aef11545a789df7e5c5326f130: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Programming language dafec3aef11545a789df7e5c5326f130.md
-    - SSO types for users customers 565c4ec86bef46c78ece2158d6f80cd6: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/SSO types for users customers 565c4ec86bef46c78ece2158d6f80cd6.md
-    - Total Cost of Ownership for paid premium option - 6077e5705a174cdc86fe64348bf16fdb: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Total Cost of Ownership for paid premium option - 6077e5705a174cdc86fe64348bf16fdb.md
-    - Vendor info any risk to business 6ecbb09542ef478caeb5b327d783d74e: AirLink Server/How we chose Thingsboard io for AirLink Server/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Vendor info any risk to business 6ecbb09542ef478caeb5b327d783d74e.md
- - Quick-start guide: Quick-start guide.md
- - Connecting to Solaris or Angaza: Connecting to Solaris or Angaza.md
+  - Home: index.md
+  - AirLink App:
+    - Home: AirLink App.md
+    - Visual Studio setup and to Git library instruction 1c38135f4b6b4e3db7ed0d2b3a30ccae: AirLink App/Visual Studio setup and to Git library instruction 1c38135f4b6b4e3db7ed0d2b3a30ccae.md
+  - AirLink Devices:
+    - Home: AirLink Devices.md
+    - Range Testing Results: AirLink Devices/Range Testing Results.md
+    - Nexus Command Resource nxc ed4247090ba4475583e05f72cc537ff0:
+      - COSE command cmd 854e60d9cf7c42bdb3ccdd5571389d76: AirLink Devices/Nexus Command Resource nxc ed4247090ba4475583e05f72cc537ff0/COSE command cmd 854e60d9cf7c42bdb3ccdd5571389d76.md
+      - cbor header d5440a5437974c6e898fad616e623875: AirLink Devices/Nexus Command Resource nxc ed4247090ba4475583e05f72cc537ff0/cbor header d5440a5437974c6e898fad616e623875.md
+  - AirLink Server:
+    - Home: AirLink Server.md
+    - Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2:
+      - AirLink ID 34a6a602814745ab9a28940d1d3af142: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/AirLink ID 34a6a602814745ab9a28940d1d3af142.md
+      - Config status e g Firmware version 988f3023800e4866a1e1261b6fa36f35: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Config status e g Firmware version 988f3023800e4866a1e1261b6fa36f35.md
+      - Customer Provisioning Information c6f47efb3ff542858cf76d07d5186883: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Customer Provisioning Information c6f47efb3ff542858cf76d07d5186883.md
+      - Device Administration Configuration 30d49450eb1a44ccbd1ac620dcc63072: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Device Administration Configuration 30d49450eb1a44ccbd1ac620dcc63072.md
+      - Device provisioning or claiming keys c74f19fa1fe54dddb737c804e3d103da: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Device provisioning or claiming keys c74f19fa1fe54dddb737c804e3d103da.md
+      - PAYG Command or Token ef142acab5b44b3a9fcb61522d5acaf5: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/PAYG Command or Token ef142acab5b44b3a9fcb61522d5acaf5.md
+      - PAYG Status 11596ed3dbde4bf4a6f9621ddc6dcede: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/PAYG Status 11596ed3dbde4bf4a6f9621ddc6dcede.md
+      - PAYG Token Secret, Message ID b093831971814a90b318c81b731c49f2: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/PAYG Token Secret, Message ID b093831971814a90b318c81b731c49f2.md
+      - Rule chain alarm Thresholds c22121ef28224db891e765cb24ba59d5: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Rule chain alarm Thresholds c22121ef28224db891e765cb24ba59d5.md
+      - Timeseries Data 5c5d4a527a5e4fa18fc32c31fe1fba8c: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Timeseries Data 5c5d4a527a5e4fa18fc32c31fe1fba8c.md
+    - How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933:
+      - Home: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933.md
+      - Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548:
+        - Analytics for metrics 5d54acc723e1438499645a7d8fd8e7b5: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Analytics for metrics 5d54acc723e1438499645a7d8fd8e7b5.md
+        - API 2b45090acf5a4dd3bb6c93cf09bbd247: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/API 2b45090acf5a4dd3bb6c93cf09bbd247.md
+        - Basic Data External forwarding and Workflow trigge 04a000ddf27045a58324c05c69129708: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Basic Data External forwarding and Workflow trigge 04a000ddf27045a58324c05c69129708.md
+        - Chart options e17ee203b9f24c1aada36ec4907d4e53: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Chart options e17ee203b9f24c1aada36ec4907d4e53.md
+        - Customer management 8db790b517ed40b0ad46a54d5e22d3e6: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Customer management 8db790b517ed40b0ad46a54d5e22d3e6.md
+        - Customer support c389bb7fd1314df5b11b9229e3913f07: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Customer support c389bb7fd1314df5b11b9229e3913f07.md
+        - Dashboard UX 5dad589f771c4a029339bbaf7a3c88eb: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Dashboard UX 5dad589f771c4a029339bbaf7a3c88eb.md
+        - Data management possiblity 452df22571f145aeb569939c9146bc21: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Data management possiblity 452df22571f145aeb569939c9146bc21.md
+        - Device management 89dd4a0b8d174648b6b88b68ba915f89: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Device management 89dd4a0b8d174648b6b88b68ba915f89.md
+        - Device Sandbox codebase 4ad4a1269d814bc498180c06887a9355: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Device Sandbox codebase 4ad4a1269d814bc498180c06887a9355.md
+        - Feature cost a078e1055d1c4dc3be68b1c194a6d0bc: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Feature cost a078e1055d1c4dc3be68b1c194a6d0bc.md
+        - Feature dev speed 7468c1c2b41f4e07a5c21f60089fcc1d: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Feature dev speed 7468c1c2b41f4e07a5c21f60089fcc1d.md
+        - Filters on displayed charts 085f49ada5944cadb42c9865898b0232: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Filters on displayed charts 085f49ada5944cadb42c9865898b0232.md
+        - Git source Link 3d7d92e5cc5f458db244260d3b9424ac: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Git source Link 3d7d92e5cc5f458db244260d3b9424ac.md
+        - Interoperable format compatibility 2566d647a3e4402890f3e48472e3b59f: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Interoperable format compatibility 2566d647a3e4402890f3e48472e3b59f.md
+        - IoT Comms 7fccfe926a3b4b9fafa201822f7a164f: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/IoT Comms 7fccfe926a3b4b9fafa201822f7a164f.md
+        - Lock-in risk c4cee9ccea7b4add8234d7af062f0a1a: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Lock-in risk c4cee9ccea7b4add8234d7af062f0a1a.md
+        - Login based filtering ae8d17cc1af74ff99a1ec4324e53e3ba: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Login based filtering ae8d17cc1af74ff99a1ec4324e53e3ba.md
+        - Model f4340e4dcc1c424684d2345ff7352be7: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Model f4340e4dcc1c424684d2345ff7352be7.md
+        - Open source 387cd4e6cba54538af21c020f6b19cf1: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Open source 387cd4e6cba54538af21c020f6b19cf1.md
+        - Performance scale e6052517c5fa41a29509227c87dcf768: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Performance scale e6052517c5fa41a29509227c87dcf768.md
+        - Programming language dafec3aef11545a789df7e5c5326f130: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Programming language dafec3aef11545a789df7e5c5326f130.md
+        - SSO types for users customers 565c4ec86bef46c78ece2158d6f80cd6: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/SSO types for users customers 565c4ec86bef46c78ece2158d6f80cd6.md
+        - Total Cost of Ownership for paid premium option -  6077e5705a174cdc86fe64348bf16fdb: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Total Cost of Ownership for paid premium option -  6077e5705a174cdc86fe64348bf16fdb.md
+        - Vendor info any risk to business 6ecbb09542ef478caeb5b327d783d74e: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Vendor info any risk to business 6ecbb09542ef478caeb5b327d783d74e.md
+  - Quick-start guide: Quick-start guide.md
+  - Connecting to Solaris or Angaza: Connecting to Solaris or Angaza.md

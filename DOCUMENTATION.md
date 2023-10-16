@@ -20,7 +20,7 @@ pipx inject mkdocs mkdocs-material
 mkdocs serve
 ```
 
-Then open [docs](http://127.0.0.1:8000/OpenSmartMeter/) in a local web browser.
+Then open [docs](http://127.0.0.1:8000/AirLink-Docs/) in a local web browser.
 
 ## Writing documentation
 
