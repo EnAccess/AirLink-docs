@@ -83,6 +83,10 @@ If your customer will be selling the devices without changing the product name o
 
 <summary>An NGO wanting to define a adaptable hardware/software standard for data collection in your projects or grantees</summary>
 
+### Why adopt AirLink as an NGO
+
+Several common needs for IoT data transfer at low cost and poor-network areas using a semi-skilled workforce of agents are covered natively by AirLink, and customization to a particular device type or project can be done with software modifications. Further, hardware devices get a clear spec to design to from this AirLink documentation, making it easier to engage contractors.
+
 ### Out of the box
 
 AirLink, after following the [Quick-Start](Quick-start%20guide.md), can synchronize data from AirLink-compatible devices to the server without any other setup. Server data and device configuration updates can be pulled from the server when in network range, and device updates and data collection from the device can be done fully offline over Bluetooth®. This can be tested using the AirLink Gateway App and AirLink Devices app as shown in the guide.
