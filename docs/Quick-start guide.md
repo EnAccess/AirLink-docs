@@ -3,6 +3,7 @@
 Trying out AirLink is easy:
 
 1. Download two Android app APK files and install on two smartphones
+
   1. one acting [as device](https://github.com/EnAccess/Airlink-Devices/releases/) - on a phone with Android 9 or lower - and
   2. one acting as the actual [AirLink smartphone gateway](https://github.com/EnAccess/Airlink-App/releases/) - tested upto Android 11
 2. [Request the Demo tenant server login](https://enaccess.org/airlink/) from EnAccess,
