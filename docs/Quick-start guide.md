@@ -43,7 +43,8 @@ Steps 2-5 are also covered in this video:
   [Tenant setup: Users, Profiles and Rule Chains](https://youtu.be/Sw0xrE0ZpbI)
 
 2. Go to Users → Tenant Users, click on the + sign at the the top right of the page to create a new **Tenant User**. If activating by displaying activation link, note down the email and password. Note that the AirLink app uses this login information for administrative actions like registering devices via *Oauth*, whereas device data exchange is done using *access tokens*.
-![AddingUsers.gif](AirLink%20Server/AddingUsers.gif)
+  ![AddingUsers.gif](AirLink%20Server/AddingUsers.gif)
+
 3. Setup Device Profiles
 
   ![Screen Shot 2022-01-26 at 9.20.24 PM.png](AirLink%20Server/Screen_Shot_2022-01-26_at_9.20.24_PM.png)
