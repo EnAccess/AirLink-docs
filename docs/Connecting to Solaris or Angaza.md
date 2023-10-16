@@ -38,27 +38,27 @@ The end to end process for Solaris devices is shown in the following video: [Sol
 
 1. **Credentials:** For simplicity, the authentication token required for a particular Solaris account's API access have been added to the json of the Solaris rule chain (the GitHub file has the development account token that need to be replaced with your own Solaris account's token). Before uploading the Solaris rule chain json file, open it in a text editor and look for OPGMServerToken, then replace the value in quotes (starting with eyJ... and ending with ...WEY in the example) with the value provided by Solaris -
 
-    ```json
-    metadata.OPGMServerToken = \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTb2xhcmlzIE9mZmdyaWQiLCJleHAiOjI2Njc0OTQxMjEsImlhdCI6MTY2NzQ5NDEyMiwic3ViIjo1MiwicGVybWlzc2lvbnMiOlsiVmlld0RldmljZXMiLCJFZGl0RGV2aWNlcyIsIlVubG9ja0RldmljZXMiLCJMaXN0TWV0cmljcyIsIlZpZXdNZXRyaWNzIiwiQWRkTWV0cmljcyIsIkVkaXRNZXRyaWNzIiwiRGVsZXRlTWV0cmljcyIsIlZpZXdTeW5jQXR0ZW1wdHMiLCJBZGRTeW5jQXR0ZW1wdHMiXX0.Dw9oSCdyaNfnn_puen0O7uUX3lfu-hKMHxh71xYUWEY\"
-    ```
+  ```json
+  metadata.OPGMServerToken = \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTb2xhcmlzIE9mZmdyaWQiLCJleHAiOjI2Njc0OTQxMjEsImlhdCI6MTY2NzQ5NDEyMiwic3ViIjo1MiwicGVybWlzc2lvbnMiOlsiVmlld0RldmljZXMiLCJFZGl0RGV2aWNlcyIsIlVubG9ja0RldmljZXMiLCJMaXN0TWV0cmljcyIsIlZpZXdNZXRyaWNzIiwiQWRkTWV0cmljcyIsIkVkaXRNZXRyaWNzIiwiRGVsZXRlTWV0cmljcyIsIlZpZXdTeW5jQXR0ZW1wdHMiLCJBZGRTeW5jQXR0ZW1wdHMiXX0.Dw9oSCdyaNfnn_puen0O7uUX3lfu-hKMHxh71xYUWEY\"
+  ```
 
-    It can also be edited after installation to your tenant by opening the "Add Solaris Auth Info" module in the Solaris rule chain from the server UI.
+  It can also be edited after installation to your tenant by opening the "Add Solaris Auth Info" module in the Solaris rule chain from the server UI.
 
-    ![SolarisAuthInfo](Connecting%20to%20Solaris%20or%20Angaza/SolarisAuthInfo.png)
+  ![SolarisAuthInfo](Connecting%20to%20Solaris%20or%20Angaza/SolarisAuthInfo.png)
 
-    *Note: Only one Solaris credential set is supported out of the box, which means that the functionality is most suited to distributors rather than manufacturers. Further development of the AirLink server is possible to support multiple Solaris credentials based on device group.*
+  *Note: Only one Solaris credential set is supported out of the box, which means that the functionality is most suited to distributors rather than manufacturers. Further development of the AirLink server is possible to support multiple Solaris credentials based on device group.*
 
 2. **Provisioning Solaris Devices:** To add Solaris devices, you will need to provision them both in the Solaris PAYGOPS platform as well as in AirLink separately.
 
-    1. To provision a single device to AirLink after adding it's details to the Solaris platform, use the AirLink App to provision the device and select payg_type as Solaris and Label as the serial number entered into the Solaris platform for that device.
+  1. To provision a single device to AirLink after adding it's details to the Solaris platform, use the AirLink App to provision the device and select payg_type as Solaris and Label as the serial number entered into the Solaris platform for that device.
 
-        <!-- TODO: Add the link -->
-        <!-- markdownlint-disable-next-line no-empty-links -->
-        ![Solaris device provisioning in AirLink]()
+    <!-- TODO: Add the link -->
+    <!-- markdownlint-disable-next-line no-empty-links -->
+    ![Solaris device provisioning in AirLink]()
 
-    2. To provision devices in AirLink in bulk to connect to Solaris servers for PAYGO Tokens, use the format while uploading new devices in the following CSV File:
+  2. To provision devices in AirLink in bulk to connect to Solaris servers for PAYGO Tokens, use the format while uploading new devices in the following CSV File:
 
-        [TestSolarisDevices.csv](Connecting%20to%20Solaris%20or%20Angaza/TestSolarisDevices.csv)
+    [TestSolarisDevices.csv](Connecting%20to%20Solaris%20or%20Angaza/TestSolarisDevices.csv)
 
 3. **PAYGO Tokens:** Solaris makes tokens available each time telemetry data is posted to the server. For this reason, the AirLink server expects any property to be updated for a Solaris device, upon which it will automatically download the latest token provided by the Solaris server. This token can then be pulled to the device using a 'GET' equivalent command for the pc_tkn property. Note that the demo app can do this automatically.
 
@@ -76,27 +76,27 @@ The end to end process for Angaza devices is shown in the following video: [Anga
 
 1. **Credentials:** For simplicity, the credentials required for a particular Angaza account's API access have been added to the json of the Angaza rule chain (the GitHub file has the development account credentials that need to be replaced with your own Angaza account's credentials). Look for the following in the Angaza rule chain .json file and edit it with your username (in place of airlink_nexus_demo) and password (in place of !2?6r*Cugq9Y) within the quotes, before uploading to the AirLink tenant:
 
-    ```json
-    var username = \"airlink_nexus_demo\";\nvar password = \"!2?6ruCugq9Y\"
-    ```
+  ```json
+  var username = \"airlink_nexus_demo\";\nvar password = \"!2?6ruCugq9Y\"
+  ```
 
-    It can be edited after installation to your tenant by opening the "Add Angaza Auth Info" module in the Angaza rule chain from the server UI.
+  It can be edited after installation to your tenant by opening the "Add Angaza Auth Info" module in the Angaza rule chain from the server UI.
 
-    ![AngazaAuthInfo](Connecting%20to%20Solaris%20or%20Angaza/AngazaAuthInfo.png)
+  ![AngazaAuthInfo](Connecting%20to%20Solaris%20or%20Angaza/AngazaAuthInfo.png)
 
-    *Note that only one Angaza credential is supported out of the box, which means that the functionality is best suited to a manufacturer. Further development of the airlink server is possible to support different device groups with different Angaza credentials if needed.*
+  *Note that only one Angaza credential is supported out of the box, which means that the functionality is best suited to a manufacturer. Further development of the airlink server is possible to support different device groups with different Angaza credentials if needed.*
 
 2. **Provisioning:**
 
-    1. To provision a single device to AirLink for use with the Angaza platform, use the AirLink App to provision the device and select payg_type as Angaza and Label as the serial number. The app and server will then *automatically add this to your Angaza platform*
+  1. To provision a single device to AirLink for use with the Angaza platform, use the AirLink App to provision the device and select payg_type as Angaza and Label as the serial number. The app and server will then *automatically add this to your Angaza platform*
 
-        <!-- TODO: Add the link -->
-        <!-- markdownlint-disable-next-line no-empty-links -->
-        ![Angaza device provisioning in AirLink]()
+    <!-- TODO: Add the link -->
+    <!-- markdownlint-disable-next-line no-empty-links -->
+    ![Angaza device provisioning in AirLink]()
 
-    2. For bulk provisioning devices, Please use a format like the following CSV file to add Angaza devices, so that they get properly created in the Angaza server. Don't worry if something goes wrong, you can always delete devices and start again:
+  2. For bulk provisioning devices, Please use a format like the following CSV file to add Angaza devices, so that they get properly created in the Angaza server. Don't worry if something goes wrong, you can always delete devices and start again:
 
-        [TestAngazaDevices.csv](Connecting%20to%20Solaris%20or%20Angaza/TestAngazaDevices.csv)
+    [TestAngazaDevices.csv](Connecting%20to%20Solaris%20or%20Angaza/TestAngazaDevices.csv)
 
 3. **PAYGO Tokens:** Angaza devices use tokens for two reasons - for PAYGO credit, and for device-device commands on authorized paired devices. Both types of tokens can be exchanged using the AirLink flow, and hence AirLink effectively enables both Nexus Token and Nexus Channel functionalities. Whenever any activity happens on an Angaza device in the AirLink server e.g. saving a property value, it will download the latest PAYGO token from the Angaza server so that it is available to sync. Angaza does not push tokens to the AirLink server, so it is necessary to have device activity to pull the latest token. The easiest way to achieve this is to update a timestamp property via a 'POST' type command from the device or app, and then 'GET' the pc_tkn for the latest token pulled from the Angaza server. Note that the demo app can do this automatically.
 

@@ -38,7 +38,7 @@ Once you find a device, tapping on it simply brings up a list of Nexus resources
 
 ### Authorizing the gateway to the device with the Access Token
 
-Always, when connecting to a device, we recommend that the device lock it’s properties until the  (default or server) access token is supplied. Authorizing the device supplies it with the default access token.
+Always, when connecting to a device, we recommend that the device lock it’s properties until the (default or server) access token is supplied. Authorizing the device supplies it with the default access token.
 
 ![2.1 READ RESOURCE - Data is empty.jpg](AirLink%20App/2.1_READ_RESOURCE_-_Data_is_empty.jpg)
 
@@ -128,17 +128,17 @@ The primary role of an AirLink gateway is to keep AirLink devices (BLE, or GSM d
 
 1. Server updates Device: Pay as you go credits after payment are the primary server update, along with client and configuration data
 
-    ![AirLink Gateways or this App maps Server and Device properties](AirLink%20App/IoT_Communications_and_Components_spec_-_App_Architecture-2%201.png)
+  ![AirLink Gateways or this App maps Server and Device properties](AirLink%20App/IoT_Communications_and_Components_spec_-_App_Architecture-2%201.png)
 
-    AirLink Gateways or this App maps Server and Device properties
+  AirLink Gateways or this App maps Server and Device properties
 
 2. Device posts time-series telemetry via primary gateway: Device posts various IoT data described in Nexus Resource Models relating to energy generation, consumption, battery use as well as productive output. In this case, the app actually masquerades as the device and posts data directly into the device's telemetry endpoint. This is enabled for the app via user input of device access token or in a production app, from the server pairing the gateway with devices via sharing of the access token automatically upon sale. Location is added by the gateway.
 
 3. Neighborhood watch gateway posts device advertisement: If the app finds an AirLink device that is not registered as managed by that app instance (e.g. that customer doesn't have permissions for that device but another customer might), it will post the device's advertisement data to the server as a 'piggy-back' onto it's own telemetry, which the server then snips out and decides to post to the original device or forward on to the lost devices database.
 
-    ![**AirLink Lost/Stolen Devices Flow**](AirLink_Unknown_Device_Flow.png)
+  ![**AirLink Lost/Stolen Devices Flow**](AirLink_Unknown_Device_Flow.png)
 
-    **AirLink Lost/Stolen Devices Flow**
+  **AirLink Lost/Stolen Devices Flow**
 
 To convert between server-friendly JSON and Bluetooth-service friendly CBOR/.NET objects, the [Json.NET](http://Json.NET) and [PeterO.CBOR](https://github.com/peteroupc/CBOR) libraries are used. Since the list of properties can vary, we use collections and read the property types = device resource models such as “/batt” and “/temp” from the Bluetooth Descriptors.
 

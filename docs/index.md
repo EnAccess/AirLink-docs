@@ -1,27 +1,27 @@
 <!-- markdownlint-disable-next-line first-line-h1 -->
 <p align="center">
-  <a href="https://github.com/EnAccess/AirLink-Server">
-    <img
-      src="https://enaccess.org/wp-content/uploads/2023/04/Airlink-Graphics-GitHub-2240-%C3%97-800-.svg"
-      alt="AirLink-Server"
-      width="640"
-    >
-  </a>
-</p>
-<p align="center">
-    <em>AirLink uses financed phones as relay-extensions of the internet in remote areas, to extend productive asset data coverage in even the most rural communities. By introducing open-standards communications, AirLink allows customers’ phones and PAYGo assets to communicate with each other by using widely available, standard low-energy Bluetooth connectivity.</em>
-</p>
-<p align="center">
+ <a href="https://github.com/EnAccess/AirLink-Server">
   <img
-    alt="Project Status"
-    src="https://img.shields.io/badge/Project%20Status-stable-green"
+   src="https://enaccess.org/wp-content/uploads/2023/04/Airlink-Graphics-GitHub-2240-%C3%97-800-.svg"
+   alt="AirLink-Server"
+   width="640"
   >
-  <a href="https://github.com/EnAccess/AirLink-Server/blob/main/LICENSE" target="_blank">
-    <img
-      alt="License"
-      src="https://img.shields.io/github/license/EnAccess/AirLink-Server"
-    >
-  </a>
+ </a>
+</p>
+<p align="center">
+  <em>AirLink uses financed phones as relay-extensions of the internet in remote areas, to extend productive asset data coverage in even the most rural communities. By introducing open-standards communications, AirLink allows customers’ phones and PAYGo assets to communicate with each other by using widely available, standard low-energy Bluetooth connectivity.</em>
+</p>
+<p align="center">
+ <img
+  alt="Project Status"
+  src="https://img.shields.io/badge/Project%20Status-stable-green"
+ >
+ <a href="https://github.com/EnAccess/AirLink-Server/blob/main/LICENSE" target="_blank">
+  <img
+   alt="License"
+   src="https://img.shields.io/github/license/EnAccess/AirLink-Server"
+  >
+ </a>
 </p>
 
 ---
@@ -29,7 +29,7 @@
 This is **technical documentation** for AirLink.
 
 !!! info "AirLink"
-    AirLink is an open source framework (MIT License) for Pay-As-You-Go (PAYG) IoT devices to connect to compatible servers via Bluetooth® gateways. The protocol provides an interoperable communication standard and example code for wire-free communication between PAYG devices and an IoT server using smartphones as gateways.
+  AirLink is an open source framework (MIT License) for Pay-As-You-Go (PAYG) IoT devices to connect to compatible servers via Bluetooth® gateways. The protocol provides an interoperable communication standard and example code for wire-free communication between PAYG devices and an IoT server using smartphones as gateways.
 
 If you are looking for an overview of the AirLink project, the landing page is here:
 
@@ -80,21 +80,21 @@ Go
 
 - :material-radio: **AirLink devices** ([Nordic nRF](https://www.nordicsemi.com/Products/Bluetooth-Low-Energy) firmware)
 
-    [:octicons-arrow-right-24: AirLink devices documentation](AirLink Devices.md)
+  [:octicons-arrow-right-24: AirLink devices documentation](AirLink Devices.md)
 
-    [:octicons-mark-github-16: AirLink devices on Github](https://github.com/EnAccess/AirLink-Devices)
+  [:octicons-mark-github-16: AirLink devices on Github](https://github.com/EnAccess/AirLink-Devices)
 
-- :octicons-device-mobile-16: **AirLink App** ([Xamarin](https://dotnet.microsoft.com/en-us/apps/xamarin) and [Flutter](https://flutter.dev/) apps)
+- :octicons-device-mobile-16: **AirLink App** ([Flutter](https://flutter.dev/) app)
 
-    [:octicons-arrow-right-24: AirLink App documentation](AirLink App.md)
+  [:octicons-arrow-right-24: AirLink App documentation](AirLink App.md)
 
-    [:octicons-mark-github-16: AirLink App on Github](https://github.com/EnAccess/AirLink-App)
+  [:octicons-mark-github-16: AirLink App on Github](https://github.com/EnAccess/AirLink-App)
 
 - :material-server: **AirLink Server** ([Thingsboard](https://thingsboard.io/) server configuration)
 
-    [:octicons-arrow-right-24: AirLink Server documentation](AirLink Server.md)
+  [:octicons-arrow-right-24: AirLink Server documentation](AirLink Server.md)
 
-    [:octicons-mark-github-16: AirLink Server on Github](https://github.com/EnAccess/AirLink-Server)
+  [:octicons-mark-github-16: AirLink Server on Github](https://github.com/EnAccess/AirLink-Server)
 
 ![AirLink Components](AirLink_Components.png)
 
@@ -120,7 +120,7 @@ Go
 
 - [CBOR](http://cbor.io/): Memory-efficient JSON-like data format
 - [OCF](https://openconnectivity.org/developer/specifications/): Data structure standard to represent IoT devices
-  
+ 
 - [Nexus Channel](https://angaza.github.io/nexus-channel-models/resource_type_spec.html): Angaza's Inter-operability initiative
 - [OpenPAYGO Link](https://github.com/EnAccess/OpenPAYGO-Link/tree/main/Documentation): Wired inter-operability from Solaris/EnAccess
 - [OpenPAYGO Metrics](https://github.com/openpaygo/metrics): GSM inter-operability from Solaris

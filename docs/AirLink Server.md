@@ -25,23 +25,23 @@ This documentation serves as the reference to setup your own tenant in a way tha
 
 AirLink Server Tenant Setup
 
-| Business Need | Business Concepts | Thingsboard Concepts |
-| --- | --- | --- |
-| Devices provision themselves | Technician,ProvisionDevice | API Token,Gateway,Integration,Provisioning,Device AuthToken,Rule-chain Script |
-| AirLink uses nexus channel resource models ie standard device types | AirLink | Attributes,Device Profiles |
-| Simusolar uses Aeris globalSIM in PAYG** gateways | Aeris VPN,First PAYG Server | Integration,Device AuthToken,Gateway |
-| Phone or solar panel controls device | AirLink | Device AuthToken,Device Group |
-| Device belongs to customer | PAYG Customer,PAYG Box ID,System ID,Sales Order | Customer,Device,Integration,API Token |
-| Orders make Customers | Sales Order,PAYG Customer | Customer,Asset |
-| CBOR transfer over HTTP/MQTT | AirLink | Integration,Data Converter |
-| Loan platform updates credits | PAYG Credit,Financing,Webi | Integration,API Token |
-| Device heeds PAYG credits | Financing | Integration,Device AuthToken |
-| AirLink uses Nexus Keycode or Solaris OpenPAYGO Token | AirLink,Token Automation | Rule-chain Script,Attributes |
-| Device data saved | Callhome Data,Graphs and Maps | Device,Data Converter,Rule-chain Script,Device AuthToken |
-| Partners can see referred customer data | Graphs and Maps,PAYG Credit,PAYG Customer | Data Chart,Customer Group,Entity View Group |
-| Technicians update devices | Technician,ProvisionDevice,DFU,Service Swap,Debug Data | DFU,Gateway,Device,Device AuthToken,User Group,Data Converter,Integration,Asset,Asset Group |
-| Simusolar operates in several countries with inter-country asset movement | Centralized IT | Asset Group,Asset,User Group |
-| Simusolar franchises payg functionality | Distributor,PAYG Credit,Graphs and Maps,Token Automation,Debug Data | Customer Hierarchy,Customer Group,Multi-tenancy |
+| Business Need                                                             | Business Concepts                                                   | Thingsboard Concepts                                                                        |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Devices provision themselves                                              | Technician,ProvisionDevice                                          | API Token,Gateway,Integration,Provisioning,Device AuthToken,Rule-chain Script               |
+| AirLink uses nexus channel resource models ie standard device types       | AirLink                                                             | Attributes,Device Profiles                                                                  |
+| Simusolar uses Aeris globalSIM in PAYG** gateways                         | Aeris VPN,First PAYG Server                                         | Integration,Device AuthToken,Gateway                                                        |
+| Phone or solar panel controls device                                      | AirLink                                                             | Device AuthToken,Device Group                                                               |
+| Device belongs to customer                                                | PAYG Customer,PAYG Box ID,System ID,Sales Order                     | Customer,Device,Integration,API Token                                                       |
+| Orders make Customers                                                     | Sales Order,PAYG Customer                                           | Customer,Asset                                                                              |
+| CBOR transfer over HTTP/MQTT                                              | AirLink                                                             | Integration,Data Converter                                                                  |
+| Loan platform updates credits                                             | PAYG Credit,Financing,Webi                                          | Integration,API Token                                                                       |
+| Device heeds PAYG credits                                                 | Financing                                                           | Integration,Device AuthToken                                                                |
+| AirLink uses Nexus Keycode or Solaris OpenPAYGO Token                     | AirLink,Token Automation                                            | Rule-chain Script,Attributes                                                                |
+| Device data saved                                                         | Callhome Data,Graphs and Maps                                       | Device,Data Converter,Rule-chain Script,Device AuthToken                                    |
+| Partners can see referred customer data                                   | Graphs and Maps,PAYG Credit,PAYG Customer                           | Data Chart,Customer Group,Entity View Group                                                 |
+| Technicians update devices                                                | Technician,ProvisionDevice,DFU,Service Swap,Debug Data              | DFU,Gateway,Device,Device AuthToken,User Group,Data Converter,Integration,Asset,Asset Group |
+| Simusolar operates in several countries with inter-country asset movement | Centralized IT                                                      | Asset Group,Asset,User Group                                                                |
+| Simusolar franchises payg functionality                                   | Distributor,PAYG Credit,Graphs and Maps,Token Automation,Debug Data | Customer Hierarchy,Customer Group,Multi-tenancy                                             |
 
 ### Test entities
 
@@ -70,10 +70,10 @@ Two main roles are defined, Tenant Admin (first assigned along with tenant) who 
 
 ### Device Provisioning Flow in AirLink Server
 
-| Device State | Gateway Action |
-| --- | --- |
-| No Serial # | Program Serial # via BLE to Device |
-| Has Serial #, but not Provisioned | Act as Application Server: using Tenant Admin or Customer User credentials (login + password)
+| Device State                      | Gateway Action                                                                                |
+| --------------------------------- | --------------------------------------------------------------------------------------------- |
+| No Serial #                       | Program Serial # via BLE to Device                                                            |
+| Has Serial #, but not Provisioned | Act as Application Server: using Tenant Admin or Customer User credentials (login + password) |
 
 1. Generate Server Auth Token (SAT) and Airlink ID (aid)
 2. Provision Device to Devices Profile* in Server and get DeviceUUID
@@ -121,31 +121,31 @@ CBOR data types are defined here:
 
 [https://datatracker.ietf.org/doc/html/rfc7049#section-2.1](https://datatracker.ietf.org/doc/html/rfc7049#section-2.1)
 
-| NX resource | rtr | Resource Property | key | rtr_key | Qualifiers | CBOR Type | Description |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AirLink Device Provisioning 1.0 | prd | Server Auth Token | sat | prd_sat | String,Mandatory,Scope: Shared | 3 | <http://thinsboard.io> has a 20-char device authentication token unique to each device. During device provisioning, this token is written to the device, permanently attaching the device to the server. The token is never transmitted again. |
-| AirLink Device Provisioning 1.0 | prd | Provisioning Status | pst | prd_pst | Mandatory,Scope: Shared,Integer (uint8_t) | 0 | Reflected in Advt packet also. It can be unprovisioned, disabled, recall, stolen, Cash, Loan. The range is from 1-9. If not supported then 0 |
-| AirLink Device Provisioning 1.0 | prd | PayG Unit | pu | prd_pu | Mandatory,String,Scope: Shared | 3 | 36^1  The unit of the PayG update, it can be minutes, hours, days, months and years. [m-minutes, h-hours, d- days, M-months, Y-years] |
-| AirLink Device Provisioning 1.0 | prd | PayG Token starting code | psc | prd_psc | Scope: Shared,String | 3 | 1-day token, <https://github.com/EnAccess/OpenPAYGO-HW> |
-| AirLink Device Provisioning 1.0 | prd | PayG Units accepted | pul | prd_pul | Mandatory,String,Scope: Device | 3 | CSV list of acceptable Units e.g. "l" for liters, "h,d" for hours and days |
-| AirLink Client Provisioning 1.0 | prc | Provisioning Status | pst | prc_pst | Mandatory,Integer (uint8_t),Scope: Shared | 0 | Reflected in Advt packet also. It can be unprovisioned, disabled, recall, stolen, Cash, Loan. The range is from 1-9. If not supported then 0 |
-| AirLink Client Provisioning 1.0 | prc | Readable ID + Cbor header 2 bytes | rid | prc_rid | Mandatory,Integer (uint32_t),Scope: Shared | 26 | 2^(8*4) = 4,294,967,296 numeric device ids or payment reference or any number that device should display |
-| AirLink Client Provisioning 1.0 | prc | Customer's Phone | cp | prc_cp | String,Optional,Scope: Shared | 3 | Requested by customers for stolen device reporting (needs a workflow to collect this number explicitly from client in addition to regular lead number). Assign the mobile number of the customer to a device. With maximum of 16 character including + and country code number. This is for security purpose |
-| AirLink Client Provisioning 1.0 | prc | Customer Name | cn | prc_cn | String,Optional,Scope: Shared | 3 | Requested by customers for lost device reporting. This writes the customer name to a device with the maximum of 16 characters with space and special characters inclusive. |
-| AirLink Nexus Command 1.0 | nxc | Nexus COSE command | cmd | nxc_cmd | Scope: Shared | 3 | Upto 120 bytes for Nexus Channel Passthrough commands |
-| AirLink PAYG 1.0 | pyg | Current Server Time | lt | pyg_lt | Optional,Scope: Device |  | Linux epoch format, expires in Y2035. The current time when updating the device with PayG update. We do not recommend using this to calculate PAYG use, because it could be used to trick the device into more tokens. This is for non-PAYG purposes eg client experience |
-| AirLink PAYG 1.0 | pyg | Timestamp of last PAYG Update to device | lts | pyg_lts | Optional,Scope: Device |  | Linux epoch format, expires in Y2035, readonly - Historical last PayG update Timestamp |
-| AirLink PAYG 1.0 | pyg | Timestamp at which PayG remaining was calculated | ts | pyg_ts | Optional,Scope: Device |  | Linux epoch format, expires in Y2035. The Last date and time when the PayG update was fetched from the Server to client [Mobile phone or other communication device] |
-| AirLink PAYG 1.0 | pyg | Last Added PayG Credit | lcr | pyg_lcr | Optional,Scope: Device |  | Historical last PayG credit update duration. Range is from 01-9999 |
-| AirLink PAYG 1.0 | pyg | PayG Token | tkn | pyg_tkn | Scope: Shared |  | SipHash token. Accepted by device only if valid. No read token to ensure unsecured gateways cannot act maliciously.  |
-| PAYG Credit 1.0 | pyg | Mode | mo | pyg_mo | Not Implemented,Scope: Shared |  | mode of device i.e. leading/following etc
+| NX resource                     | rtr | Resource Property                                | key | rtr_key | Qualifiers                                 | CBOR Type | Description                                                                                                                                                                                                                                                                                                  |
+| ------------------------------- | --- | ------------------------------------------------ | --- | ------- | ------------------------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| AirLink Device Provisioning 1.0 | prd | Server Auth Token                                | sat | prd_sat | String,Mandatory,Scope: Shared             | 3         | <http://thinsboard.io> has a 20-char device authentication token unique to each device. During device provisioning, this token is written to the device, permanently attaching the device to the server. The token is never transmitted again.                                                               |
+| AirLink Device Provisioning 1.0 | prd | Provisioning Status                              | pst | prd_pst | Mandatory,Scope: Shared,Integer (uint8_t)  | 0         | Reflected in Advt packet also. It can be unprovisioned, disabled, recall, stolen, Cash, Loan. The range is from 1-9. If not supported then 0                                                                                                                                                                 |
+| AirLink Device Provisioning 1.0 | prd | PayG Unit                                        | pu  | prd_pu  | Mandatory,String,Scope: Shared             | 3         | 36^1 The unit of the PayG update, it can be minutes, hours, days, months and years. [m-minutes, h-hours, d- days, M-months, Y-years]                                                                                                                                                                         |
+| AirLink Device Provisioning 1.0 | prd | PayG Token starting code                         | psc | prd_psc | Scope: Shared,String                       | 3         | 1-day token, <https://github.com/EnAccess/OpenPAYGO-HW>                                                                                                                                                                                                                                                      |
+| AirLink Device Provisioning 1.0 | prd | PayG Units accepted                              | pul | prd_pul | Mandatory,String,Scope: Device             | 3         | CSV list of acceptable Units e.g. "l" for liters, "h,d" for hours and days                                                                                                                                                                                                                                   |
+| AirLink Client Provisioning 1.0 | prc | Provisioning Status                              | pst | prc_pst | Mandatory,Integer (uint8_t),Scope: Shared  | 0         | Reflected in Advt packet also. It can be unprovisioned, disabled, recall, stolen, Cash, Loan. The range is from 1-9. If not supported then 0                                                                                                                                                                 |
+| AirLink Client Provisioning 1.0 | prc | Readable ID + Cbor header 2 bytes                | rid | prc_rid | Mandatory,Integer (uint32_t),Scope: Shared | 26        | 2^(8*4) = 4,294,967,296 numeric device ids or payment reference or any number that device should display                                                                                                                                                                                                     |
+| AirLink Client Provisioning 1.0 | prc | Customer's Phone                                 | cp  | prc_cp  | String,Optional,Scope: Shared              | 3         | Requested by customers for stolen device reporting (needs a workflow to collect this number explicitly from client in addition to regular lead number). Assign the mobile number of the customer to a device. With maximum of 16 character including + and country code number. This is for security purpose |
+| AirLink Client Provisioning 1.0 | prc | Customer Name                                    | cn  | prc_cn  | String,Optional,Scope: Shared              | 3         | Requested by customers for lost device reporting. This writes the customer name to a device with the maximum of 16 characters with space and special characters inclusive.                                                                                                                                   |
+| AirLink Nexus Command 1.0       | nxc | Nexus COSE command                               | cmd | nxc_cmd | Scope: Shared                              | 3         | Upto 120 bytes for Nexus Channel Passthrough commands                                                                                                                                                                                                                                                        |
+| AirLink PAYG 1.0                | pyg | Current Server Time                              | lt  | pyg_lt  | Optional,Scope: Device                     |           | Linux epoch format, expires in Y2035. The current time when updating the device with PayG update. We do not recommend using this to calculate PAYG use, because it could be used to trick the device into more tokens. This is for non-PAYG purposes eg client experience                                    |
+| AirLink PAYG 1.0                | pyg | Timestamp of last PAYG Update to device          | lts | pyg_lts | Optional,Scope: Device                     |           | Linux epoch format, expires in Y2035, readonly - Historical last PayG update Timestamp                                                                                                                                                                                                                       |
+| AirLink PAYG 1.0                | pyg | Timestamp at which PayG remaining was calculated | ts  | pyg_ts  | Optional,Scope: Device                     |           | Linux epoch format, expires in Y2035. The Last date and time when the PayG update was fetched from the Server to client [Mobile phone or other communication device]                                                                                                                                         |
+| AirLink PAYG 1.0                | pyg | Last Added PayG Credit                           | lcr | pyg_lcr | Optional,Scope: Device                     |           | Historical last PayG credit update duration. Range is from 01-9999                                                                                                                                                                                                                                           |
+| AirLink PAYG 1.0                | pyg | PayG Token                                       | tkn | pyg_tkn | Scope: Shared                              |           | SipHash token. Accepted by device only if valid. No read token to ensure unsecured gateways cannot act maliciously.                                                                                                                                                                                          |
+| PAYG Credit 1.0                 | pyg | Mode                                             | mo  | pyg_mo  | Not Implemented,Scope: Shared              |           | mode of device i.e. leading/following etc                                                                                                                                                                                                                                                                    |
 
 For Write, a Nexus Channel Link must be established otherwise read-only, updated via token. AirLink 1.0 does not implement Nexus Channel, which was in development at the time of release of AirLink 1.0 |
-| PAYG Credit 1.0 | pyg | Device PayG Credit Remaining | re | pyg_re | Mandatory,Scope: Time Series |  | should be The value  remaining for the device to OFF.
+| PAYG Credit 1.0 | pyg | Device PayG Credit Remaining | re | pyg_re | Mandatory,Scope: Time Series | | should be The value remaining for the device to OFF.
 
 For Write, a Nexus Channel Link must be established otherwise read-only, updated via token. AirLink 1.0 does not implement Nexus Channel, which was in development at the time of release of AirLink 1.0 |
-| PAYG Credit 1.0 | pyg | Payg Token Secret | pts | pyg_pts | Mandatory,Scope: Server |  | On first release, this is the Nexus Keycode secret |
-| PAYG Credit 1.0 | pyg | Payg Token Message ID | msg | pyg_msg | Mandatory,Scope: Server |  | On first release, this is the Nexus Keycode message ID |
+| PAYG Credit 1.0 | pyg | Payg Token Secret | pts | pyg_pts | Mandatory,Scope: Server | | On first release, this is the Nexus Keycode secret |
+| PAYG Credit 1.0 | pyg | Payg Token Message ID | msg | pyg_msg | Mandatory,Scope: Server | | On first release, this is the Nexus Keycode message ID |
 
 Posting of device data to the server for off-edge devices is done via gateway by sharing their device access tokens with the gateway using the application server. For Smartphone gateways, this can be done via a separate channel to the application server. For 'thing' gateways, this must be done via a 'disappearing' shared server attribute for that gateway, so that tokens are not saved in the insecure data space for too long. The application server then would update the attribute to transfer tokens to the gateway, and then blank it out once the gateway receives the tokens or after a certain timeout.
 
@@ -168,15 +168,15 @@ Device-initiated or gateway-initiated communications posting time-series data an
 1. Individual devices equipped with GSM send data directly ***using their device token*** e.g. water pump control boxes
 2. Gateways bundled with a sale ***register as MQTT gateways*** in the AirLink server to be able to post data from multiple downstream devices while minimizing bandwidth use. This is relevant because such IoT gateways often use data-thrifty 'Global-SIM' cards which can rack up high data costs e.g. solar panel with GSM chip bundled with 3 batteries that it charges
 3. Phone apps acting as gateways post data ***as the device*** and get PAYG updates from the server, ***using the individual device tokens*** downloaded during the sales and service flows. This needs to be enabled by the business applications server and is useful because several phone gateways may be used to operate the same device and a one-device multi-gateway scenario with offline access is not well served by MQTT. PAYG security is still ensured by the fact that the token is still only decode-able to the server and the device and not the intervening gateways. e.g. equipment owner could operate the device, several equipment technicians could operate the device etc.
-4. Phone apps and gateways post advertisement data for ***unknown*** AirLink devices to facilitate lost-and-found using a ***special property within the gateway's telemetry***  which is then processed by the root rule chain with the necessary validations to ensure that data gets send to the correct recipient and so that it is not used for posting non-advertising telemetry or attributes for the device.
+4. Phone apps and gateways post advertisement data for ***unknown*** AirLink devices to facilitate lost-and-found using a ***special property within the gateway's telemetry*** which is then processed by the root rule chain with the necessary validations to ensure that data gets send to the correct recipient and so that it is not used for posting non-advertising telemetry or attributes for the device.
 
 AirLink currently only supports HTTP transport, CoAP will be enabled in the future. CBOR formatting of data is not currently supported.
 
-| Concept | MQTT | HTTP/CoAP ✅ |
-| --- | --- | --- |
-| Application Server + IoT Server model for value-added services | ⚠️ Can only be used for IoT comms, not business app comms | Needed by phone app for comms to application server, but not by non-phone gateways |
-| Bandwidth | Better than HTTP for persistent connections - not expected in AirLink | ✅ CoAP is better than MQTT, more so when connections are sporadic - as is expected in AirLink |
-| IoT Gateway functionality | ✅ Thingsboard supports MQTT as gateway paired with customer devices, majority use case
+| Concept                                                        | MQTT                                                                                   | HTTP/CoAP ✅                                                                                   |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Application Server + IoT Server model for value-added services | ⚠️ Can only be used for IoT comms, not business app comms                               | Needed by phone app for comms to application server, but not by non-phone gateways            |
+| Bandwidth                                                      | Better than HTTP for persistent connections - not expected in AirLink                  | ✅ CoAP is better than MQTT, more so when connections are sporadic - as is expected in AirLink |
+| IoT Gateway functionality                                      | ✅ Thingsboard supports MQTT as gateway paired with customer devices, majority use case |
 ✅ Single connection can report multiple devices' data
 ❌ If multiple gateways need to own devices, they would need to be transferred between devices e.g. Field service agent's phone, customer's phone, farm boys' phone etc by online transactions with server - may not be feasible in the field | ⚠️ Credential of each device would need to be known to gateway (additional thingsboard workflow), and list of gateways that can control device wouldn't be registered with Airlink server (more potential for spoofing), requiring credentials to be refreshed or other security measures
 ⚠️ Each device would need to be reported separately, increasing number of HTTP required connections
@@ -203,9 +203,9 @@ The provided KeyCode node
 Here is a test sequence that can verify that the PAYG Token chain is working end to end from credit request to device function.
 
 | KeyCode Node Function | msg_id, saved in server side attributes | Credit Request Packet from Postman POST mimicking loan management server - note the knowledge of ‘Device ID’, which is the UUID of the IoT device on the AirLink Server | Input Key to KeyCode node, visible in node “Events” metadata with Debug enabled on AirLink Server | Output Message from KeyCode node sent to Device via Shared Attributes sync’d through the AirLink gateway App, visible in node “Events” metadata with Debug enabled on AirLink Server | Decoded Output within AirLink Device implementing Nexus Keycode |
-| --- | --- | --- | --- | --- | --- |
-| Added 6 Days | 1 | {
-    “pay_g_tkn”:”6”
+| --------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- |
+| Added 6 Days          | 1                                       | {                                                                                                                                                                       |
+  “pay_g_tkn”:”6”
 } | “pay_g_tkn”:”6”, | *010 050 135 981 34# | - Received tkn*01005013598134#
 
 - PayG update received
@@ -213,15 +213,15 @@ Here is a test sequence that can verify that the PAYG Token chain is working end
 - Credit remaining: 86400 seconds
 - PayG update received |
 | Set Device to exactly 10 Days | 2 | {
-    “set_tkn”:”11”
+  “set_tkn”:”11”
 } | “set_tkn”:”11” | *123 026 694 078 81# | - Received tkn*12302669407881#
 - PayG update received
 - Keycode is valid.
 - Credit remaining: 950100 seconds
 - PayG update received |
 | Unlock the Device | 3 | {
-    “unlock_tkn”:”1”
-} |  “unlock_tkn”:”1” | *336 153 083 439 44# | - Received tkn*33615308343944#
+  “unlock_tkn”:”1”
+} | “unlock_tkn”:”1” | *336 153 083 439 44# | - Received tkn*33615308343944#
 - PayG update received
 - Keycode is valid.
 - The device is unlocked
