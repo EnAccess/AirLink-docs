@@ -46,143 +46,36 @@ Here is also a helpful guide that plays through the AirLink adoption flow in sho
 *For all potential use cases, EnAccess hosts the IoT server for free so that you can try your idea quickly and cost effectively!*
 
 Are you evaluating AirLink as:
-<details>
 
-<summary>A Device Manufacturer developing devices to be used in remote-region IoT data collection or PAYGO-financed use</summary>
+### [:material-factory: A Device Manufacturer developing devices to be used in remote-region IoT data collection or PAYGO-financed use](Use%20Case%20-%20Device%20Manufacturer.md)
 
-### Why
+### [:clipboard: An NGO wanting to define a adaptable hardware/software standard for data collection in your projects or grantees](Use%20Case%20-%20Paygo%20Entrepreneur.md)
 
-AirLink saves manufacturers from the hassle of building out a custom IoT software backend for their hardware devices, and the open source format makes it likely that several adopters with different software stacks for business management can adopt AirLink devices. *This clear separation of the hardware and software stacks using the most commonly adopted ad-hoc wireless communication standard, Bluetooth®, is a key benefit of AirLink.* If your idea requires PAYGO devices *without* data connectivity, do also check out the [OpenPAYGO Token](https://enaccess.org/materials/openpaygotoken/).
-
-### Making your Devices compatible with AirLink
-
-Compatibility takes four simple steps focused on Advertisement and Data format, and optionally on authentication.
-
-1. Customize the Advertisement packet to match AirLink spec, as mentioned in the [AirLink Devices](AirLink%20Devices.md) page.
-2. Group similar properties e.g. tempC, maxTemp. Create a [CBOR array](https://cbor.me) with these properties. These will be transferred once the app connects to the device. Collapsing several individual properties into one CBOR Array has the added benefit of making the data transfer memory efficient and fast.
-3. Name the Bluetooth® *descriptor* with the property name e.g. 'temp'. Then, AirLink will understand your properties as temp_tempC, temp_maxTemp etc and on successful sync you will find these properties in the timeseries data for that device on the server. Device configurations are also saved similarly in dcfg_* properties.
-4. Optional: Build an [access control flow](#airlink-main-flows) in your devices which relies on a Server Access Token "password" unique to the device, starting with a pre-programmed value which is entered into to the firmware. Then, your device will only allow data transfer from/to a particular app which knows the default access token - and once provisioned on the server, will receive an access token *unique* to it. All device data access control will then be locked to phones that can access this unique device token from the server, based on the Role-Based Access Control functions available on the server.
-
-### Supplying AirLink Devices
-
-There are three main options to having distributors or end users adopt your AirLink devices.
-
-1. Get tenancy on the [AirLink Server](AirLink%20Server.md) and manage devices yourself, using API capabilities to interface with the software stack of the adopter. Upload devices using [CSV upload](Quick-start%20guide.md) to get them ready for the adopter's AirLink App.
-2. Get tenancy on the [AirLink Server](AirLink%20Server.md) and use the built-in Angaza or Solaris integration to make your devices connect with one of those software stack, using credentials supplied by Angaza or Solaris. This means any adopter using those software stacks can use your devices, only requirement being obtaining manufacturer and/or distributor API credentials from Angaza or Solaris.
-3. Send your devices to the distributor or end user with only the default access token programmed, and the distributor can then associate them with their own version of the AirLink App and their own server tenancy
-
-For each of the cases, the only input required to the devices after [Compatibility](#making-your-devices-compatible-with-airlink) is programming the default access token. Similarly, the only step required to move devices between distributors e.g. reselling stock is to change the default access token to the one supported by the other adopter. The devices themselves are separate from any custom functionality developed in the AirLink app for each distributor/user/adopter so the AirLink Bluetooth® protocol effectively acts to insulate the devices from software stack changes.
-
-### Bluetooth® SIG registration
-
-If your customer will be selling the devices without changing the product name or incorporating into another product, you might need to register with the Bluetooth® SIG at your cost (or negotiate with a distributor). You only have to do this once for all your products that depend on a single Bluetooth® IC e.g. nRF81822, or the Laird BL653 etc. More details are on the [AirLink Devices](AirLink%20Devices.md) page.
-
----
-</details>
-<details>
-
-<summary>An NGO wanting to define a adaptable hardware/software standard for data collection in your projects or grantees</summary>
-
-### Why adopt AirLink as an NGO
-
-Several common needs for IoT data transfer at low cost and poor-network areas using a semi-skilled workforce of agents are covered natively by AirLink, and customization to a particular device type or project can be done with software modifications. Further, hardware devices get a clear spec to design to from this AirLink documentation, making it easier to engage contractors.
-
-### Out of the box
-
-AirLink, after following the [Quick-Start](Quick-start%20guide.md), can synchronize data from AirLink-compatible devices to the server without any other setup. Server data and device configuration updates can be pulled from the server when in network range, and device updates and data collection from the device can be done fully offline over Bluetooth®. This can be tested using the AirLink Gateway App and AirLink Devices app as shown in the guide.
-
-To customize this behavior for your own data collection project, you will need to customize your Bluetooth® device firmware as well as the open-source AirLink App as below:
-
-### Making Devices compatible with AirLink
-
-If the devices that will serve the data you need to collect have Bluetooth® enabled, then compatibility takes four simple steps focused on Advertisement and Data format, and optionally on authentication. Please discuss these with the device manufacturer, and ensure that they get the devices declared with the Bluetooth® SIG:
-
-1. Customize the Advertisement packet to match AirLink spec, as mentioned in the [AirLink Devices](AirLink%20Devices.md) page.
-2. Group similar properties e.g. tempC, maxTemp. Create a [CBOR array](https://cbor.me) with these properties. These will be transferred once the app connects to the device
-3. Name the Bluetooth® *descriptor* with the property name e.g. 'temp'. Then, AirLink will understand your properties as temp_tempC, temp_maxTemp etc and on successful sync you will find these properties in the timeseries data for that device on the server. Device configurations are also saved similarly in dcfg_* properties.
-4. Optional: Build an [access control flow](#airlink-main-flows) in your devices which relies on a Server Access Token "password" unique to the device, starting with a pre-programmed value which is entered into to the firmware. Then, your device will only allow data transfer from/to a particular app which knows the default access token - and once provisioned on the server, will receive an access token *unique* to it. All device data access control will then be locked to phones that can access this unique device token from the server, based on the Role-Based Access Control functions available on the server.
-
-### Building information ownership
-
-Want to assign devices to certain agents? Want to ensure that they automatically pull data when in range / on a button press? Need to store access tokens for certain devices on certain agent phones? No problem! All of these can be achieved using the API access between the AirLink App and the server, and the Role Based Access Control available in thingsboard. The full documentation for the server API is live at the server's [Swagger URL](https://airlink.enaccess.org/swagger-ui.html).
-
-Here are some starting ideas to get your work setup. These can be either done in the Flutter app itself, or on a server running your own application stack "Your Stack".
-
-1. Relating Agents and Devices - AirLink Server UI OR Flutter App OR Your Stack - The first step is to create a relation from the Agent or Customer, registered as a user or customer in the AirLink server, to your device. You can do this via the AirLink server UI, or API access using the "Tenant Administrator" role available in the Flutter app for demonstration, as shown below:
-   UI:
-   ![]()
-
-   API:
-   []()
-
-   ![]()
-2. Pulling relevant Server Access Tokens from the server for devices related to a particular app - Flutter App - The first step here is to relate each app instance to the user/customer created in Step #1. At Simusolar, we built a SMS based authentication flow for customers and an email based flow for our Staff, all using Thingsboard.io Rule Chains on the AirLink server connecting to our software stack via API. Once you have users/customers related to the app instance, the relations built in Step#1 will indirectly relate the devices to the app instance. You can then download a list of all 'Server Access Tokens' from the server for the devices that have the relevant relationship, using a query based lookup supported by the AirLink server. For this, you will need to use the "Tenant Administrator" role in the Flutter App andn access this API:
-   []()
-
-   For example, to download access tokens related to a particular customer's "Owned" devices, here is the code:
-
-   ```JSON
-   abcd
-   ```
-
-### Using the devices and app to collect data at scale
-
-1. Admin and Agent roles for Device initialization and Use - Flutter App -
-2. Auto-synchronizing - Flutter App -
-3. Optional: Create an Automation in your Flutter app that scans for devices, connects to them one by one and pulls data from them to make the process seamless for an Agent or user. The open-source app has the mechanism for the individual steps but leaves the process automation to you depending on your use case.
-
----
-</details>
-<details>
-
-<summary>A Fintech/PAYGO entrepreneur focused on innovative software, needing a standard hardware spec to share with a device manufacturer</summary>
-
-### Why AirLink as a Fintech/PAYGO entrepreneur
-
-Does your idea require network-connected or PAYGO devices at low cost? Are you planning on a smartphone app as the primary UI for the customer / end user? Do you want to get started with your idea quickly?
-
-### Trying AirLink out
-
-You can decide if AirLink is for you by simply downloading two apps and getting access to the demo server from EnAccess. The [Quick-start](Quick-start%20guide.md) outlines this process.
-
-### Saving MVP costs
-
-The EnAccess team are committed to open source innovation, and run the AirLink server for the same reason. By requesting your own tenancy on the server, you can start prototyping your custom app immediately! With in-build PAYGO functionality, AirLink takes the most complex but non-differentiating piece out of the equation and lets you focus on your differentiating development. If your idea requires PAYGO devices without data connectivity, do also check out the [OpenPAYGO Token](https://enaccess.org/materials/openpaygotoken/).
-
-### Idea -> differentiating development, quickly
-
-AirLink allows you to focus on what is unique to your business idea by abstracting away the complexity of setting up an IoT device-gateway-server connection. If the smartphone-centric use case is what you need, you can dive into your differentiating development while awaiting prototype devices from a manufacturer of your choice. After trying out the initial demo,
-
-1. Fork the Flutter code from the [AirLink Gateway app](https://github.com/EnAccess/Airlink-App/tree/main/airlink_flutter) and start developing.
-2. Download the [AirLink Device demo app](https://github.com/EnAccess/AirLink-Devices) APK, so that you can use a phone as a representative device. If it helps, modify the simple Android-native Java source-code to add more 'device' functionality to the device demo app.
-3. Provide the [AirLink Devices](AirLink%20Devices.md) spec to any hardware manufacturer capable of making a Bluetooth® device to your specifications. This includes an open-source firmware library for the nRF Bluetooth® development kit, one of the most commone Bluetooth® hardware development platforms.
-4. Use the [Swagger documentation](https://airlink.enaccess.org/swagger-ui.html) for API access to the AirLink server as you develop complex customer-device functionality using Thingsboard.io's full Pro version!
-
-</details>
+### [:material-lightbulb-on: A Fintech/PAYGO entrepreneur focused on innovative software, needing a standard hardware spec to share with a device manufacturer](Use%20Case%20-%20Device%20Manufacturer.md)
 
 ---
 
 ## AirLink components
 
-- :material-radio: **AirLink devices** ([Nordic nRF](https://www.nordicsemi.com/Products/Bluetooth-Low-Energy) firmware)
+![AirLink Components](AirLink_Components.png)
+
+### :material-radio: **AirLink devices** ([Nordic nRF](https://www.nordicsemi.com/Products/Bluetooth-Low-Energy) firmware)
 
   [:octicons-arrow-right-24: AirLink devices documentation](AirLink Devices.md)
 
   [:octicons-mark-github-16: AirLink devices on Github](https://github.com/EnAccess/AirLink-Devices)
 
-- :octicons-device-mobile-16: **AirLink App** ([Flutter](https://flutter.dev/) app)
+### :octicons-device-mobile-16: **AirLink App** ([Flutter](https://flutter.dev/) app)
 
   [:octicons-arrow-right-24: AirLink App documentation](AirLink App.md)
 
   [:octicons-mark-github-16: AirLink App on Github](https://github.com/EnAccess/AirLink-App)
 
-- :material-server: **AirLink Server** ([Thingsboard](https://thingsboard.io/) server configuration)
+### :material-server: **AirLink Server** ([Thingsboard](https://thingsboard.io/) server configuration)
 
   [:octicons-arrow-right-24: AirLink Server documentation](AirLink Server.md)
 
   [:octicons-mark-github-16: AirLink Server on Github](https://github.com/EnAccess/AirLink-Server)
-
-![AirLink Components](AirLink_Components.png)
 
 ---
 
