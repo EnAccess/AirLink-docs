@@ -41,7 +41,7 @@ Here is also a helpful guide that plays through the AirLink adoption flow in sho
 
 ---
 
-## Use cases
+## Example Use cases
 
 *For all potential use cases, EnAccess hosts the IoT server for free so that you can try your idea quickly and cost effectively!*
 

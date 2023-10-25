@@ -120,9 +120,6 @@ nav:
   - AirLink Devices:
     - Home: AirLink Devices.md
     - Range Testing Results: AirLink Devices/Range Testing Results.md
-    - Nexus Command Resource nxc ed4247090ba4475583e05f72cc537ff0:
-      - COSE command cmd 854e60d9cf7c42bdb3ccdd5571389d76: AirLink Devices/Nexus Command Resource nxc ed4247090ba4475583e05f72cc537ff0/COSE command cmd 854e60d9cf7c42bdb3ccdd5571389d76.md
-      - cbor header d5440a5437974c6e898fad616e623875: AirLink Devices/Nexus Command Resource nxc ed4247090ba4475583e05f72cc537ff0/cbor header d5440a5437974c6e898fad616e623875.md
   - AirLink Server:
     - Home: AirLink Server.md
     - Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2:

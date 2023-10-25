@@ -20,25 +20,6 @@ This requirement as we understand only applies for sold products, not prototypes
 
 How far will an AirLink Bluetooth® link go? [We tested the range from a basic smartphone to a device.](AirLink%20Devices/Range%20Testing%20Results.md)
 
-### Device Emulator App
-
-To enable quick end to end testing of AirLink, we have designed a single-page Android-native app that imitates an AirLink device with temperature, battery and device configuration resources. The source code of this app as well as an Android-9 executable APK is saved in the [AirLink Devices Github repository](https://github.com/EnAccess/AirLink-Devices) under the Device Simulator folder.
-
-![Device Simulator app running on an Android-9 phone](AirLink%20Devices/Screenshot_20230208-141454_AirLink_BLE_Simulator.jpg)
-
-Device Simulator app running on an Android-9 phone
-
-This app allows you to:
-
-1. Pair with the main AirLink (gateway) app on another phone
-2. Go through the provisioning flow and initialize the token generation flow
-3. Send data to the server via the AirLink gateway app
-4. Accept tokens from the server - although there is no nexus token decoder running in the app, so it will accept any token
-
-The source code is meant as a reference when designing embedded firmware that can match AirLink’s provisioning and data exchange flows. With the emulator app, anyone can test AirLink without requiring hardware, simply by downloading it onto an Android phone, installing the AirLink gateway app on another phone, and logging on to the demo/custom tenant on the AirLink server.
-
-The [source code](https://github.com/EnAccess/AirLink-Devices) is not meant to actually process tokens, but could act as a starting point if Android Airlink devices are being developed.
-
 ### Nordic Device Firmware
 
 Nordic makes the most popular set of Bluetooth chips, and we have developed example firmware to support provisioning, data as well as full Nexus token capability. This firmware is meant to act as a reference for developing custom bluetooth hardware that supports AirLink and also to act as a testbed while developing a custom AirLink gateway app.
@@ -186,10 +167,6 @@ Any number greater than zero can be used for indicating which data proceeds espe
 | Readable ID "rid" + Cbor header 2 bytes     | 6                                                                  | Mandatory,Read-Write,Scope: Shared,Scope: Client                   | AirLink Client Provisioning 1.0                                                                                                                                                                                                                                                                              | 2^(8*4) = 4,294,967,296 numeric device ids or payment reference or any number that device should display                                                                   |
 | Provisioning Status "pst"                   | 1                                                                  | Unencrypted,Integer,Mandatory,Read-Write,Scope: Client             | AirLink Client Provisioning 1.0                                                                                                                                                                                                                                                                              | Reflected in Advt packet also. It can be unprovisioned, disabled, recall, stolen, Cash, Loan. The range is from 1-9. If not supported then 0                               |
 | Server Auth Token "sat" encryption overhead | 20                                                                 | Encrypted,String,Mandatory,Write-Only,Scope: Shared                | AirLink Client Provisioning 1.0                                                                                                                                                                                                                                                                              | <http://thinsboard.io> has a 20-char device authentication token unique to each device                                                                                     |
-
-### Nexus Command Resource /nxc
-
-[Nexus Command Resource /nxc](AirLink%20Devices/Nexus%20Command%20Resource%20nxc%20ed4247090ba4475583e05f72cc537ff0.csv)
 
 ### PUE Use Service
 
