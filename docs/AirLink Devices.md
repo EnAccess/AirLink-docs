@@ -64,11 +64,11 @@ We used the following additional assumptions to design our resource models:
 4. Location is to be appended by the gateway device before transmission to the server, as non-gateway devices are unlikely to have GSM/GPS to locate themselves. However, devices can store locations provided to them by gateway devices to enable a location history within the device if required
 5. Pay-as-you-go credits are sent as [Nexus Keycode Tokens](https://nexus.angaza.com/keycode.html), with planned future support for [OpenPAYGO Tokens](https://github.com/EnAccess/OpenPAYGO-Token) - this is to ensure interoperability with existing keypad/remote enabled devices as well as independence from time-stamp synchronization between server/gateway/end device.
 6. We cover the following general use cases here:
- 1. Required: Asset locatability by any gateway via advertisement
- 2. Required: Resource enumerator service
- 3. Required: Pay-as-you-go credits - we postulate that this does not require manufacturer specific authorization because OpenPAYG Tokens are already securely encrypted between a server and device
- 4. Self-provisioning as supported by [Thingsboard.io](http://thingsboard.io) servers
- 5. Optional: Power use and Productive Output data logging
+   1. Required: Asset locatability by any gateway via advertisement
+   2. Required: Resource enumerator service
+   3. Required: Pay-as-you-go credits - we postulate that this does not require manufacturer specific authorization because OpenPAYG Tokens are already securely encrypted between a server and device
+   4. Self-provisioning as supported by [Thingsboard.io](http://thingsboard.io) servers
+   5. Optional: Power use and Productive Output data logging
 
 ### Device Discovery Services
 

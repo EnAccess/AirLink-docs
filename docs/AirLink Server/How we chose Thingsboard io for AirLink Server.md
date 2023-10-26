@@ -153,14 +153,14 @@ Plotting the primary variable by device type
 - Setup DigitalOcean Ubuntu droplet
 - Setup [Thingsboard.io](http://thingsboard.io) docker image
 - Test custom protocol integration, write connector if required
- - Test VPN integration with Aeris
+  - Test VPN integration with Aeris
 - Buy managed PostGreSQL db on DigitalOcean
- - Reconfigure Thingsboard configuration-database connection
+  - Reconfigure Thingsboard configuration-database connection
 - Buy managed Cassandra droplet on DigitalOcean from Aiven
- - Reconfigure Thingsboard timeseries-database connection
+  - Reconfigure Thingsboard timeseries-database connection
 - Setup administration for EnAccess and tenancy for Simusolar and Tulima Solar
- - Setup tenant profile including dashboard template
- - Setup provisioning flow on Simusolar servers to attach to Simusolar tenant
+  - Setup tenant profile including dashboard template
+  - Setup provisioning flow on Simusolar servers to attach to Simusolar tenant
 - Configure phone app to act as MQTT gateway for protocol-compliant devices, including claiming flow
 
 ### Stakeholder validation (R.A.C.I.)

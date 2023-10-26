@@ -11,4 +11,3 @@ Coverage through concrete walls
 
 Line of sight range
 ![Line of sight range](Range%20Testing%20Results/20210614_085821_mfnr.jpg)
-
