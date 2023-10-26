@@ -39,9 +39,7 @@ Once you decide to try your own AirLink deployment and obtain a login from EnAcc
 In short, you will first setup the server, then connect the AirLink App to the server, provision a device using the App, and finally generate a Pay as you go token for the airlink device. Here are the steps in detail:
 
 1. Assumption: You have a **“Tenant Administrator”** email login provided by EnAccess, or one that you made for your own server. Login with this administrator account.
-Steps 2-5 are also covered in this video:
-
-  [Tenant setup: Users, Profiles and Rule Chains](https://youtu.be/Sw0xrE0ZpbI)
+   Steps 2-5 are also covered in this video: [Tenant setup: Users, Profiles and Rule Chains](https://youtu.be/Sw0xrE0ZpbI)
 2. Go to Users → Tenant Users, click on the + sign at the the top right of the page to create a new **Tenant User**. If activating by displaying activation link, note down the email and password. Note that the AirLink app uses this login information for administrative actions like registering devices via *Oauth*, whereas device data exchange is done using *access tokens*.
   ![AddingUsers.gif](AirLink%20Server/AddingUsers.gif)
 3. Setup Device Profiles
