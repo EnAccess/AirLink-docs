@@ -125,8 +125,8 @@ nav:
           - cbor header d5440a5437974c6e898fad616e623875: AirLink Devices/Nexus Command Resource nxc ed4247090ba4475583e05f72cc537ff0/cbor header d5440a5437974c6e898fad616e623875.md
   - AirLink Server:
       - Home: AirLink Server.md
-      - Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2:
-          - AirLink ID 34a6a602814745ab9a28940d1d3af142: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/AirLink ID 34a6a602814745ab9a28940d1d3af142.md
+      - ? Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2
+        : - AirLink ID 34a6a602814745ab9a28940d1d3af142: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/AirLink ID 34a6a602814745ab9a28940d1d3af142.md
           - Config status e g Firmware version 988f3023800e4866a1e1261b6fa36f35: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Config status e g Firmware version 988f3023800e4866a1e1261b6fa36f35.md
           - Customer Provisioning Information c6f47efb3ff542858cf76d07d5186883: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Customer Provisioning Information c6f47efb3ff542858cf76d07d5186883.md
           - Device Administration Configuration 30d49450eb1a44ccbd1ac620dcc63072: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Device Administration Configuration 30d49450eb1a44ccbd1ac620dcc63072.md
@@ -136,8 +136,8 @@ nav:
           - PAYG Token Secret, Message ID b093831971814a90b318c81b731c49f2: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/PAYG Token Secret, Message ID b093831971814a90b318c81b731c49f2.md
           - Rule chain alarm Thresholds c22121ef28224db891e765cb24ba59d5: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Rule chain alarm Thresholds c22121ef28224db891e765cb24ba59d5.md
           - Timeseries Data 5c5d4a527a5e4fa18fc32c31fe1fba8c: AirLink Server/Attribute Scopes for AirLink resource properties 81cd9ab605c54348a6c03bbef738dbd2/Timeseries Data 5c5d4a527a5e4fa18fc32c31fe1fba8c.md
-      - How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933:
-          - Home: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933.md
+      - ? How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933
+        : - Home: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc5 06431c838c41eb1c407933.md
           - Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548:
               - Analytics for metrics 5d54acc723e1438499645a7d8fd8e7b5: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/Analytics for metrics 5d54acc723e1438499645a7d8fd8e7b5.md
               - API 2b45090acf5a4dd3bb6c93cf09bbd247: AirLink Server/How we chose Thingsboard io for AirLink Server fdf5dfccc506431c838c41eb1c407933/Last Round Alternatives 0ab7b7c54fa646a9ae62f45fe89de548/API 2b45090acf5a4dd3bb6c93cf09bbd247.md
