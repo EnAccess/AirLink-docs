@@ -26,27 +26,19 @@ Want to assign devices to certain agents? Want to ensure that they automatically
 Here are some starting ideas to get your work setup. These can be either done in the Flutter app itself, or on a server running your own application stack "Your Stack".
 
 1. Relating Agents and Devices - AirLink Server UI OR Flutter App OR Your Stack - The first step is to create a relation from the Agent or Customer, registered as a user or customer in the AirLink server, to your device. You can do this via the AirLink server UI, or API access using the "Tenant Administrator" role available in the Flutter app for demonstration, as shown below:
-    UI:
-    ![Relating Devices to Other Entities via UI](AirLink%20Server/RelatingDevicesToEntities.gif)
+    UI: ![Relating Devices to Other Entities via UI](AirLink%20Server/RelatingDevicesToEntities.gif)
 
-    API:
-    [Adding Relations via API](https://airlink.enaccess.org/swagger-ui/#/entity-relation-controller/saveRelationUsingPOST)
+    API: [Adding Relations via API](https://airlink.enaccess.org/swagger-ui/#/entity-relation-controller/saveRelationUsingPOST)
 
 2. Pulling relevant Server Access Tokens from the server for devices related to a particular app - Flutter App - The first step here is to relate each app instance to the user/customer created in Step #1. At Simusolar for example, we built a SMS based authentication flow for customers and an email based flow for our Staff, all using Thingsboard.io Rule Chains on the AirLink server connecting to our software stack via API. Once you have users/customers related to the app instance, the relations built in Step #1 will indirectly relate the devices to the app instance. You can then download a list of all the devices that have the relevant relationship, using a query based lookup supported by the AirLink server. For this, you will need to use the "Tenant Administrator" role in the Flutter App and access this API:
     [Entity Query Controller](https://airlink.enaccess.org/swagger-ui/#/entity-query-controller)
     and then then get the Access Tokens for each of the related devices:
     [Device credentials by ID](https://airlink.enaccess.org/swagger-ui/#/device-controller/getDeviceCredentialsByDeviceIdUsingGET)
 
-    For example, to download access tokens related to a particular customer's "Owned" devices, here is the code:
-
-    ```JSON
-    abcd
-    ```
-
 ## Using the devices and app to collect data at scale
 
-1. Admin and Agent roles for Device initialization and Use - Flutter App -
-2. Auto-synchronizing - Flutter App -
+1. Device initialization and Use - Flutter App - [Provisioning AirLink apps and devices](https://youtu.be/L4Tj_V7B4CE)
+2. Synchronizing data via app - Flutter App - [Synchronizing data](https://youtu.be/2zY5vETH4zk)
 3. Optional: Create an Automation in your Flutter app that scans for devices, connects to them one by one and pulls data from them to make the process seamless for an Agent or user. The open-source app has the mechanism for the individual steps but leaves the process automation to you depending on your use case.
 
 ---

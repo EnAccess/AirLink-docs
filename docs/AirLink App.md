@@ -95,7 +95,7 @@ As long as a unique serial number is supplied, the server accepts the device and
     [AirLink Server Setup](https://youtu.be/6GAqmAPOLjI)
 
     For Solaris devices, uploading a CSV is the only option: 
-    []()
+    ![Solaris device provisioning in AirLink](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page%20-%20provisioning%20input%20with%20type%20expanded.jpg)
 
 ### Entering Tokens
 
