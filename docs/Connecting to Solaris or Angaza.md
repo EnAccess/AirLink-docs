@@ -83,11 +83,9 @@ The end to end process for Angaza devices is shown in the following video: [Anga
 2. **Provisioning:**
 
    1. To provision a single device to AirLink for use with the Angaza platform, use the AirLink App to provision the device and select payg_type as Angaza and Label as the serial number. The app and server will then *automatically add this to your Angaza platform*
-
-      <!-- TODO: Add the link -->
-      <!-- markdownlint-disable-next-line no-empty-links -->
       ![Angaza device provisioning in AirLink]()
-   2. For bulk provisioning devices, Please use a format like the following CSV file to add Angaza devices, so that they get properly created in the Angaza server. Don't worry if something goes wrong, you can always delete devices and start again:
-    [TestAngazaDevices.csv](Connecting%20to%20Solaris%20or%20Angaza/TestAngazaDevices.csv)
+   2. For bulk provisioning devices, Please use a format like the following CSV file to add Angaza devices, so that they get properly created in the Angaza server. Don't worry if something goes wrong, you can always delete devices and start again: 
+
+   [TestAngazaDevices.csv](Connecting%20to%20Solaris%20or%20Angaza/TestAngazaDevices.csv)
 3. **PAYGO Tokens:** Angaza devices use tokens for two reasons - for PAYGO credit, and for device-device commands on authorized paired devices. Both types of tokens can be exchanged using the AirLink flow, and hence AirLink effectively enables both Nexus Token and Nexus Channel functionalities. Whenever any activity happens on an Angaza device in the AirLink server e.g. saving a property value, it will download the latest PAYGO token from the Angaza server so that it is available to sync. Angaza does not push tokens to the AirLink server, so it is necessary to have device activity to pull the latest token. The easiest way to achieve this is to update a timestamp property via a 'POST' type command from the device or app, and then 'GET' the pc_tkn for the latest token pulled from the Angaza server. Note that the demo app can do this automatically.
 4. **Telemetry Data:** Telemetry forwarding to Angaza is not supported out of the box i.e. Device properties such as location sent from the device will be saved to the AirLink server, but will not be automatically forwarded to Angaza. This is because Angaza requires first a registration of a ‘data format’ to save device data, which needs to be done per manufacturer spec. There is a stub of the rule chain required for this interchange setup in the Angaza rule-chain, and can be edited per each manufacturer’s preference!

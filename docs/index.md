@@ -26,26 +26,17 @@
 
 ---
 
-This is **technical documentation** for AirLink.
-
-!!! info "AirLink"
-    AirLink is an open source framework (MIT License) for Pay-As-You-Go (PAYG) IoT devices to connect to compatible servers via   Bluetooth® gateways. The protocol provides an interoperable communication standard and example code for wire-free communication between PAYG devices and an IoT server using smartphones as gateways.
-
-If you are looking for an overview of the AirLink project, the landing page is here:
+This is **technical documentation** for AirLink. If you are looking for an overview of the AirLink project, see this:
 
 - [:octicons-arrow-right-24: AirLink project page @EnAccess](https://enaccess.org/airlink/)
 
-Here is also a helpful guide that plays through the AirLink adoption flow in short:
-
-- [🏁 Quick-start guide](Quick-start guide.md)
-
 ---
 
-## Example Use cases
+## Use cases
 
-*For all potential use cases, EnAccess hosts the IoT server for free so that you can try your idea quickly and cost effectively!*
+*For all potential use cases, EnAccess hosts the IoT server for free so that you can try your idea quickly and cost effectively!* [🏁 Quick-start guide](Quick-start guide.md)
 
-Are you evaluating AirLink as:
+How to use AirLink in some common uses:
 
 ### [:material-factory: A Device Manufacturer developing devices to be used in remote-region IoT data collection or PAYGO-financed use](Use%20Case%20-%20Device%20Manufacturer.md)
 
@@ -79,19 +70,23 @@ Are you evaluating AirLink as:
 
 ---
 
-## AirLink main flows
+## Key ideas built into AirLink
 
-### Data transfer flow
+### BLE-GSM Data transfer
 
 ![AirLink Data transfer flow](Simusolar_Architecture_Diagram_-_IoT_Data_Flow.png)
 
-### App architecture
+### IoT Device Lifecycle
 
-![AirLink App architecture](IoT_Communications_and_Components_spec_-_App_Architecture.png)
+![Device Lifecycle](IoT_Communications_and_Components_spec_-_App_Architecture.png)
 
-### Provisioning and Unknown device flow
+### App-driven, Crowdsourced locatability
 
 ![AirLink unknown device flow](AirLink_Unknown_Device_Flow.png)
+
+### PAYGO control
+
+[3-types of AirLink PAYGO](Connecting%20to%20Solaris%20or%20Angaza.md)
 
 ---
 

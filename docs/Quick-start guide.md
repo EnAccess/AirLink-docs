@@ -36,7 +36,9 @@ AirLink is also for businesses who want their products secured against loss or t
 
 Once you decide to try your own AirLink deployment and obtain a login from EnAccess on the managed demo server which can handle startup-scale IoT traffic (the fastest way to get your own AirLink deployment going), or setup your own [Thingsboard.io](http://Thingsboard.io) server, here is a step by step setup for your tenant login in the AirLink server.
 
-In short, you will first setup the server, then connect the AirLink App to the server, provision a device using the App, and finally generate a Pay as you go token for the airlink device. Here are the steps in detail:
+[A video playlist for setting up AirLink start to end](https://www.youtube.com/playlist?list=PLzs9gB3KSMw_u0zuKGCKE0x2EER0s6ONP)
+
+In short, you will first setup the server, then connect the AirLink App to the server, provision a device using the App, setup data sychronization, and finally generate a Pay as you go token for the airlink device. Here are the steps in detail:
 
 1. Assumption: You have a **“Tenant Administrator”** email login provided by EnAccess, or one that you made for your own server. Login with this administrator account.
    Steps 2-5 are also covered in this video: [Tenant setup: Users, Profiles and Rule Chains](https://youtu.be/Sw0xrE0ZpbI)
@@ -74,12 +76,12 @@ In short, you will first setup the server, then connect the AirLink App to the s
         ![Root rule chain.png](AirLink%20Server/Root%20rule%20chain.png)
 5. That’s it for the minimum required configuration on the Server! Next, **configure your AirLink App** to talk to your server per the following video, and you are set to provision and test real devices!
 
-  [AirLink App and End to End flow](https://youtu.be/OAEcQaUBIao)
+   [AirLink App and End to End flow](https://youtu.be/OAEcQaUBIao)
 6. After registering a device using the above flow, you can **generate a Nexus Keycode PAYG token** for it by using the **Postman collection in the AirLink-Server repository.**
 
-   1. Download both the **API calls** collection and the **environment**, and upload to your Postman (getpostman.com)
-   2. First use the login flow with the **Tenant User username/password** of the demo user to authenticate and get a JWT token, then
-   3. enter the **JWT token** into the Airlink environment current value
-   4. Use the Generate Token flow with the correct device ID to generate a Nexus Keycode **PAYG token** for your device. This token will be automatically saved in the device properties as well
-   5. Connect the AirLink App and type the token in manually into the PC resource, or via keypad as shown in the video above
+    1. Download both the **API calls** collection and the **environment**, and upload to your Postman (getpostman.com)
+    2. First use the login flow with the **Tenant User username/password** of the demo user to authenticate and get a JWT token, then
+    3. enter the **JWT token** into the Airlink environment current value
+    4. Use the Generate Token flow with the correct device ID to generate a Nexus Keycode **PAYG token** for your device. This token will be automatically saved in the device properties as well
+    5. Connect the AirLink App to the device and type the token in manually into the PC resource, or via keypad as shown in the video above
 7. If you are connecting to one of the supported built-in integrations - Solaris Or Angaza, follow this guide to connect AirLink devices to those software stacks: [Connecting to other PAYGO software providers](Connecting%20to%20Solaris%20or%20Angaza.md)

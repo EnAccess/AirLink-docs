@@ -15,8 +15,6 @@ Follow the tenant configuration section in
 
 AirLink builds a structure on top of a standard [Thingsboard.io](http://Thingsboard.io) professional edition server. The only, minimal customization is the addition of a rule node to generate PAYG tokens, which is not a default part of Thingsboard. A Thingsboard PE server is a ‘multi-tenant’ server, which means several separated businesses can run their IoT devices from a single server without visibility into the other tenants data. This setup makes it a perfect candidate for a centrally hosted server that can onboard new participants in the AirLink community. ***Please familiarize yourself with [http://thingsboard.io/](http://thingsboard.io/) documentation before reading the rest of this page!***
 
-[How we chose Thingsboard for AirLink Server](AirLink%20Server/How%20we%20chose%20Thingsboard%20io%20for%20AirLink%20Server%20fdf5dfccc506431c838c41eb1c407933.md)
-
 In the figure, the “AirLink Tenant” is the main location of the IoT setup of a particular tenant, which can be very different from the next tenant. In fact, we setup a second “Lost & Found Tenant”, also referred in this documentation as “Neighborhood Watch”, which is intended to be a common repository for tenant gateways who find AirLink devices that don’t belong to them but want to help locate them.
 
 This documentation serves as the reference to setup your own tenant in a way that is AirLink compliant. The bulk of the setup is very simple, and the only relatively complex configuration which is the “Rule Chain”, can be imported from a JSON file available in the [AirLink Server repository](https://github.com/EnAccess/AirLink-Server).
@@ -115,8 +113,6 @@ The following are the major attribute types and their scopes in a basic AirLink 
 
 Screenshot from AirLink server showing Attributes and Telemetry. Telemetry is always client-scope or 'device side'
 
-[Attribute Scopes for AirLink resource properties](AirLink%20Server/Attribute%20Scopes%20for%20AirLink%20resource%20properties%2081cd9ab605c54348a6c03bbef738dbd2.csv)
-
 CBOR data types are defined here:
 
 [https://datatracker.ietf.org/doc/html/rfc7049#section-2.1](https://datatracker.ietf.org/doc/html/rfc7049#section-2.1)
@@ -175,11 +171,7 @@ AirLink currently only supports HTTP transport, CoAP will be enabled in the futu
 | -------------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | Application Server + IoT Server model for value-added services | ⚠️ Can only be used for IoT comms, not business app comms                               | Needed by phone app for comms to application server, but not by non-phone gateways            |
 | Bandwidth                                                      | Better than HTTP for persistent connections - not expected in AirLink                  | ✅ CoAP is better than MQTT, more so when connections are sporadic - as is expected in AirLink |
-| IoT Gateway functionality                                      | ✅ Thingsboard supports MQTT as gateway paired with customer devices, majority use case |
-✅ Single connection can report multiple devices' data
-❌ If multiple gateways need to own devices, they would need to be transferred between devices e.g. Field service agent's phone, customer's phone, farm boys' phone etc by online transactions with server - may not be feasible in the field | ⚠️ Credential of each device would need to be known to gateway (additional thingsboard workflow), and list of gateways that can control device wouldn't be registered with Airlink server (more potential for spoofing), requiring credentials to be refreshed or other security measures
-⚠️ Each device would need to be reported separately, increasing number of HTTP required connections
-✅ Could support arbitrary number of gateways |
+| IoT Gateway functionality                                      | ✅ Thingsboard supports MQTT as gateway paired with customer devices, majority use case ✅ Single connection can report multiple devices' data ❌ If multiple gateways need to own devices, they would need to be transferred between devices e.g. Field service agent's phone, customer's phone, farm boys' phone etc by online transactions with server - may not be feasible in the field |⚠️ Credential of each device would need to be known to gateway (additional thingsboard workflow), and list of gateways that can control device wouldn't be registered with Airlink server (more potential for spoofing), requiring credentials to be refreshed or other security measures ⚠️ Each device would need to be reported separately, increasing number of HTTP required connections ✅ Could support arbitrary number of gateways |
 
 ### KeyCode generation
 
