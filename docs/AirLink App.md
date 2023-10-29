@@ -91,8 +91,8 @@ As long as a unique serial number is supplied, the server accepts the device and
 ![2.6 Device provisioned successfully.jpg](AirLink%20App/2.6_Device_provisioned_successfully.jpg)
 
 !!! info "Solaris or Angaza devices"
-    Angaza devices can be provisioned via the AirLink app as well! All you need are your Angaza API credentials for the manufacturer role. Enter these in the server:
-    []()
+    Angaza devices can be provisioned via the AirLink app as well! All you need are your Angaza API credentials for the manufacturer role. Enter these in the server (see rule-chains section):
+    [AirLink Server Setup](https://youtu.be/6GAqmAPOLjI)
 
     For Solaris devices, uploading a CSV is the only option: 
     []()
