@@ -115,11 +115,11 @@ extra_javascript:
 nav:
   - Home: index.md
   - AirLink App:
-    - Home: AirLink App.md
+      - Home: AirLink App.md
   - AirLink Devices:
-    - Home: AirLink Devices.md
-    - Range Testing Results: AirLink Devices/Range Testing Results.md
+      - Home: AirLink Devices.md
+      - Range Testing Results: AirLink Devices/Range Testing Results.md
   - AirLink Server:
-    - Home: AirLink Server.md
+      - Home: AirLink Server.md
   - Quick-start guide: Quick-start guide.md
   - Connecting to Solaris or Angaza: Connecting to Solaris or Angaza.md
