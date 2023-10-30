@@ -38,11 +38,11 @@ This is **technical documentation** for AirLink. If you are looking for an overv
 
 How to use AirLink in some common uses:
 
-### [:material-factory: A Device Manufacturer developing devices to be used in remote-region IoT data collection or PAYGO-financed use](Use%20Case%20-%20Device%20Manufacturer.md)
+### [:material-factory: A Device Manufacturer developing devices to be used in remote-region IoT data collection or PAYGO-financed use](Use%20Cases/Use%20Case%20-%20Device%20Manufacturer.md)
 
-### [:clipboard: An NGO wanting to define a adaptable hardware/software standard for data collection in your projects or grantees](Use%20Case%20-%20Paygo%20Entrepreneur.md)
+### [:clipboard: An NGO wanting to define a adaptable hardware/software standard for data collection in your projects or grantees](Use%20Cases/Use%20Case%20-%20Paygo%20Entrepreneur.md)
 
-### [:material-lightbulb-on: A Fintech/PAYGO entrepreneur focused on innovative software, needing a standard hardware spec to share with a device manufacturer](Use%20Case%20-%20Device%20Manufacturer.md)
+### [:material-lightbulb-on: A Fintech/PAYGO entrepreneur focused on innovative software, needing a standard hardware spec to share with a device manufacturer](Use%20Cases/Use%20Case%20-%20Device%20Manufacturer.md)
 
 ---
 
