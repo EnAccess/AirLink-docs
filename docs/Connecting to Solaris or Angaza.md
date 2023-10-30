@@ -32,7 +32,27 @@ To use AirLink with Solaris, you will need an account with Solaris that allows A
 
 *Note that requests for new PAYG credit/tokens are done to the Solaris platform in this case and AirLink only supports synchronizing with the devices.*
 
-The process for setting up PAYG devices is shown in the following video: [AirLink PAYG options](https://youtu.be/SR9axySPXTs)
+The process for setting up PAYG devices is shown in the following video:
+     <style>
+     .youtube-embed-container {
+     position: relative;
+     padding-bottom: 56.25%;
+     height: 0;
+     overflow:
+     hidden; max-width: 100%;
+     }
+     .youtube-embed-container iframe,
+     .youtube-embed-container object,
+     .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+     </style>
+     <div class="youtube-embed-container">
+     <iframe
+     src="https://youtube.com/embed/SR9axySPXTs?enablejsapi=1"
+     frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+     allowfullscreen>
+     </iframe>
+     </div>
 
 1. **Credentials:** For simplicity, the authentication token required for a particular Solaris account's API access have been added to the json of the Solaris rule chain (the GitHub file has the development account token that need to be replaced with your own Solaris account's token). Before uploading the Solaris rule chain json file, open it in a text editor and look for OPGMServerToken, then replace the value in quotes (starting with eyJ... and ending with ...WEY in the example) with the value provided by Solaris -
 
@@ -63,7 +83,27 @@ To use AirLink with Angaza, you will need an account with Angaza that allows API
 
 *Note that requests for new PAYG credit/tokens are done to the Angaza platform in this case and AirLink only supports synchronizing with the devices.*
 
-The process for Angaza PAYG is shown in the following video: [AirLink PAYG](https://youtu.be/SR9axySPXTs)
+The process for Angaza PAYG is shown in the following video:
+    <style>
+    .youtube-embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow:
+    hidden; max-width: 100%;
+    }
+    .youtube-embed-container iframe,
+    .youtube-embed-container object,
+    .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    </style>
+    <div class="youtube-embed-container">
+    <iframe
+    src="https://youtube.com/embed/SR9axySPXTs?enablejsapi=1"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+    </iframe>
+    </div>
 
 1. **Credentials:** For simplicity, the credentials required for a particular Angaza account's API access have been added to the json of the Angaza rule chain (the GitHub file has the development account credentials that need to be replaced with your own Angaza account's credentials). Look for the following in the Angaza rule chain .json file and edit it with your username (in place of airlink_nexus_demo) and password (in place of !2?6r*Cugq9Y) within the quotes, before uploading to the AirLink tenant:
 
@@ -79,7 +119,27 @@ The process for Angaza PAYG is shown in the following video: [AirLink PAYG](http
 2. **Provisioning:**
 
     1. To provision a single device to AirLink for use with the Angaza platform, use the AirLink App to provision the device and select payg_type as Angaza and Label as the serial number. The app and server will then *automatically add this to your Angaza platform*
-    ![Provisioning via AirLink App](https://youtu.be/L4Tj_V7B4CE)
+        <style>
+        .youtube-embed-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow:
+        hidden; max-width: 100%;
+        }
+        .youtube-embed-container iframe,
+        .youtube-embed-container object,
+        .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        </style>
+        <div class="youtube-embed-container">
+        <iframe
+        src="https://youtube.com/embed/L4Tj_V7B4CE?enablejsapi=1"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+        </iframe>
+        </div>
+
     2. For bulk provisioning devices, Please use a format like the following CSV file to add Angaza devices, so that they get properly created in the Angaza server. Don't worry if something goes wrong, you can always delete devices and start again:
 
     [TestAngazaDevices.csv](Connecting%20to%20Solaris%20or%20Angaza/TestAngazaDevices.csv)

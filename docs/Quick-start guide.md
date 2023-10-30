@@ -8,7 +8,27 @@ Trying out AirLink is easy:
     2. one acting as the actual [AirLink smartphone gateway](https://github.com/EnAccess/Airlink-App/releases/) - tested upto Android 11
 2. [Request the Demo tenant server login](https://enaccess.org/airlink/) from EnAccess,
 
-and you have the three components needed -Device, App and Server- to try AirLink quickly without buying any hardware! Check out this video for more - [AirLink demo video](https://youtu.be/OAEcQaUBIao)
+and you have the three components needed -Device, App and Server- to try AirLink quickly without buying any hardware! Check out this video for more -
+    <style>
+    .youtube-embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow:
+    hidden; max-width: 100%;
+    }
+    .youtube-embed-container iframe,
+    .youtube-embed-container object,
+    .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    </style>
+    <div class="youtube-embed-container">
+    <iframe
+    src="https://youtube.com/embed/OAEcQaUBIao?enablejsapi=1"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+    </iframe>
+    </div>
 
 ## Who Is AirLink for?
 
@@ -41,14 +61,35 @@ Once you decide to try your own AirLink deployment and obtain a login from EnAcc
 In short, you will first setup the server, then connect the AirLink App to the server, provision a device using the App, setup data sychronization, and finally generate a Pay as you go token for the airlink device. Here are the steps in detail:
 
 1. Assumption: You have a **“Tenant Administrator”** email login provided by EnAccess, or one that you made for your own server. Login with this administrator account.
-   Steps 2-5 are also covered in this video: [Tenant setup: Users, Profiles and Rule Chains](https://youtu.be/Sw0xrE0ZpbI)
+     Steps 2-5 are also covered in this video:
+        <style>
+        .youtube-embed-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow:
+        hidden; max-width: 100%;
+        }
+        .youtube-embed-container iframe,
+        .youtube-embed-container object,
+        .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        </style>
+        <div class="youtube-embed-container">
+        <iframe
+        src="https://youtube.com/embed/6GAqmAPOLjI?enablejsapi=1"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+        </iframe>
+        </div>
+
 2. Go to Users → Tenant Users, click on the + sign at the the top right of the page to create a new **Tenant User**. If activating by displaying activation link, note down the email and password. Note that the AirLink app uses this login information for administrative actions like registering devices via *Oauth*, whereas device data exchange is done using *access tokens*.
-  ![AddingUsers.gif](AirLink%20Server/AddingUsers.gif)
+     ![AddingUsers.gif](AirLink%20Server/AddingUsers.gif)
 3. Setup Device Profiles
-  ![Screen Shot 2022-01-26 at 9.20.24 PM.png](AirLink%20Server/Screen_Shot_2022-01-26_at_9.20.24_PM.png)
+     ![Screen Shot 2022-01-26 at 9.20.24 PM.png](AirLink%20Server/Screen_Shot_2022-01-26_at_9.20.24_PM.png)
 
     1. Setup a **“Gateways”** profile and enable the “Allow provisioning...” option. To do this, you need to tap the pencil button and then remember to save by pressing the tick-mark button.
-    ![Screen Shot 2022-01-26 at 9.20.13 PM.png](AirLink%20Server/Screen_Shot_2022-01-26_at_9.20.13_PM.png)
+     ![Screen Shot 2022-01-26 at 9.20.13 PM.png](AirLink%20Server/Screen_Shot_2022-01-26_at_9.20.13_PM.png)
     2. Setup a **“Devices”** Profile, and enable the “Default” checkbox as in the figure above. Also enable the “Allow provisioning...” option as in the previous step
     3. Copy the Provisioning Keys and Secrets, you will need to input these in the AirLink app!
 
@@ -77,7 +118,26 @@ In short, you will first setup the server, then connect the AirLink App to the s
             ![Root rule chain.png](AirLink%20Server/Root%20rule%20chain.png)
 
 5. That’s it for the minimum required configuration on the Server! Next, **configure your AirLink App** to talk to your server per the following video, and you are set to provision and test real devices!
-[AirLink App and End to End flow](https://youtu.be/OAEcQaUBIao)
+     <style>
+     .youtube-embed-container {
+     position: relative;
+     padding-bottom: 56.25%;
+     height: 0;
+     overflow:
+     hidden; max-width: 100%;
+     }
+     .youtube-embed-container iframe,
+     .youtube-embed-container object,
+     .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+     </style>
+     <div class="youtube-embed-container">
+     <iframe
+     src="https://youtube.com/embed/OAEcQaUBIao?enablejsapi=1"
+     frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+     allowfullscreen>
+     </iframe>
+     </div>
 
 6. After registering a device using the above flow, you can **generate a Nexus Keycode PAYG token** for it by using the **Postman collection in the AirLink-Server repository.**
 

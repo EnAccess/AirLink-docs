@@ -17,7 +17,7 @@ If the devices that will serve the data you need to collect have Bluetooth® ena
 1. Customize the Advertisement packet to match AirLink spec, as mentioned in the [AirLink Devices](AirLink%20Devices.md) page. The easiest way to do this is to fork the open source [Nordic nRF firmware codebase](https://www.nordicsemi.com/Products/Bluetooth-Low-Energy).
 2. Group similar properties e.g. tempC, maxTemp. Create a [CBOR array](https://cbor.me) with these properties. These will be transferred once the app connects to the device
 3. Name the Bluetooth® *descriptor* with the property name e.g. 'temp'. Then, AirLink will understand your properties as temp_tempC, temp_maxTemp etc and on successful sync you will find these properties in the timeseries data for that device on the server. Device configurations are also saved similarly in dcfg_* properties.
-4. Optional: Build an [access control flow](https://youtu.be/2zY5vETH4zk) in your devices which relies on a Server Access Token "password" unique to the device, starting with a pre-programmed value which is entered into to the firmware. Then, your device will only allow data transfer from/to a particular app which knows the default access token - and once provisioned on the server, will receive an access token *unique* to it. All device data access control will then be locked to phones that can access this unique device token from the server, based on the Role-Based Access Control functions available on the server.
+4. Optional: Build an access control flow in your devices which relies on a Server Access Token "password" unique to the device, starting with a pre-programmed value which is entered into to the firmware. Then, your device will only allow data transfer from/to a particular app which knows the default access token - and once provisioned on the server, will receive an access token *unique* to it. All device data access control will then be locked to phones that can access this unique device token from the server, based on the Role-Based Access Control functions available on the server.
 
 ## Building information ownership
 
@@ -37,8 +37,48 @@ Here are some starting ideas to get your work setup. These can be either done in
 
 ## Using the devices and app to collect data at scale
 
-1. Device initialization and Use - Flutter App - [Provisioning AirLink apps and devices](https://youtu.be/L4Tj_V7B4CE)
-2. Synchronizing data via app - Flutter App - [Synchronizing data](https://youtu.be/2zY5vETH4zk)
+1. Device initialization and Use - Flutter App - [Provisioning AirLink apps and devices]()
+     <style>
+     .youtube-embed-container {
+     position: relative;
+     padding-bottom: 56.25%;
+     height: 0;
+     overflow:
+     hidden; max-width: 100%;
+     }
+     .youtube-embed-container iframe,
+     .youtube-embed-container object,
+     .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+     </style>
+     <div class="youtube-embed-container">
+     <iframe
+     src="https://youtube.com/embed/L4Tj_V7B4CE?enablejsapi=1"
+     frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+     allowfullscreen>
+     </iframe>
+     </div>
+2. Synchronizing data via app - Flutter App - 
+     <style>
+     .youtube-embed-container {
+     position: relative;
+     padding-bottom: 56.25%;
+     height: 0;
+     overflow:
+     hidden; max-width: 100%;
+     }
+     .youtube-embed-container iframe,
+     .youtube-embed-container object,
+     .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+     </style>
+     <div class="youtube-embed-container">
+     <iframe
+     src="https://youtube.com/embed/2zY5vETH4zk?enablejsapi=1"
+     frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+     allowfullscreen>
+     </iframe>
+     </div>
 3. Optional: Create an Automation in your Flutter app that scans for devices, connects to them one by one and pulls data from them to make the process seamless for an Agent or user. The open-source app has the mechanism for the individual steps but leaves the process automation to you depending on your use case.
 
 ---
