@@ -6,191 +6,36 @@ The AirLink Mobile app is a communication app skeleton enabling gateway function
 
 Once the *App Instance is authenticated to the tenant or customer by the application server transferring the provisioning codes, it can provision the phone as an AirLink gateway using the phone’s IMEI*. This allows flexibility in lost phones by tying functionality and device ownership to an authenticated user rather than a particular phone. The app provides a UI for entering these codes until the application server is enabled.
 
-The app can be used for the following purposes:
+The app demonstrates three different roles that can be used to build different business processes:
 
-1. Scanning and connecting to AirLink devices automatically
-2. Registering AirLink devices to the server securely
-3. Updating Pay-as-you-go status of the device securely
-4. Posting data from the device to the server with authentication
-5. Finding AirLink devices even when the app is not running, and posting their locations to the server
+1. Manufacturer Role: Registering AirLink devices to the server securely - this needs to be the first step
+2. End-User Role:
+      1. Scanning and connecting to AirLink devices automatically
+      2. Updating Pay-as-you-go status of the device securely
+      3. Posting data from the device to the server with authentication
+      4. Finding AirLink devices even when the app is not running, and posting their locations to the server
+3. Device Admin Role: Generating PAYGO tokens for AirLink or Angaza devices - this needs to be done before a User Role could sync the token to the device via the App
 
-## Architecture
+## App Chronology
 
-![Mobile App Framework built on Xamarin](AirLink%20App/App_Architecture.png)
+While AirLink Devices are the end use-case for any AirLink business case, and the AirLink server the main infrastructure needed, The AirLink App (or an equivalent hardware gateway) is the *primary enabler*. As such, much of the user activity around the lifecycle of AirLink Devices happens with the Gateway. Here, we take a look at this device lifecycle, which starts with first linking the AirLink App instance to the server.
 
-Mobile App Framework built on Xamarin
+### Configuring to connect to server (Manufacturer role)
 
-## Platform : Xamarin
+First Step: Enter the information from AirLink Server and Provision the phone as a gateway on the server. In a production app, this information might be hardcoded or saved as credentials within the app, invisible to the user.
 
-### App Development Framework (Xamarin)
+!!! info "Security check"
+    The server credentials, especially the manufacturer role, is a very powerful role that can impact all devices and data, so it should be shared only as needed and securely encoded into the app!
 
-**Xamarin multi-platform mobile app development framework:** This is Microsoft's multi-platform mobile app development framework.
+![home - credentials page - airlink.jpg](AirLink%20App/home%20-%20credentials%20page%20-%20airlink.jpg)
 
-Access of Bluetooth hardware requires platform specific code in Xamarin, and the AirLink App is implemented only for Android  at present but can be extended to iOS with minimal additional code.
+If you enter the data correctly including the tenant administrator, the app instance will be provisioned as a Gateway device on the AirLink Server, allowing data transfer operations and linking to AirLink Devices.
 
-We chose Xamarin as the development environment due to it’s relative maturity compared with Flutter and larger community in case of development challenges, however we believe that an AirLink spec app can also be implemented in Flutter using the Xamarin app as a reference for functionality.
+VIDEO Placeholder: Provisioning ![3.1 PROVISION GATEWAY - Gateway provisioned successfully.jpg](AirLink%20App/3.1_PROVISION_GATEWAY_-_Gateway_provisioned_successfully.jpg)
 
-Xamarin Forms adds another layer of UI abstraction, at some cost of speed. We use Xamarin Forms for UI pages and all pages are represented in XAML.
+### Discovering AirLink devices
 
-[https://www.youtube.com/watch?v=JH8ekYJrFHs&list=PLdo4fOcmZ0oU10SXt2W58pu2L0v2dOW-1](https://www.youtube.com/watch?v=JH8ekYJrFHs&list=PLdo4fOcmZ0oU10SXt2W58pu2L0v2dOW-1)
-
-**Xamarin uses a MVVM Architecture:** ![By Ugaya40 - Own work, CC BY-SA 3.0, [https://commons.wikimedia.org/w/index.php?curid=19056842](https://commons.wikimedia.org/w/index.php?curid=19056842)](AirLink%20App/MVVMPattern.png)
-
-By Ugaya40 - Own work, CC BY-SA 3.0, [https://commons.wikimedia.org/w/index.php?curid=19056842](https://commons.wikimedia.org/w/index.php?curid=19056842)
-
-**Material Design:** This app uses Material Design for it’s pages:
-
-[Xamarin.Forms 101: Using Material Design in Xamarin Forms](https://channel9.msdn.com/Shows/XamarinShow/XamarinForms-101-Using-Material-Design-in-Xamarin-Forms)
-
-**Secure Storage:** This app uses secure storage to save all authentication secrets
-
-[Xamarin.Essentials: Secure Storage - Xamarin](https://docs.microsoft.com/en-us/xamarin/essentials/secure-storage?tabs=android)
-
-**Preparing for Release:** [Preparing an Application for Release - Xamarin](https://docs.microsoft.com/en-us/xamarin/android/deploy-test/release-prep/?tabs=windows#AOT_Compilation)
-
-**Next:** Microsoft introduced new development framework [ .NET MAUI ] for increased code sharing across platforms, by leveraging .NET layers. This Xamarin-forms app could be converted to .NET MAUI in 2022 using the migration scripts that Microsoft has promised to provide.
-
-[https://docs.microsoft.com/en-us/dotnet/maui/what-is-maui](https://docs.microsoft.com/en-us/dotnet/maui/what-is-maui)
-
-### NuGet packages
-
-- Acr.UserDialogs (7.2.0.562)
-- ble.net(1.2.1)
-- NetStandard.Library (2.0.3)
-- Newtonsoft.Json (13.0.1)
-- PeterO.Cbor(4.5.0)
-- Plugin.BLE (2.1.2)
-- Rg.plugins.Popup (2.0.0.12)
-- sqlite-net (1.6.292)
-- sqlite-net-pcl (1.8.116)
-- Xamarin.CommunityToolkit (1.3.2)
-- Xamarin.Essentials (1.7.0)
-- Xamarin.Forms (5.0.0.2291)
-- Xamarin.Forms.PancakeView (2.3.0.763-beta)
-- Xamarin.Forms.Visual.Material (5.0.0.2291)
-- ZXing.Net.Mobile (3.1.0-beta2)
-
-### Software
-
-Visual Studio 2019, available for Mac/Windows
-
-[https://visualstudio.microsoft.com/vs/](https://visualstudio.microsoft.com/vs/)
-
-[Visual Studio setup and to Git library instructions (Mac)](AirLink%20App/Visual%20Studio%20setup%20and%20to%20Git%20library%20instruction%201c38135f4b6b4e3db7ed0d2b3a30ccae.md)
-
-### Dev hardware
-
-Computer recommendation: 8GB RAM, 128GB SSD, 2.0+ GHz processor
-
-Test AirLink Device: BLE Development Kit or any device with BLE.
-
-Test Airlink Gateway Device: Android mobile phone.
-
-[Set Up Device for Development - Xamarin](https://docs.microsoft.com/en-us/xamarin/android/get-started/installation/set-up-device-for-development)
-
-![Xamarin Libraries leveraged to build the framework](AirLink%20App/IoT_Communications_and_Components_spec_-_App_Architecture-2.png)
-
-Xamarin Libraries leveraged to build the framework
-
-## Platform : Flutter
-
-### App Development Framework (Flutter)
-
-**Flutter multi-platform mobile app development framework:** This is Google’s multi-platform mobile app development framework.
-
-[https://www.youtube.com/watch?v=VPvVD8t02U8](https://www.youtube.com/watch?v=VPvVD8t02U8)
-
-**Flutter uses a layered Architecture:** [Flutter architectural overview](https://docs.flutter.dev/resources/architectural-overview)
-
-**UI Design:** Flutter uses design widgets to make it easy to move between software that supports prototyping (e.g. Figma) and app development. This app uses the in-built Flutter widgets to display the app’s functionalities. However, they can be customized to fit the specific needs of the app, allowing you to create unique and engaging user experiences.
-
-### Flutter packages
-
-To realize the Bluetooth requirements and other core functionality of AirLink, the AirLink app (gateway) uses the following packages:
-
-- line_icons: ^2.0.1
-- flutter_blue: ^0.8.0
-- cbor: ^5.0.1
-- convert: ^3.0.1
-- hex: ^0.2.0
-- flutter_secure_storage: ^5.0.2
-- flutter_dotenv: ^5.0.2
-- http: ^0.13.4
-- device_info_plus: ^3.2.2
-- flutter_barcode_scanner: ^2.0.0
-- location: ^4.3.0
-- sqflite: ^2.0.2
-- provider: ^6.0.3
-- app_settings: ^4.1.8
-- workmanager: ^0.5.0
-- permission_handler: ^10.2.0
-- timezone: ^0.9.0
-
-![Flutter Libraries leveraged to build the framework](AirLink%20App/IoT_Arch_Open-Source_App_Architecture.jpeg)
-
-Flutter Libraries leveraged to build the framework
-
-## Gateway Sync
-
-The primary role of the AirLink gateway is to keep AirLink devices and the AirLink server in sync with respect to the state and operation of the device. There are three types of **data sync**:
-
-1. Server updates Device: Pay as you go credits after payment are the primary server update, along with client and configuration data
-
-    ![AirLink Gateways or this App maps Server and Device properties](AirLink%20App/IoT_Communications_and_Components_spec_-_App_Architecture-2%201.png)
-
-    AirLink Gateways or this App maps Server and Device properties
-
-2. Device posts time-series telemetry via primary gateway: Device posts various IoT data described in Nexus Resource Models relating to energy generation, consumption, battery use as well as productive output. In this case, the app actually masquerades as the device and posts data directly into the device's telemetry endpoint. This is enabled for the app via user input of device access token or in a production app, from the server pairing the gateway with devices via sharing of the access token automatically upon sale. Location is added by the gateway.
-
-3. Neighborhood watch gateway posts device advertisement: If the app finds an AirLink device that is not registered as managed by that app, it will post it to the server as a 'piggy-back' onto it's own telemetry, which the server then snips out and decides to post to the original device or forward on to the lost devices database
-
-    ![**AirLink Lost/Stolen Devices Flow**](AirLink_Unknown_Device_Flow.png)
-
-    **AirLink Lost/Stolen Devices Flow**
-
-To convert between server-friendly JSON and Bluetooth-service friendly CBOR/.NET objects, the [Json.NET](http://Json.NET) and [PeterO.CBOR](https://github.com/peteroupc/CBOR) libraries are used. Since the list of properties can vary, we use collections and read the property types = device resource models such as “/batt” and “/temp” from the Bluetooth Descriptors.
-
-[Serializing Collections](https://www.newtonsoft.com/json/help/html/SerializingCollections.htm)
-
-## App UX Interactions
-
-![User - App - Device/Server Interactions](AirLink%20App/IoT_Communications_and_Components_spec_-_App_Architecture.png)
-
-User - App - Device/Server Interactions
-
-## App Components
-
-[GitHub - EnAccess/Airlink-App](https://github.com/EnAccess/Airlink-App)
-
-| Component | Category | Function |
-| --- | --- | --- |
-| BleDevice.cs | Platform Independent,AirLink Device Model | Describes typical AirLink Device and properties |
-| AirLinkDevice.cs | Platform Independent | Describes server-side interpretation of AirLink resource models |
-| BleServer.cs | Android | The gateway device always acts as a server, and does not advertise an AirLink Advertisement packet. This server  |
-| MainActivity.cs | Android,App Business Logic | Start background services |
-| BackgroundService.cs | Service,Android | BLE Advt monitoring registered, even if app exits or phone reboots |
-| HttpsEndpoint.cs | Platform Independent | Selects appropriate AirLink server endpoint based on type of transmission |
-| IDataStore.cs | Platform Independent | Implements the database to store devices found |
-| PostData.cs | Platform Independent | Sends Data to AirLink server and processes errors |
-| ProfilePageViewModel.cs | UI Business Logic,Platform Independent | Handles all the entries that configure the App to connect to the AirLink server |
-| BLEDeviceDetailsViewModel.cs | UI Business Logic,Platform Independent | Handles a single selected BLE device, sync properties, provision etc |
-| BLEDevicesViewModel.cs | UI Business Logic,Platform Independent | Handles BLE devices scan page |
-
-## App Screenshots
-
-### Configuring to connect to server
-
-First Step: Enter the information from AirLink Server and Provision the phone as a gateway on the server.
-
-![3. Profile view.jpg](AirLink%20App/3._Profile_view.jpg)
-
-If you enter the data correctly including the tenant administrator, the gateway will provision.
-
-![3.1 PROVISION GATEWAY - Gateway provisioned successfully.jpg](AirLink%20App/3.1_PROVISION_GATEWAY_-_Gateway_provisioned_successfully.jpg)
-
-### Connecting to AirLink devices
-
-Second Step: Your phone is ready to sync devices. Discover AirLink devices in the vicinity!
+Second Step: Your phone is ready to sync devices. Discover AirLink devices in the vicinity! (The AirLink App looks for CBOR-encoded advertisements as an identifying signature to filter out AirLink devices from other BLE devices that might be present).
 
 ![1. Devices view.jpg](AirLink%20App/1._Devices_view.jpg)
 
@@ -198,9 +43,28 @@ Once you find a device, tapping on it simply brings up a list of Nexus resources
 
 ![2. Resources view.jpg](AirLink%20App/2._Resources_view.jpg)
 
+!!! info "Device Emulator App"
+
+    To enable quick end to end testing of AirLink, we have designed a single-page Android-native app that imitates an AirLink device with temperature, battery and device configuration resources. The source code of this app as well as an Android-9 executable APK is saved in the [AirLink Devices Github repository](https://github.com/EnAccess/AirLink-Devices) under the Device Simulator folder.
+
+    ![Device Simulator app running on an Android-9 phone](AirLink%20App/AirLink_BLE_Simulator.jpg)
+
+    Device Simulator app running on an Android-9 phone
+
+    This app allows you to:
+
+    1. Pair with the main AirLink (gateway) app on another phone
+    2. Go through the provisioning flow and initialize the token generation flow
+    3. Send data to the server via the AirLink gateway app
+    4. Accept tokens from the server - although there is no nexus token decoder running in the app, so it will accept any token
+
+    The source code is meant as a reference when designing embedded firmware that can match AirLink’s provisioning and data exchange flows. With the emulator app, anyone can test AirLink without requiring hardware, simply by downloading it onto an Android phone, installing the AirLink gateway app on another phone, and logging on to the demo/custom tenant on the AirLink server.
+
+    The [source code](https://github.com/EnAccess/AirLink-Devices) is not meant to actually process tokens, but could act as a starting point if Android Airlink devices are being developed.
+
 ### Authorizing the gateway to the device with the Access Token
 
-Always, when connecting to a device, we recommend that the device lock it’s properties until the  (default or server) access token is supplied. Authorizing the device supplies it with the default access token.
+Always, when connecting to a device, we recommend that the device lock it’s properties until the (default or server) access token is supplied. Authorizing the device supplies it with the default access token.
 
 ![2.1 READ RESOURCE - Data is empty.jpg](AirLink%20App/2.1_READ_RESOURCE_-_Data_is_empty.jpg)
 
@@ -226,6 +90,13 @@ As long as a unique serial number is supplied, the server accepts the device and
 
 ![2.6 Device provisioned successfully.jpg](AirLink%20App/2.6_Device_provisioned_successfully.jpg)
 
+!!! info "Solaris or Angaza devices"
+    Angaza devices can be provisioned via the AirLink app as well! All you need are your Angaza API credentials for the manufacturer role. Enter these in the server (see rule-chains section):
+    [AirLink Server Setup](https://youtu.be/6GAqmAPOLjI)
+
+    For Solaris devices, uploading a CSV is the only option: 
+    ![Solaris device provisioning in AirLink](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page%20-%20provisioning%20input%20with%20type%20expanded.jpg)
+
 ### Entering Tokens
 
 Some properties are writeable, especially true for the PAYG token property, found in the “PC” resource. Tapping this will open a prompt to enter a token. During the Provisioning stage, the token generator on the server is initialized and matched to each device’s secret. Hence, the token can be obtained from the server automatically by syncing the phone, or by manually copying the PC_tkn property value and inputting by hand while the phone is offline.
@@ -235,6 +106,10 @@ Some properties are writeable, especially true for the PAYG token property, foun
 PAYG tokens are single-use and must match the individual device. If these criteria are met, the device accepts the token.
 
 ![2.8 SUCCESS - Success on Token entry.jpg](AirLink%20App/2.8_SUCCESS_-_Success_on_Token_entry.jpg)
+
+### Generating Tokens
+
+The AirLink App also demonstrates the ability to generate PAYG Tokens for AirLink and Angaza devices.
 
 ### Synchronizing data with the server over the lifetime of the device
 
@@ -246,11 +121,66 @@ The ability of the gateway to post device data to the server (”Client Scope”
 
 ![2.10 SUCCESS - Success on syncing data.jpg](AirLink%20App/2.10_SUCCESS_-_Success_on_syncing_data.jpg)
 
+## Architecture
+
+### App Development Framework: Flutter
+
+**Flutter is Google’s multi-platform mobile app development framework.**
+
+[https://www.youtube.com/watch?v=VPvVD8t02U8](https://www.youtube.com/watch?v=VPvVD8t02U8)
+
+**Flutter uses a layered Architecture:** [Flutter architectural overview](https://docs.flutter.dev/resources/architectural-overview)
+
+**UI Design:** Flutter uses design widgets to make it easy to move between software that supports prototyping (e.g. Figma) and app development. This app uses the in-built Flutter widgets to display the app’s functionalities. However, they can be customized to fit the specific needs of the app, allowing you to create unique and engaging user experiences.
+
+!!! info "Flutter packages"
+    To realize the BLE requirements and other core functionality of AirLink, the AirLink app (gateway) uses the following packages:
+
+    - cbor: ^6.1.1
+    - convert: ^3.0.1
+    - hex: ^0.2.0
+    - flutter_secure_storage: ^6.0.0
+    - http: ^1.1.0
+    - device_info_plus: ^3.2.2
+    - flutter_barcode_scanner: ^2.0.0
+    - location: ^5.0.3
+    - provider: ^6.0.2
+    - app_settings: ^5.1.1
+    - workmanager: ^0.5.1
+    - permission_handler: ^11.0.0
+    - path_provider: ^2.0.14
+    - equatable: ^2.0.5
+    - dartz: ^0.10.1
+    - get_it: ^7.6.0
+    - internet_connection_checker: ^1.0.0+1
+    - hive: ^2.2.3
+    - hive_flutter: ^1.1.0
+    - flutter_dotenv: ^5.1.0
+    - flutter_blue_plus: ^1.16.2
+
+## Gateway as a Sync relay - mapping property names
+
+The primary role of an AirLink gateway is to keep AirLink devices (BLE, or GSM devices that can also work without the gateway) and the AirLink server (availabke on GSM/Wifi) in sync with respect to the state and operation of the device. There are three types of **data sync**:
+
+1. Server updates Device: Pay as you go credits after payment are the primary server update, along with client and configuration data
+
+  ![AirLink Gateways or this App maps Server and Device properties](AirLink%20App/IoT_Communications_and_Components_spec_-_App_Architecture-2%201.png)
+
+  AirLink Gateways or this App maps Server and Device properties
+2. Device posts time-series telemetry via primary gateway: Device posts various IoT data described in Nexus Resource Models relating to energy generation, consumption, battery use as well as productive output. In this case, the app actually masquerades as the device and posts data directly into the device's telemetry endpoint. This is enabled for the app via user input of device access token or in a production app, from the server pairing the gateway with devices via sharing of the access token automatically upon sale. Location is added by the gateway.
+3. Neighborhood watch gateway posts device advertisement: If the app finds an AirLink device that is not registered as managed by that app instance (e.g. that customer doesn't have permissions for that device but another customer might), it will post the device's advertisement data to the server as a 'piggy-back' onto it's own telemetry, which the server then snips out and decides to post to the original device or forward on to the lost devices database.
+
+  ![**AirLink Lost/Stolen Devices Flow**](AirLink_Unknown_Device_Flow.png)
+
+To convert between server-friendly JSON and Bluetooth-service friendly CBOR/.NET objects, the [Json.NET](http://Json.NET) and [PeterO.CBOR](https://github.com/peteroupc/CBOR) libraries are used. Since the list of properties can vary, we use collections and read the property types = device resource models such as “/batt” and “/temp” from the Bluetooth Descriptors.
+
+[Serializing Collections](https://www.newtonsoft.com/json/help/html/SerializingCollections.htm)
+
 ---
 
-![syo9FlQN.jpg](AirLink%20App/syo9FlQN.jpg)
+![Simusolar Inc](Simusolar_logo.png)
 
-Copyright 2021 Simusolar Inc
+Copyright 2023 Simusolar Inc
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

@@ -26,65 +26,75 @@
 
 ---
 
-This is **technical documentation** for AirLink.
-
-!!! info "AirLink"
-    AirLink is an open source framework (MIT License) for Pay-As-You-Go (PAYG) IoT devices to connect to compatible servers via Bluetooth® gateways. The protocol provides an interoperable communication standard and example code for wire-free communication between PAYG devices and an IoT server using smartphones as gateways.
-
-If you are looking for an overview of the AirLink project, the landing page is here:
+This is **technical documentation** for AirLink. If you are looking for an overview of the AirLink project, see this:
 
 - [:octicons-arrow-right-24: AirLink project page @EnAccess](https://enaccess.org/airlink/)
 
-Here is also a helpful guide that plays through the AirLink adoption flow in short:
+---
 
-- [🏁 Quick-start guide](Quick-start guide.md)
+## Use cases
+
+*For all potential use cases, EnAccess hosts the IoT server for free so that you can try your idea quickly and cost effectively!* [🏁 Quick-start guide](Quick-start guide.md)
+
+How to use AirLink in some common uses:
+
+### [:material-factory: A Device Manufacturer developing devices to be used in remote-region IoT data collection or PAYGO-financed use](Use%20Case%20-%20Device%20Manufacturer.md)
+
+### [:clipboard: An NGO wanting to define a adaptable hardware/software standard for data collection in your projects or grantees](Use%20Case%20-%20Paygo%20Entrepreneur.md)
+
+### [:material-lightbulb-on: A Fintech/PAYGO entrepreneur focused on innovative software, needing a standard hardware spec to share with a device manufacturer](Use%20Case%20-%20Device%20Manufacturer.md)
 
 ---
 
 ## AirLink components
 
-- :material-radio: **AirLink devices** ([Nordic nRF](https://www.nordicsemi.com/Products/Bluetooth-Low-Energy) firmware)
+![AirLink Components](AirLink_Components.png)
 
-    [:octicons-arrow-right-24: AirLink devices documentation](AirLink Devices.md)
+### :material-radio: **AirLink devices** ([Nordic nRF](https://www.nordicsemi.com/Products/Bluetooth-Low-Energy) firmware)
 
-    [:octicons-mark-github-16: AirLink devices on Github](https://github.com/EnAccess/AirLink-Devices)
+  [:octicons-arrow-right-24: AirLink devices documentation](AirLink Devices.md)
 
-- :octicons-device-mobile-16: **AirLink App** ([Xamarin](https://dotnet.microsoft.com/en-us/apps/xamarin) and [Flutter](https://flutter.dev/) apps)
+  [:octicons-mark-github-16: AirLink devices on Github](https://github.com/EnAccess/AirLink-Devices)
 
-    [:octicons-arrow-right-24: AirLink App documentation](AirLink App.md)
+### :octicons-device-mobile-16: **AirLink App** ([Flutter](https://flutter.dev/) app)
 
-    [:octicons-mark-github-16: AirLink App on Github](https://github.com/EnAccess/AirLink-App)
+  [:octicons-arrow-right-24: AirLink App documentation](AirLink App.md)
 
-- :material-server: **AirLink Server** ([Thingsboard](https://thingsboard.io/) server configuration)
+  [:octicons-mark-github-16: AirLink App on Github](https://github.com/EnAccess/AirLink-App)
 
-    [:octicons-arrow-right-24: AirLink Server documentation](AirLink Server.md)
+### :material-server: **AirLink Server** ([Thingsboard](https://thingsboard.io/) server configuration)
 
-    [:octicons-mark-github-16: AirLink Server on Github](https://github.com/EnAccess/AirLink-Server)
+  [:octicons-arrow-right-24: AirLink Server documentation](AirLink Server.md)
 
-![AirLink Components](AirLink Components.png)
+  [:octicons-mark-github-16: AirLink Server on Github](https://github.com/EnAccess/AirLink-Server)
 
 ---
 
-## AirLink flows
+## Key ideas built into AirLink
 
-### Data transfer flow
+### BLE-GSM Data transfer
 
 ![AirLink Data transfer flow](Simusolar_Architecture_Diagram_-_IoT_Data_Flow.png)
 
-### App architecture
+### IoT Device Lifecycle
 
-![AirLink App architecture](IoT_Communications_and_Components_spec_-_App_Architecture.png)
+![Device Lifecycle](IoT_Communications_and_Components_spec_-_App_Architecture.png)
 
-### Unknown device flow
+### App-driven, Crowdsourced locatability
 
 ![AirLink unknown device flow](AirLink_Unknown_Device_Flow.png)
+
+### PAYGO control
+
+[3-types of AirLink PAYGO](Connecting%20to%20Solaris%20or%20Angaza.md)
 
 ---
 
 ## Related resources
 
-- [COBR](http://cbor.io/): Efficient data arrays
-- [OCF](https://openconnectivity.org/developer/specifications/): Models for device interactions
+- [CBOR](http://cbor.io/): Memory-efficient JSON-like data format
+- [OCF](https://openconnectivity.org/developer/specifications/): Data structure standard to represent IoT devices
+
 - [Nexus Channel](https://angaza.github.io/nexus-channel-models/resource_type_spec.html): Angaza's Inter-operability initiative
 - [OpenPAYGO Link](https://github.com/EnAccess/OpenPAYGO-Link/tree/main/Documentation): Wired inter-operability from Solaris/EnAccess
 - [OpenPAYGO Metrics](https://github.com/openpaygo/metrics): GSM inter-operability from Solaris
@@ -92,6 +102,6 @@ Here is also a helpful guide that plays through the AirLink adoption flow in sho
 
 ---
 
-![Simusolar Inc](Simusolar_logo.png){ align=left }
+![Simusolar Inc](Simusolar_logo.png)
 
 AirLink was developed by [Simusolar Inc](https://www.simusolar.com/) with support from [EnAccess](https://enaccess.org).
