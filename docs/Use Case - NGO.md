@@ -37,7 +37,7 @@ Here are some starting ideas to get your work setup. These can be either done in
 
 ## Using the devices and app to collect data at scale
 
-1. Device initialization and Use - Flutter App - [Provisioning AirLink apps and devices]()
+1. Device initialization and Use - Flutter App -
      <style>
      .youtube-embed-container {
      position: relative;
@@ -58,7 +58,7 @@ Here are some starting ideas to get your work setup. These can be either done in
      allowfullscreen>
      </iframe>
      </div>
-2. Synchronizing data via app - Flutter App - 
+2. Synchronizing data via app - Flutter App -
      <style>
      .youtube-embed-container {
      position: relative;
