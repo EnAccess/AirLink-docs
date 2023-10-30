@@ -31,17 +31,36 @@ First Step: Enter the information from AirLink Server and Provision the phone as
 
 If you enter the data correctly including the tenant administrator, the app instance will be provisioned as a Gateway device on the AirLink Server, allowing data transfer operations and linking to AirLink Devices.
 
-VIDEO Placeholder: Provisioning ![3.1 PROVISION GATEWAY - Gateway provisioned successfully.jpg](AirLink%20App/3.1_PROVISION_GATEWAY_-_Gateway_provisioned_successfully.jpg)
+<style>
+.youtube-embed-container {
+position: relative;
+padding-bottom: 56.25%;
+height: 0;
+overflow:
+hidden; max-width: 100%;
+}
+.youtube-embed-container iframe,
+.youtube-embed-container object,
+.youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+<div class="youtube-embed-container">
+<iframe
+src="https://youtube.com/embed/L4Tj_V7B4CE?enablejsapi=1"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
+</iframe>
+</div>
 
 ### Discovering AirLink devices
 
 Second Step: Your phone is ready to sync devices. Discover AirLink devices in the vicinity! (The AirLink App looks for CBOR-encoded advertisements as an identifying signature to filter out AirLink devices from other BLE devices that might be present).
 
-![1. Devices view.jpg](AirLink%20App/1._Devices_view.jpg)
+![Devices view](AirLink%20App/home%20-%20device%20list%20page.jpg)
 
 Once you find a device, tapping on it simply brings up a list of Nexus resources available on the device
 
-![2. Resources view.jpg](AirLink%20App/2._Resources_view.jpg)
+![Resources view](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page.jpg)
 
 !!! info "Device Emulator App"
 
@@ -64,35 +83,46 @@ Once you find a device, tapping on it simply brings up a list of Nexus resources
 
 ### Authorizing the gateway to the device with the Access Token
 
-Always, when connecting to a device, we recommend that the device lock it’s properties until the (default or server) access token is supplied. Authorizing the device supplies it with the default access token.
+Always, when connecting to a device, we recommend that the device lock it’s properties until the (default or server) access token is supplied. Authorizing the device supplies it with the default access token. To authorize the device, simply tap the “Authorize” button. The default access token is already saved on both the App and the device. The device will then compare its access token with this default one. Once they match, the device will be successfully authorized.
 
-![2.1 READ RESOURCE - Data is empty.jpg](AirLink%20App/2.1_READ_RESOURCE_-_Data_is_empty.jpg)
-
-To authorize the device, simply tap the “Authorize” button. The default access token is already saved on both the App and the device. The device will then compare its access token with this default one. Once they match, the device will be successfully authorized.
-
-![2.2 AUTHORIZE - Device authorized.jpg](AirLink%20App/2.2_AUTHORIZE_-_Device_authorized.jpg)
+![AUTHORIZE](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page%20authorize.jpg)
 
 Once authorized, you can now read data from the device. The App receives CBOR encoded data from the device, and decodes it into a JSON that is more amenable to posting to the server, and displays this for each property when tapped.
 
-![2.3 READ RESOURCE - Data is displayed.jpg](AirLink%20App/2.3_READ_RESOURCE_-_Data_is_displayed.jpg)
+![READ RESOURCE - Data is displayed.jpg](AirLink%20App/property%20readout.jpg)
 
 ### Serializing and provisioning a new device and preparing it for accepting tokens
 
 If a device has just been manufactured, it may not yet be serialized, and be locked with a default access token. Enter this token, then press “Provision” to provision the device. The app will prompt for serial number entry.
 
-![2.4 PROVISION - Choice for serialization.jpg](AirLink%20App/2.4_PROVISION_-_Choice_for_serialization.jpg)
+![2.4 PROVISION - Choice for serialization.jpg](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page%20-%20provisioning%20input.jpg)
 
-Scan or enter by hand this serial number. This is a one-time activity after which the device will forever remember it’s serial number. However if the serial number exists on the server, the provisioning will fail.
-
-![2.5 TYPE SERIAL NUMBER.jpg](AirLink%20App/2.5_TYPE_SERIAL_NUMBER.jpg)
-
-As long as a unique serial number is supplied, the server accepts the device and returns a device-specific access token, which the app saves automatically to secure storage as well as displays in the access token field
+Scan or enter by hand this serial number. This is a one-time activity after which the device will forever remember it’s serial number. However if the serial number exists on the server, the provisioning will fail. As long as a unique serial number is supplied, the server accepts the device and returns a device-specific access token, which the app saves automatically to secure storage as well as displays in the access token field
 
 ![2.6 Device provisioned successfully.jpg](AirLink%20App/2.6_Device_provisioned_successfully.jpg)
 
 !!! info "Solaris or Angaza devices"
     Angaza devices can be provisioned via the AirLink app as well! All you need are your Angaza API credentials for the manufacturer role. Enter these in the server (see rule-chains section):
-    [AirLink Server Setup](https://youtu.be/6GAqmAPOLjI)
+    <style>
+    .youtube-embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow:
+    hidden; max-width: 100%;
+    }
+    .youtube-embed-container iframe,
+    .youtube-embed-container object,
+    .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    </style>
+    <div class="youtube-embed-container">
+    <iframe
+    src="https://youtube.com/embed/6GAqmAPOLjI?enablejsapi=1"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+    </iframe>
+    </div>
 
     For Solaris devices, uploading a CSV is the only option: 
     ![Solaris device provisioning in AirLink](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page%20-%20provisioning%20input%20with%20type%20expanded.jpg)
@@ -101,25 +131,21 @@ As long as a unique serial number is supplied, the server accepts the device and
 
 Some properties are writeable, especially true for the PAYG token property, found in the “PC” resource. Tapping this will open a prompt to enter a token. During the Provisioning stage, the token generator on the server is initialized and matched to each device’s secret. Hence, the token can be obtained from the server automatically by syncing the phone, or by manually copying the PC_tkn property value and inputting by hand while the phone is offline.
 
-![2.7 ENTER PAYG TOKEN.jpg](AirLink%20App/2.7_ENTER_PAYG_TOKEN.jpg)
+![ENTER PAYG TOKEN](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page%20-%20transfer%20payg%20token.jpg)
 
 PAYG tokens are single-use and must match the individual device. If these criteria are met, the device accepts the token.
-
-![2.8 SUCCESS - Success on Token entry.jpg](AirLink%20App/2.8_SUCCESS_-_Success_on_Token_entry.jpg)
 
 ### Generating Tokens
 
 The AirLink App also demonstrates the ability to generate PAYG Tokens for AirLink and Angaza devices.
 
+![Token Generation](AirLink%20App/home%20-%20payg%20token%20page%20-%20token%20generated.jpg)
+
 ### Synchronizing data with the server over the lifetime of the device
 
-All AirLink properties can be kept in sync between the server and the individual device simply by tapping the Sync button, or using the underlying function in an automated flow in your custom version of the app
+All AirLink properties can be kept in sync between the server and the individual device simply by tapping the Sync button, or using the underlying function in an automated flow in your custom version of the app. The ability of the gateway to post device data to the server (”Client Scope”) as well as pull server data into the device (”Shared Scope”) generates a success message. All failure messages can be effectively debugged using the USB-connected debug mode of Visual Studio or IntelliJ.
 
-![2.9 SYNC - Syncing data.jpg](AirLink%20App/2.9_SYNC_-_Syncing_data.jpg)
-
-The ability of the gateway to post device data to the server (”Client Scope”) as well as pull server data into the device (”Shared Scope”) generates a success message. All failure messages can be effectively debugged using the USB-connected debug mode of Visual Studio.
-
-![2.10 SUCCESS - Success on syncing data.jpg](AirLink%20App/2.10_SUCCESS_-_Success_on_syncing_data.jpg)
+![Syncing data](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page%20sync.jpg)
 
 ## Architecture
 
@@ -127,7 +153,26 @@ The ability of the gateway to post device data to the server (”Client Scope”
 
 **Flutter is Google’s multi-platform mobile app development framework.**
 
-[https://www.youtube.com/watch?v=VPvVD8t02U8](https://www.youtube.com/watch?v=VPvVD8t02U8)
+   <style>
+    .youtube-embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow:
+    hidden; max-width: 100%;
+    }
+    .youtube-embed-container iframe,
+    .youtube-embed-container object,
+    .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    </style>
+    <div class="youtube-embed-container">
+    <iframe
+    src="https://www.youtube.com/embed/VPvVD8t02U8?enablejsapi=1"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+    </iframe>
+    </div>
 
 **Flutter uses a layered Architecture:** [Flutter architectural overview](https://docs.flutter.dev/resources/architectural-overview)
 
