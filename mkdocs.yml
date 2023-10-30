@@ -115,9 +115,9 @@ extra_javascript:
 nav:
   - Home: index.md
   - Use Cases:
-    - Use Case - Manufacturer: Use Cases/Use Case - Device Manufacturer.md
-    - Use Case - NGO: Use Cases/Use Case - NGO.md
-    - Use Case - PAYGO: Use Cases/Use Case - Paygo Entrepreneur.md
+      - Use Case - Manufacturer: Use Cases/Use Case - Device Manufacturer.md
+      - Use Case - NGO: Use Cases/Use Case - NGO.md
+      - Use Case - PAYGO: Use Cases/Use Case - Paygo Entrepreneur.md
   - AirLink App:
       - Home: AirLink App.md
   - AirLink Devices:
