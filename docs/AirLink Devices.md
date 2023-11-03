@@ -1,16 +1,15 @@
 # AirLink Devices
 
-![bluetooth-logo.png](AirLink%20Devices/bluetooth-logo.png)
+!!! info "Preface: A note on Bluetooth® SIG requirements, Oct 2023"
+      ![bluetooth-logo.png](AirLink%20Devices/bluetooth-logo.png)
 
-**Preface:** A note on Bluetooth® SIG requirements, Oct 2023
+      Our understanding is that the Bluetooth® Special Interest Group requires that any entity (manufacturer or distributor) branding/re-branding/incorporating and selling devices with Bluetooth® must register as a member with the SIG at [bluetooth.com](https://www.bluetooth.com), as well as declare the product and the Bluetooth® component being used. This is true for resellers, distributors, and all commercial sales. We understand that the final sold brand and product name must be separately declared by the seller, even if the component containing Bluetooth® has been declared by the manufacturer.
 
-Our understanding is that the Bluetooth® Special Interest Group requires that any entity (manufacturer or distributor) branding/re-branding/incorporating and selling devices with Bluetooth® must register as a member with the SIG at [bluetooth.com](https://www.bluetooth.com), as well as declare the product and the Bluetooth® component being used. This is true for resellers, distributors, and all commercial sales. We understand that the final sold brand and product name must be separately declared by the seller, even if the component containing Bluetooth® has been declared by the manufacturer.
+      Although *membership* is free to start, each *declaration* of products within the membership portal costs $9,600 as of this writing. Multiple products using the same Bluetooth® component (technically this is defined as one with an approved *QDID*) can be added to a new or existing declaration, however if the underlying Bluetooth® component is changed even within the same product, a new declaration must be filed with the full fee. Repercussions of not filing declarations may include shipments of the product being held by customs agents, using a global reference list maintained at bluetooth.com. The SIG conducts regular reviews of compliance of a company, based on products listed with the Bluetooth® brand on the company's website.
 
-Although *membership* is free to start, each *declaration* of products within the membership portal costs $9,600 as of this writing. Multiple products using the same Bluetooth® component (technically this is defined as one with an approved *QDID*) can be added to a new or existing declaration, however if the underlying Bluetooth® component is changed even within the same product, a new declaration must be filed with the full fee. Repercussions of not filing declarations may include shipments of the product being held by customs agents, using a global reference list maintained at bluetooth.com. The SIG conducts regular reviews of compliance of a company, based on products listed with the Bluetooth® brand on the company's website.
+      This requirement as we understand only applies for sold products, not prototypes.
 
-This requirement as we understand only applies for sold products, not prototypes.
-
-*Please note that this note is not official Bluetooth® SIG communication, but rather it is our understanding of the requirements set by the Bluetooth® SIG as of this writing.*
+      *Please note that this note is not official Bluetooth® SIG communication, but rather it is our understanding of the requirements set by the Bluetooth® SIG as of this writing.*
 
 ---
 

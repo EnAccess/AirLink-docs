@@ -10,6 +10,27 @@ We have created a fully functional demo tenant to enable quick testing of AirLin
 
 Follow the tenant configuration section in
 [Quick-start guide](Quick-start%20guide.md#tenant-config)
+Also shown in this video:
+    <style>
+    .youtube-embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow:
+    hidden; max-width: 100%;
+    }
+    .youtube-embed-container iframe,
+    .youtube-embed-container object,
+    .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    </style>
+    <div class="youtube-embed-container">
+    <iframe
+    src="https://youtube.com/embed/6GAqmAPOLjI?enablejsapi=1"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+    </iframe>
+    </div>
 
 ## AirLink IoT Server Architecture
 

@@ -95,14 +95,13 @@ Once authorized, you can now read data from the device. The App receives CBOR en
 
 If a device has just been manufactured, it may not yet be serialized, and be locked with a default access token. Enter this token, then press “Provision” to provision the device. The app will prompt for serial number entry.
 
-![2.4 PROVISION - Choice for serialization.jpg](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page%20-%20provisioning%20input.jpg)
+![PROVISION - Choice for serialization.jpg](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page%20-%20provisioning%20input.jpg)
 
 Scan or enter by hand this serial number. This is a one-time activity after which the device will forever remember it’s serial number. However if the serial number exists on the server, the provisioning will fail. As long as a unique serial number is supplied, the server accepts the device and returns a device-specific access token, which the app saves automatically to secure storage as well as displays in the access token field
 
-![2.6 Device provisioned successfully.jpg](AirLink%20App/2.6_Device_provisioned_successfully.jpg)
-
-!!! info "Solaris or Angaza devices"
-    Angaza devices can be provisioned via the AirLink app as well! All you need are your Angaza API credentials for the manufacturer role. Enter these in the server (see rule-chains section):
+!!! info "Provisioning Solaris or Angaza devices"
+    For Solaris devices, uploading a CSV to the AirLink server (and correspondingly adding them to the Solaris Distributor account) is the only option.
+    Angaza devices can be provisioned via the AirLink app. All you need are your Angaza API credentials for the manufacturer role. Enter these in the server (see rule-chains section):
     <style>
     .youtube-embed-container {
     position: relative;
@@ -124,8 +123,35 @@ Scan or enter by hand this serial number. This is a one-time activity after whic
     </iframe>
     </div>
 
-    For Solaris devices, uploading a CSV is the only option: 
     ![Solaris device provisioning in AirLink](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page%20-%20provisioning%20input%20with%20type%20expanded.jpg)
+
+### Synchronizing data with the server over the lifetime of the device
+
+All AirLink properties can be kept in sync between the server and the individual device simply by tapping the Sync button, or using the underlying function in an automated flow in your custom version of the app. The ability of the gateway to post device data to the server (”Client Scope”) as well as pull server data into the device (”Shared Scope”) generates a success message. All failure messages can be effectively debugged using the USB-connected debug mode of Visual Studio or IntelliJ.
+
+![Syncing data](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page%20sync.jpg)
+
+The previous few steps about connecting to devices and synchronizing data are also described in this video:
+     <style>
+     .youtube-embed-container {
+     position: relative;
+     padding-bottom: 56.25%;
+     height: 0;
+     overflow:
+     hidden; max-width: 100%;
+     }
+     .youtube-embed-container iframe,
+     .youtube-embed-container object,
+     .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+     </style>
+     <div class="youtube-embed-container">
+     <iframe
+     src="https://youtube.com/embed/2zY5vETH4zk?enablejsapi=1"
+     frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+     allowfullscreen>
+     </iframe>
+     </div>
 
 ### Entering Tokens
 
@@ -141,11 +167,27 @@ The AirLink App also demonstrates the ability to generate PAYG Tokens for AirLin
 
 ![Token Generation](AirLink%20App/home%20-%20payg%20token%20page%20-%20token%20generated.jpg)
 
-### Synchronizing data with the server over the lifetime of the device
-
-All AirLink properties can be kept in sync between the server and the individual device simply by tapping the Sync button, or using the underlying function in an automated flow in your custom version of the app. The ability of the gateway to post device data to the server (”Client Scope”) as well as pull server data into the device (”Shared Scope”) generates a success message. All failure messages can be effectively debugged using the USB-connected debug mode of Visual Studio or IntelliJ.
-
-![Syncing data](AirLink%20App/home%20-%20device%20list%20page%20-%20device%20details%20page%20sync.jpg)
+Also see this video!
+     <style>
+     .youtube-embed-container {
+     position: relative;
+     padding-bottom: 56.25%;
+     height: 0;
+     overflow:
+     hidden; max-width: 100%;
+     }
+     .youtube-embed-container iframe,
+     .youtube-embed-container object,
+     .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+     </style>
+     <div class="youtube-embed-container">
+     <iframe
+     src="https://youtube.com/embed/OAEcQaUBIao?enablejsapi=1"
+     frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+     allowfullscreen>
+     </iframe>
+     </div>
 
 ## Architecture
 
