@@ -1,6 +1,6 @@
 # Quick-start guide
 
-Trying out AirLink is easy:
+## Trying out AirLink is easy
 
 1. Download two Android app APK files and install on two smartphones
 
@@ -52,7 +52,7 @@ AirLink is also for businesses who want their products secured against loss or t
     1. Develop your business integrations further by building on the open source app for clients or API integrations with the IoT server
     2. Don't forget to integrate with the EnAccess server for the inter-company, crowdsourced 'Neighborhood Watch' (lost assets database)
 
-### How to get started with your own AirLink deployment
+## How to get started with your own AirLink deployment
 
 Once you decide to try your own AirLink deployment and obtain a login from EnAccess on the managed demo server which can handle startup-scale IoT traffic (the fastest way to get your own AirLink deployment going), or setup your own [Thingsboard.io](http://Thingsboard.io) server, here is a step by step setup for your tenant login in the AirLink server.
 
@@ -139,12 +139,32 @@ In short, you will first setup the server, then connect the AirLink App to the s
      </iframe>
      </div>
 
-6. After registering a device using the above flow, you can **generate a Nexus Keycode PAYG token** for it by using the **Postman collection in the AirLink-Server repository.**
+6. After registering a device using the above flow, you can **generate a Nexus Keycode PAYG token** for it by using the **Postman collection in the AirLink-Server repository.** or the built-in functionality in the Gateway App:
+     <style>
+     .youtube-embed-container {
+     position: relative;
+     padding-bottom: 56.25%;
+     height: 0;
+     overflow:
+     hidden; max-width: 100%;
+     }
+     .youtube-embed-container iframe,
+     .youtube-embed-container object,
+     .youtube-embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+     </style>
+     <div class="youtube-embed-container">
+     <iframe
+     src="https://youtube.com/embed/OAEcQaUBIao?enablejsapi=1"
+     frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+     allowfullscreen>
+     </iframe>
+     </div>
 
-    1. Download both the **API calls** collection and the **environment**, and upload to your Postman (getpostman.com)
-    2. First use the login flow with the **Tenant User username/password** of the demo user to authenticate and get a JWT token, then
-    3. enter the **JWT token** into the Airlink environment current value
-    4. Use the Generate Token flow with the correct device ID to generate a Nexus Keycode **PAYG token** for your device. This token will be automatically saved in the device properties as well
-    5. Connect the AirLink App and type the token in manually into the PC resource, or via keypad as shown in the video above
+     1. Download both the **API calls** collection and the **environment**, and upload to your Postman (getpostman.com)
+     2. First use the login flow with the **Tenant User username/password** of the demo user to authenticate and get a JWT token, then
+     3. enter the **JWT token** into the Airlink environment current value
+     4. Use the Generate Token flow with the correct device ID to generate a Nexus Keycode **PAYG token** for your device. This token will be automatically saved in the device properties as well
+     5. Connect the AirLink App and type the token in manually into the PC resource, or via keypad as shown in the video above
 
 7. If you are connecting to one of the supported built-in integrations - Solaris Or Angaza, follow this guide to connect AirLink devices to those software stacks: [Connecting to other PAYGO software providers](Connecting%20to%20Solaris%20or%20Angaza.md)
